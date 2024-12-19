@@ -1,0 +1,128 @@
+.text-red{
+    color: red;
+}
+
+:root {
+    --blue: #1e90ff;
+    --white: #ffffff;
+  }
+  
+.flex{
+    display: flex;
+}
+
+.box{
+    width: 30%;
+    background-color: red;
+    height: 100px;
+    padding: 12px;
+    margin: 5px;
+    border: 1px solid black;
+    box-sizing: border-box;
+   
+}
+
+.box2{
+    width:30%;
+    background-color: rgb(147, 93, 93);
+    height: 100px;
+    padding: 12px;
+    margin: 5px;
+    border: 1px solid black;
+    
+}
+
+.box3{
+    width:30%;
+    background-color: rgb(244, 236, 236);
+    height: 100px;
+    padding: 12px;
+    /* border-style: solid;
+    border-width: 1px;
+    border-color: black; */
+    border: 1px solid black;
+    margin: 5px;
+    position: relative;
+    top: 10px;
+}
+
+.box-child{
+    width: 10%;
+    height: 10%;
+    background-color: green;
+    border: 1px solid white;
+    border-radius: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.box3:hover{
+    background-color: black;
+}
+
+
+a:link {
+    color: red;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: hotpink;
+  }
+  
+  /* selected link */
+  a:active {
+    color: blue;
+  }
+
+body{
+    background-image: url('https://cdn-img.thethao247.vn/origin_640x0/storage/files/ctvqt/2024/12/18/thethao247-3-134005avatar.jpg');
+    color: #ffffff;
+}
+
+p::first-line{
+    color: red;
+
+}
+
+.first-letter::first-letter{
+    font-size: large;
+}
+
+.box::before{
+    content: "";
+    display: block;
+    height: 50px;
+    width: 50px;
+    background-color: slategray;
+}
+
+.box2::after{
+    content: "";
+    display: block;
+    height: 50px;
+    width: 50px;
+    background-color: slategray;
+    
+}
+
+
+.btn::selection{
+    color: red;
+    width: 100px;
+}
+
+
+.header{
+    background-color: gray;
+    height: 40px;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
