@@ -1,0 +1,39 @@
+#Responsive là kỹ thuật giúp website hiển thị tương thích với nhiều kích thước màn hình khác nhau (Mobile, Tablet, PC,...)
+- Tối ưu trải nghiệm người dùng
++ Hiển thị rõ các thành phần(hình ảnh, cỡ chữ, nút bấm,...)
++ Ẩnhiện các thành phần phù hợp theo kích thước màn hình.
+
+#viewport
+- viewport là khu vực hiển thị của người dùng trên trang web. viewport thay đổi tùy theo thiết bị và sẽ nhỏ hơn trên điện thoại di động so với trên màn hình máy tính.
+
+#Media Query
+- @media media_type {rules} xác định định dạng của mỗi loại thiết bị.
+- mặc định media type sẽ luôn là all, có thể lược bỏ phần media_type nếu muốn apply cho tất cả các thiết bị
+
+- @media media_type (featurevalue) { rules } Các thuộc tính feature và value sẽ giúp ta xác định chính xác từng loại màn hình mà ta mong muốn.
++ Một số feature quan trọng như width, height
+ví dụ @media (width 900px) {rules}
+
+chú ý những rules khai báo sau sẽ đè lên những rules khai báo trước 
++ device-width, device-height, device-min-width, device-max-width, device-min-height, device-max-height Cũng giống như width, height hay min-width, min-height, max-width, max-height,
+ thế nhưng với việc thêm device- ở phía trước thì các tính toán sẽ được dựa trên kích cỡ của thiết bị, thay vì kích cỡ của browser.
++ resolution Đây là những feature đánh giá dựa trên độ phân giải của màn hình device 
+
+#Breakpoint
+- breakpoints là những điểmvị trí mà bố cục website sẽ thay đổi để tạo nên giao diện responsive
+
+Một số break-points điểm hình
+ thiết bị siêu nhỏ ( phone, 600px và nhỏ hơn) 
+@media only screen and (max-width 600px) {...}
+
+ Các thiết bị nhỏ (tablets và điện thoại màn hình lớn, 600px và lớn hơn) 
+@media only screen and (min-width 600px) {...}
+
+ Các thiết bị trung bình (landscape tablets, 768px và lớn hơn) 
+@media only screen and (min-width 768px) {...}
+
+ Các thiết bị màn hình lớn (laptopsdesktops, 992px và lớn hơn) 
+@media only screen and (min-width 992px) {...}
+
+ Các thiết bị màn hình siêu lớn (laptops and desktops màn hình lớn, 1200px và lớn hơn) 
+@media only screen and (min-width 1200px) {...}

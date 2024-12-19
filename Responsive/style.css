@@ -1,0 +1,114 @@
+/*Áp dụng cho computer screens*/
+@media screen {
+  body {
+    width: 960px;
+  }
+}
+
+/*Áp dụng cho những browser có chiều rộng <= 900px*/
+@media (max-width: 900px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/*Áp dụng cho những browser có chiều rộng >= 600px*/
+@media (min-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/*Áp dụng cho những browser có chiều rộng >= 800px*/
+@media (min-width: 800px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/*Áp dụng cho những browser có chiều rộng <= 700px*/
+@media (max-width: 700px) {
+  body {
+    font-size: 13px;
+  }
+}
+
+/*Sử dụng đơn vị là dpi: dots per inch*/
+@media (max-resolution: 300dpi) {
+  body {
+    font-size: 15px;
+  }
+}
+/*Sử dụng đơn vị là dpcm: dots per centimeter*/
+@media (min-resolution: 600dpcm) {
+  body {
+    font-size: 14px;
+  }
+}
+
+body {
+  /* background-image: url("https://file3.qdnd.vn/data/images/0/2023/02/12/hieu_tv/real%20madrid.jpg"); */
+  /* background-size: 100vw; */
+  /* color: white; */
+}
+
+.px {
+  width: 500px;
+  height: 500px;
+  background: red;
+  @media (min-width: 400px) {
+    opacity: 0.5;
+  }
+}
+.em {
+  width: 26em;
+  height: 20em;
+  background: green;
+  @media (min-width: 25em) {
+    opacity: 0.5;
+  }
+}
+.rem {
+  background: blue;
+  @media (min-width: 25rem) {
+    opacity: 0.5;
+  }
+}
+
+p {
+  @media screen and (min-width: 756px) {
+    /* color: brown; */
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.div2 {
+  padding-left: 1rem;
+  width: 70%;
+}
+
+.col {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 12px;
+}
+
+@media screen and (min-width: 740px) and (max-width: 1024px) {
+  .main-product {
+    flex-direction: column-reverse;
+  }
+
+  .div2 {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  img {
+    width: 100%;
+  }
+}
