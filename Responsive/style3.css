@@ -1,0 +1,37 @@
+.main {
+  display: flex;
+}
+
+.sidebar {
+  width: 20%;
+}
+
+.content {
+  /* width: 80%; */
+  /* background-color: slateblue; */
+  /* chiếm toàn bộ màn hình nếu sidebar ẩn đi */
+  flex-grow: 1;
+}
+
+.item {
+  width: 100%;
+  height: 100px;
+  background-color: aquamarine;
+  margin-bottom: 12px;
+}
+
+main {
+  padding: 0px 25px;
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+  .hide-on-tablet {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 739px) {
+  .hide-on-tablet {
+    display: none;
+  }
+}

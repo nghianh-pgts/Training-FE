@@ -1,0 +1,109 @@
+
+#3 màn hình phổ biến
+/*Mobile: width <740px*/
+@media screen and (max-width: 739px) {
+}
+
+/*Tablet: width >=740px and width < 1024px*/
+@media screen and (min-width: 740px) and (max-width: 1023px) {
+}
+
+/*PC: width >=1024px*/
+@media screen and (min-width: 1024px) {
+}
+
+#Grid thường gặp
+- lưới nhiều cột - multi column grid
+- lưới một cột - single column grid
+
+#Responsive thành phần chính
+- grid: thành phần cha
+- row: dòng
+- Column: cột
+- Gutter: khoảng cách 2 phía của cột. (không cố định, thay đổi theo kích thước màn hình)
+
+1. column: sử dụng đơn vị %
+2. khoảng cách 2 phía của cột. vd: pc/tablet 24px, mobile 16px
+
+#Tạo đối tượng Grid
+1. tạo class
+- grid: full-width, chiếm hết chiều ngang đối tượng cha
+- wide: chiều ngang tối đa 1200px
+
+2. Đặt lại chiều rộng trên các thiết bị
+@media (min-width" 740px ) and (max-width: 1023px)
+
+#Tạo đối tượng Row
+- chứa các column
+- khi tổng chiều ngang vượt quá kích thước, cho column xuống hàng
+- loại bỏ khoảng thừa do gutters tạo ra ở 2 phía
+
+#Tạo đối tượng column
+
+.col {
+  padding: 0 4px;
+}
+
+.col-0 {
+  display: none;
+}
+
+.col-1 {
+  flex: 0 0 8.333333%;
+  max-width: 8.333333%;
+}
+
+.col-2 {
+  flex: 0 0 16.66667%;
+  max-width: 1;
+}
+
+.col-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.col-4 {
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+}
+
+.col-5 {
+  flex: 0 0 41.66667%;
+  max-width: 41.66667%;
+}
+
+.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.col-7 {
+  flex: 0 0 58.33333%;
+  max-width: 58.33333%;
+}
+
+.col-8 {
+  flex: 0 0 66.66667%;
+  max-width: 66.66667%;
+}
+
+.col-9 {
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+
+.col-10 {
+  flex: 0 0 83.33333%;
+  max-width: 83.33333%;
+}
+
+.col-11 {
+  flex: 0 0 91.66667%;
+  max-width: 91.66667%;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
