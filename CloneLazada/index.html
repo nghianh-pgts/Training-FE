@@ -4,131 +4,225 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lazada-Mua Sắm hàng chất lượng cao</title>
+    <link rel="stylesheet" href="grid.css" />
+
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
   </head>
   <body>
-    <div class="container">
+    <div class="grid wide">
       <header>
-        <nav>
-          <ul class="sub-menu">
-            <li class="text-pink">góp ý</li>
-            <li class="text-blue"><span>tiết kiệm hơn với ứng dụng</span></li>
-            <li class="text-blue">bán hàng cùng lazada</li>
-            <li class="text-blue">chăm sóc khách hàng</li>
-            <li class="text-gray">kiểm tra đơn hàng</li>
-            <li class="text-gray">đăng nhập</li>
-            <li class="text-gray">đăng ký</li>
-            <li class="text-gray">change language</li>
-          </ul>
+        <div class="banner grid">
+          <div class="row">
+            <div class="banner_image col col-12 col-md-12 col-lg-0"></div>
+          </div>
+        </div>
 
-          <div class="navbar-panel">
-            <div class="page-logo">
-              <img
-                src="https://img.lazcdn.com/g/tps/images/ims-web/TB1T7K2d8Cw3KVjSZFuXXcAOpXa.png"
-                alt="logo"
-                width="127px"
-                height="40px"
-              />
+        <nav class="nav">
+          <div class="nav__pc">
+            <ul class="sub-menu">
+              <li class="text-pink">góp ý</li>
+              <li class="text-blue"><span>tiết kiệm hơn với ứng dụng</span></li>
+              <li class="text-blue">bán hàng cùng lazada</li>
+              <li class="text-blue">chăm sóc khách hàng</li>
+              <li class="text-gray">kiểm tra đơn hàng</li>
+              <li class="text-gray">đăng nhập</li>
+              <li class="text-gray">đăng ký</li>
+              <li class="text-gray">change language</li>
+            </ul>
+
+            <div class="navbar-panel">
+              <div class="page-logo">
+                <img
+                  src="https://img.lazcdn.com/g/tps/images/ims-web/TB1T7K2d8Cw3KVjSZFuXXcAOpXa.png"
+                  alt="logo"
+                  width="127px"
+                  height="40px"
+                />
+              </div>
+
+              <div class="nav-search-box">
+                <input
+                  class="search-bar"
+                  type="text"
+                  placeholder="Tìm kiếm trên lazada"
+                />
+                <span class="search-btn"><i class="fas fa-search"></i></span>
+              </div>
+
+              <div class="nav-cart">
+                <span><i class="fas fa-shopping-cart"></i></span>
+              </div>
+
+              <div class="nav-voucher">
+                <img
+                  src="https://img.lazcdn.com/us/domino/02e8ce13-f777-4e16-ad4e-48c5712612d4_VN-376-90.png"
+                  alt="voucher"
+                  width="188px"
+                  height="45px"
+                />
+              </div>
             </div>
+          </div>
 
-            <div class="nav-search-box">
-              <input
-                class="search-bar"
-                type="text"
-                placeholder="Tìm kiếm trên lazada"
-              />
-              <span class="search-btn"><i class="fas fa-search"></i></span>
+          <div class="nav__tb-and-mb">
+            <div class="nav__tb-search">
+              <span class="nav__tb-search-icon"></span>
+              <div class="nav__tb-search-box">
+                <input
+                  type="text"
+                  class="nav__tb-search-text"
+                  value="Pop mart"
+                />
+              </div>
+              <div class="nav__tb-search-btn">search</div>
             </div>
+          </div>
 
-            <div class="nav-cart">
-              <span><i class="fas fa-shopping-cart"></i></span>
-            </div>
+          <div class="nav__tabbar grid">
+            <div class="row">
+              <div class="col col-3 col-md-3">
+                <div class="nav__tabbar-item">
+                  <div class="nav__tabbar-item-icon">
+                    <img
+                      src="data:image/png;base64,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"
+                      alt=""
+                    />
+                  </div>
+                  <span class="nav__tabbar-item-text">Home</span>
+                </div>
+              </div>
 
-            <div class="nav-voucher">
-              <img
-                src="https://img.lazcdn.com/us/domino/02e8ce13-f777-4e16-ad4e-48c5712612d4_VN-376-90.png"
-                alt="voucher"
-                width="188px"
-                height="45px"
-              />
+              <div class="col col-3 col-md-3">
+                <div class="nav__tabbar-item">
+                  <div class="nav__tabbar-item-icon">
+                    <img
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABICAMAAABBaBKgAAAAhFBMVEUAAAARERESEhISEhISEhIVFRUUFBQ9PT0SEhIRERESEhITExMVFRUXFxcREREREREVFRUZGRkYGBgRERERERESEhISEhITExMSEhIeHh4RERESEhIRERESEhISEhISEhISEhITExMSEhIRERERERESEhISEhIRERESEhIRERETExMRERF4dZduAAAAK3RSTlMAz4HYfjAnBPbiel8kCvyoHxQPr6FjU08rCPDUxrttaEY8N+60nJB1V0pCX01AnQAAANxJREFUWMPt1smOwkAMBNAKw9BZOgtJgLAvs0/9//9BkNLilBhQX5DfrS4ly74YSqnn2CranuBDGZEMLTyYsxV30Szikcx4Voqqf7qYUy5K0SuNSK4KH9Uo6nXV4GYhY5k4KaGUUuo1lKcp/JiFzEbwYZLx4gAPErbc2E2+fhPaLtDvyFbSxYB3GLpRTXJj3OZXlMq+MOQv/jVwTDGRsSmUUkq9iOR7v4QXnyQDL93/bO1dTpt3oemdz8IupFiOfsW16/jIs5ANzT3/YLhzydabQKg6YIixSyillMgZs0c+z0Ij3wAAAAAASUVORK5CYII="
+                      alt=""
+                    />
+                  </div>
+                  <span class="nav__tabbar-item-text">Categories</span>
+                </div>
+              </div>
+
+              <div class="col col-3 col-md-3">
+                <div class="nav__tabbar-item">
+                  <div class="nav__tabbar-item-icon">
+                    <img
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABICAMAAABBaBKgAAAAmVBMVEUAAAASEhITExMWFhYUFBQSEhIdHR0RERESEhISEhITExMSEhIRERERERESEhIQEBARERETExMVFRUXFxczMzMREREeHh4RERESEhISEhITExMRERERERERERESEhISEhIRERERERESEhISEhIRERERERERERERERESEhITExMSEhIRERERERERERESEhISEhIUFBQSEhIRERGcDW4PAAAAMnRSTlMAoF8LMroRlNWAWoz3sHz7aEE9IAXjCMeYYhrow6WKb+2/VSzd0Zt1c0438bWSf0cmg1BFKdMAAAHfSURBVFjD7dfXcuJAEIXhxkoEIREkgUTGsATH/d//4bZcZe52J3StXFTZ322DwsyZ1oz8+HrBpvfhPC7kf/vFp8O4tUuTXtsZkMECjtKOZguP0o4VjKQdJ0ikHW+wlHY0KG2XI9uayFE7NmK0QG8mRjPYicI0y+FiW5elqLzAXExqSEVlD8+2iOSiUsNKjJ6gEY05ZNZ51DXWrvWPHWUXiSGvxCiDtShcrLmWPgxFYW1/pBC6ojCDi23MdMGucojFYgFT8TZ2edmlKn2ZbZnr0xdB3+X+A/FVPLkM416TvtDWMPXp28BKrAJN+oa2CdKnb2HZGunT9w5bMdGnr7ZNvT59HTiJiT59B7iKtJG+BtJCpI307Z03LyW8+35xfzvnv/ZqIFu4Oq/aZ/HwAAdxM829jh1BCZnHsWPpdUgpA3H0mMOrx/eFvojPz8/OmwTmPnMeAZ3AYVp2QFSIh2oHlKPKcuEkBYaVeAk6AOmwN3r4u/r0cgTIe4X46pc4mIWiUG26mKXDsWhN69d55x/W57dKvps4nISxqaQVJHxIAlNJJbgFpBuYShoJEA0iIDGVFOLPjtYHYlPJXwjRbescmkr+JredzgAmhtJ9PbXrWN9XQhxzfW+r0aWH/LgDfwCWrX+ukom9hgAAAABJRU5ErkJggg=="
+                      alt=""
+                    />
+                  </div>
+                  <span class="nav__tabbar-item-text">Cart</span>
+                </div>
+              </div>
+
+              <div class="col col-3 col-md-3">
+                <div class="nav__tabbar-item">
+                  <div class="nav__tabbar-item-icon">
+                    <img
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABICAMAAABBaBKgAAAApVBMVEUAAAAREREVFRU1NTURERESEhIZGRkREREgICARERESEhJ2dnYSEhIRERETExMTExMRERESEhIRERERERERERERERERERERERETExMWFhYVFRUTExMSEhIRERESEhISEhITExMYGBgRERESEhIRERESEhISEhISEhIRERESEhIREREWFhYRERESEhISEhISEhIRERESEhIRERESEhIRERERERERERGg6CSWAAAANnRSTlMA7jEE+/UPhwfhYwLLsE496qugkfjPtoQ1Ix0a5dRUOCcV2Y1nQyy9pVxIC8WbgXx3upVx269/hQZeAAACt0lEQVRYw+2Y2VLqQBCGCWQwm0AWgkRQFlkFxeV87/9oJ+jFyVCo3dGbU+V/Y1lMfdX9T3dPQ+NXteQtHteR77imN8vTYPhj3HawyrDkp1c/AZ6mhjPqd74Lvn98B4+eg27RbnnTZeewcjlqd/stcjCi1Hhg59/exIZScX3TvfVb6ttz/s+P9juLmuTrCPA34flPi8QF964W+epoRup9csAHnls1yAbc4PPi2R0N17sxgl73q8tIgAftDUYlWVAAc+BGh16D2xWcC3MwTVU9A4FsCozB9xQ9OIJUeHbowIsc/aiJ5A6ctngiGdiI42jN4EJ6OIV+KM/xBkwhnM8Gtg2FdjAQl8e4/KMK25edXMFAN9Qz6IoaMQPl+5QL231hpSe1cCcs6mft+wlZKBsfQUMpHyRdE1l3Ir75iSyCQoveg2T8OVZy4v6VrA4uqN+7gcxEUyPquSDqml4nMq/7x2NKXcoq5Ak6WnQfCplvA+377+J6shH5pETfCsdwAY6y+l4gkQ6ErZWuYDYIx84FrCv/dkx/ePrExX51/Z1AJmuFJZi2VbO9pb0PjiG2ezGWl9KDvbI6d2ElDR/cTiUHR16uGzDTCtsBos39+9bRyYHsxg56FgrR4RjmVYfGlDKr5GKfO5TqLar2GM2y2jnZU1sHwz+5afvkzY0acj2B37Zu7tDnXa+DiV3TgnXZIvUgPvGvWASHYDs5bcTM2vhklrCXFKoDUUs73CXRDEfQG9aY7iRf9Hi3B06zoVUYA9H1p0u7C6bON/XWHrsNT83IgZGKbEfF7IN2+ONaWWnVfaXU8txHk7fe8b7xc8iMDx5hz75Bvd2XH5dg0xGwBWQZW0+WsvVkKVtPVrD1ZD1bT9az9WQ9W0/Ws2OLLGFLl/2JRRaxt9KdduaqfgZr5klL/AxMG7/6n/QXkYFsym4cKFEAAAAASUVORK5CYII="
+                      alt=""
+                    />
+                  </div>
+                  <span class="nav__tabbar-item-text">Cart</span>
+                </div>
+              </div>
             </div>
           </div>
         </nav>
       </header>
       <main>
-        <div class="slider">
-          <img
-            src="https://img.lazcdn.com/us/domino/55b7b100-3c9c-4f93-9f22-b4b8c18325fa_VN-1976-688.jpg_2200x2200q80.jpg_.avif"
-            alt="slider"
-            width="988px"
-            height="344px"
-          />
-          <div class="slider-col-2">
-            <div class="module-title flex">
+        <div class="slider grid">
+          <div class="row">
+            <div class="col col-12 col-md-12 col-lg-10">
               <img
-                src="https://img.lazcdn.com/us/domino/a96c58a6a88070c43bc63444f6774f51.png_120x120q80.jpg_.avif"
-                alt="LAZ"
-                width="38px"
-                height="38px"
+                class="slider__pc"
+                src="https://img.lazcdn.com/us/domino/55b7b100-3c9c-4f93-9f22-b4b8c18325fa_VN-1976-688.jpg_2200x2200q80.jpg_.avif"
+                alt="slider"
+                width="100%"
+                height="344px"
               />
-              <span class="span-two-line">TRẢI NGHIỆM LAZADA NGAY</span>
-            </div>
 
-            <div class="module-content">
-              <div class="flex">
+              <div class="slider__tb-mb">
                 <img
-                  src="https://img.lazcdn.com/g/tps/imgextra/i4/O1CN01cAMOjU1zqQJZU8EbT_!!6000000006765-2-tps-19-18.png_80x80q80.jpg_.avif"
-                  alt="star"
-                  width="10px"
-                  height="11px"
+                  class="slider__tb-mb-img"
+                  src="https://img.lazcdn.com/us/lazada_mars_image/e0f467440a4336f91f5a1256c47ea715.jpg_760x760q80.jpg_.avif"
+                  alt=""
+                  width="100%"
                 />
-                <span class="rate-txt">Đánh giá...</span>
-              </div>
-              <div class="txt-content">
-                <p>Tải ngay App Lazada để tận hưởng</p>
-              </div>
-
-              <div class="two-line-voucher">
-                <div class="line-voucher">
-                  <img
-                    src="https://img.lazcdn.com/g/tps/imgextra/i2/O1CN01n3PMa828kJZVuCbPp_!!6000000007970-2-tps-72-72.png_150x150q80.jpg_.avif"
-                    alt=""
-                  />
-                  <p>miễn phí vận...</p>
-                </div>
-                <div class="line-voucher">
-                  <img
-                    src="https://img.lazcdn.com/g/tps/imgextra/i3/O1CN01J03SMW1lebTE7xkaN_!!6000000004844-2-tps-72-72.png_150x150q80.jpg_.avif"
-                    alt=""
-                  />
-                  <p>voucher độc...</p>
-                </div>
               </div>
             </div>
 
-            <div class="module-qr">
-              <div class="qr-row">
-                <img
-                  src="https://img.lazcdn.com/us/domino/c7412e89f2d826219b7a37ed5f7d6d50.png_360x360q80.jpg_.avif"
-                  alt="ảnh"
-                  width="90px"
-                  height="90px"
-                />
-                <div class="btn-stores">
-                  <button class="btn-apple"></button>
-                  <button class="btn-google"></button>
+            <div class="col col-0 col-md-0 col-lg-2">
+              <div class="slider-col-2">
+                <div class="module-title flex">
+                  <img
+                    src="https://img.lazcdn.com/us/domino/a96c58a6a88070c43bc63444f6774f51.png_120x120q80.jpg_.avif"
+                    alt="LAZ"
+                    width="38px"
+                    height="38px"
+                  />
+                  <span class="span-two-line">TRẢI NGHIỆM LAZADA NGAY</span>
+                </div>
+
+                <div class="module-content">
+                  <div class="flex">
+                    <img
+                      src="https://img.lazcdn.com/g/tps/imgextra/i4/O1CN01cAMOjU1zqQJZU8EbT_!!6000000006765-2-tps-19-18.png_80x80q80.jpg_.avif"
+                      alt="star"
+                      width="10px"
+                      height="11px"
+                    />
+                    <span class="rate-txt">Đánh giá...</span>
+                  </div>
+                  <div class="txt-content">
+                    <p>Tải ngay App Lazada để tận hưởng</p>
+                  </div>
+
+                  <div class="two-line-voucher">
+                    <div class="line-voucher">
+                      <img
+                        src="https://img.lazcdn.com/g/tps/imgextra/i2/O1CN01n3PMa828kJZVuCbPp_!!6000000007970-2-tps-72-72.png_150x150q80.jpg_.avif"
+                        alt=""
+                      />
+                      <p>miễn phí vận...</p>
+                    </div>
+                    <div class="line-voucher">
+                      <img
+                        src="https://img.lazcdn.com/g/tps/imgextra/i3/O1CN01J03SMW1lebTE7xkaN_!!6000000004844-2-tps-72-72.png_150x150q80.jpg_.avif"
+                        alt=""
+                      />
+                      <p>voucher độc...</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="module-qr">
+                  <div class="qr-row">
+                    <img
+                      src="https://img.lazcdn.com/us/domino/c7412e89f2d826219b7a37ed5f7d6d50.png_360x360q80.jpg_.avif"
+                      alt="ảnh"
+                      width="90px"
+                      height="90px"
+                    />
+                    <div class="btn-stores">
+                      <button class="btn-apple"></button>
+                      <button class="btn-google"></button>
+                    </div>
+                  </div>
+                  <p class="txt-scanqr">Quét mã QR và tải App ngay</p>
                 </div>
               </div>
-              <p class="txt-scanqr">Quét mã QR và tải App ngay</p>
             </div>
           </div>
         </div>
 
-        <div class="voucher-row">
+        <div class="voucher__row-pc grid wide">
           <div class="voucher-item">
             <div class="voucher-content">
               <img
@@ -591,435 +685,828 @@
           </div>
         </div>
 
-        <div class="yourself-row">
-          <div class="yourself-title">
-            <span>Dành riêng cho bạn</span>
+        <div class="category__tb-mb grid">
+          <div class="row">
+            <div class="col col-2-4 col-md-2-4">
+              <div class="category__tb-mb-item">
+                <img
+                  class="category__tb-mb-item-icon"
+                  src="https://img.lazcdn.com/g/gcp/lazada/d733aa6e-b04c-4eea-af4e-9a43523ffa6e_VN-150-150.png_120x120q80.png_.avif"
+                  alt=""
+                  width="60%"
+                  height="60%"
+                />
+                <span class="category__tb-mb-item-text">LazQuốctế</span>
+              </div>
+            </div>
+
+            <div class="col col-2-4 col-md-2-4">
+              <div class="category__tb-mb-item">
+                <img
+                  class="category__tb-mb-item-icon"
+                  src="https://img.lazcdn.com/us/domino/da0161cc-968c-4895-a639-eb9e3992239f_VN-150-150.png_120x120q80.png_.avif"
+                  alt=""
+                  width="60%"
+                  height="60%"
+                />
+                <span class="category__tb-mb-item-text">Trồng cây hái quá</span>
+              </div>
+            </div>
+
+            <div class="col col-2-4 col-md-2-4">
+              <div class="category__tb-mb-item">
+                <img
+                  class="category__tb-mb-item-icon"
+                  src="https://img.lazcdn.com/us/domino/032c6f89-d884-408e-a1dc-e147566df5c7_VN-150-150.png_120x120q80.png_.avif"
+                  alt=""
+                  width="60%"
+                  height="60%"
+                />
+                <span class="category__tb-mb-item-text">LazMart</span>
+              </div>
+            </div>
+
+            <div class="col col-2-4 col-md-2-4">
+              <div class="category__tb-mb-item">
+                <img
+                  class="category__tb-mb-item-icon"
+                  src="https://img.lazcdn.com/us/domino/73ebde2d-1601-4db0-84fd-8253e4761e60_VN-150-150.png_120x120q80.png_.avif"
+                  alt=""
+                  width="60%"
+                  height="60%"
+                />
+                <span class="category__tb-mb-item-text">Săn Xu</span>
+              </div>
+            </div>
+
+            <div class="col col-2-4 col-md-2-4">
+              <div class="category__tb-mb-item">
+                <img
+                  class="category__tb-mb-item-icon"
+                  src="https://img.lazcdn.com/us/domino/f669ec2c-fe87-4805-9107-4a677e3c6495_TH-150-150.png_120x120q80.png_.avif"
+                  alt=""
+                  width="60%"
+                  height="60%"
+                />
+                <span class="category__tb-mb-item-text">Lucky Egg</span>
+              </div>
+            </div>
+
+            <div class="col col-2-4 col-md-2-4">
+              <div class="category__tb-mb-item">
+                <img
+                  class="category__tb-mb-item-icon"
+                  src="https://img.lazcdn.com/g/gcp/lazada/81ea502a-ac1f-4adf-8bca-f4cf51591296_VN-150-150.png_120x120q80.png_.avif"
+                  alt=""
+                  width="60%"
+                  height="60%"
+                />
+                <span class="category__tb-mb-item-text">Du lịch</span>
+              </div>
+            </div>
+
+            <div class="col col-2-4 col-md-2-4">
+              <div class="category__tb-mb-item">
+                <img
+                  class="category__tb-mb-item-icon"
+                  src="https://img.lazcdn.com/g/gcp/lazada/8409766e-43ae-42a3-8634-7e34d6e50fac_VN-150-150.png_120x120q80.png_.avif"
+                  alt=""
+                  width="60%"
+                  height="60%"
+                />
+                <span class="category__tb-mb-item-text">LazMall</span>
+              </div>
+            </div>
+
+            <div class="col col-2-4 col-md-2-4">
+              <div class="category__tb-mb-item">
+                <img
+                  class="category__tb-mb-item-icon"
+                  src="https://img.lazcdn.com/us/domino/1f26b746-36a0-42df-ab33-b9a26b17b05d_VN-150-150.png_120x120q80.png_.avif"
+                  alt=""
+                  width="60%"
+                  height="60%"
+                />
+                <span class="category__tb-mb-item-text">Ưu đãi thanh toán</span>
+              </div>
+            </div>
+
+            <div class="col col-2-4 col-md-2-4">
+              <div class="category__tb-mb-item">
+                <img
+                  class="category__tb-mb-item-icon"
+                  src="https://img.lazcdn.com/g/gcp/lazada/14c6a56e-2cc8-4fb8-a89c-a36ede175bc1_VN-150-150.png_120x120q80.png_.avif"
+                  alt=""
+                  width="60%"
+                  height="60%"
+                />
+                <span class="category__tb-mb-item-text">Mua & Giảm</span>
+              </div>
+            </div>
+
+            <div class="col col-2-4 col-md-2-4">
+              <div class="category__tb-mb-item">
+                <img
+                  class="category__tb-mb-item-icon"
+                  src="https://img.lazcdn.com/g/gcp/lazada/efcb0975-40e5-4be9-9510-d44f9afa96fd_VN-150-150.png_120x120q80.png_.avif"
+                  alt=""
+                  width="60%"
+                  height="60%"
+                />
+                <span class="category__tb-mb-item-text">Nạp thẻ & Data</span>
+              </div>
+            </div>
           </div>
-          <div class="yourself-items">
-            <div class="yourself-item">
-              <img
-                src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
-                alt=""
-                width="189px"
-                height="189px"
-              />
+        </div>
 
-              <div class="yourself-description">
-                <p>Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...</p>
-                <div class="card-price">
-                  <span class="price">2 &nbsp;</span>
-                  <span class="currency">đ</span>
-                  <span class="discount"></span>
+        <div class="deal__tb-mb grid">
+          <div class="row">
+            <div class="col col-12 col-md-12">
+              <div class="deal__tb-mb-header row">
+                <div class="col col-4 col-md-4">
+                  <span class="deal__tb-mb-titile"
+                    ><img
+                      src="https://img.lazcdn.com/g/gcp/lazada/d85e1dc2-34ca-4292-ae33-320589ddf8b8_VN-360-63.png_x36q80.jpg_.avif"
+                      alt=""
+                  /></span>
                 </div>
 
-                <div class="yourself-rating">
-                  <div class="rating-stars">
-                    <div class="stars">
-                      <span
-                        ><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="rating-comments">(87)</div>
-                </div>
-              </div>
-            </div>
-            <div class="yourself-item">
-              <img
-                src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
-                alt=""
-                width="189px"
-                height="189px"
-              />
-
-              <div class="yourself-description">
-                <p>Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...</p>
-                <div class="card-price">
-                  <span class="price">2 &nbsp;</span>
-                  <span class="currency">đ</span>
-                  <span class="discount"></span>
-                </div>
-
-                <div class="yourself-rating">
-                  <div class="rating-stars">
-                    <div class="stars">
-                      <span
-                        ><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="rating-comments">(87)</div>
+                <div class="col col-3 col-md-3 offset-5 offset-md-5">
+                  <span class="deal__tb-mb-text">Xem thêm ></span>
                 </div>
               </div>
             </div>
 
-            <div class="yourself-item">
-              <img
-                src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
-                alt=""
-                width="189px"
-                height="189px"
-              />
-
-              <div class="yourself-description">
-                <p>Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...</p>
-                <div class="card-price">
-                  <span class="price">2 &nbsp;</span>
-                  <span class="currency">đ</span>
-                  <span class="discount"></span>
+            <div class="col col-12 col-md-12">
+              <div class="deal__tb-mb-items row">
+                <div class="deal__tb-mb-item col col-4 col-md-4">
+                  <img
+                    class="deal__tb-mb-item-img"
+                    src="https://img.lazcdn.com/g/p/f6c723e7edb1997a1a96e235e92e796b.jpg_240x240q80.jpg_.avif"
+                    alt=""
+                  />
+                  <span class="deal__tb-mb-item-sprice">56.000đ</span>
+                  <span class="deal__tb-mb-item-oprice">99.100đ</span>
+                  <div class="deal__tb-mb-item-progress">
+                    <div class="deal__tb-mb-item-progress-text">24 đã bán</div>
+                  </div>
                 </div>
 
-                <div class="yourself-rating">
-                  <div class="rating-stars">
-                    <div class="stars">
-                      <span
-                        ><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </span>
-                    </div>
+                <div class="deal__tb-mb-item col col-4 col-md-4">
+                  <img
+                    class="deal__tb-mb-item-img"
+                    src="https://img.lazcdn.com/g/p/c57ba4161e70f556f0b551814e706457.jpg_240x240q80.jpg_.avif"
+                    alt=""
+                  />
+                  <span class="deal__tb-mb-item-sprice">97.965đ</span>
+                  <span class="deal__tb-mb-item-oprice">131.152đ</span>
+                  <div class="deal__tb-mb-item-progress">
+                    <div class="deal__tb-mb-item-progress-text">24 đã bán</div>
                   </div>
-                  <div class="rating-comments">(87)</div>
+                </div>
+
+                <div class="deal__tb-mb-item col col-4 col-md-4">
+                  <img
+                    class="deal__tb-mb-item-img"
+                    src="https://img.lazcdn.com/g/p/1e60ed2a4c75aad3e6e5efadd0d4319f.png_240x240q80.jpg_.avif"
+                    alt=""
+                  />
+                  <span class="deal__tb-mb-item-sprice">44.000đ</span>
+                  <span class="deal__tb-mb-item-oprice">90.000đ</span>
+                  <div class="deal__tb-mb-item-progress">
+                    <div class="deal__tb-mb-item-progress-text">24 đã bán</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="option__tb-mb grid">
+          <ul class="row">
+            <li class="option__tb-mb-item col col-2-4 col-md-2-4 col-lg-0">
+              <div class="option__tb-mb-item-img">
+                <img
+                  src="https://img.lazcdn.com/g/tps/imgextra/i2/O1CN01EHa94T1eTQMNhqDqZ_!!6000000003872-2-tps-66-66.png_150x150q80.jpg_.avif"
+                  alt=""
+                />
+              </div>
+              <p class="option__tb-mb-item-text">Tất cả</p>
+            </li>
+
+            <li class="option__tb-mb-item col col-2-4 col-md-2-4 col-lg-0">
+              <div class="option__tb-mb-item-img">
+                <img
+                  src="https://img.lazcdn.com/us/lzd-onepiece/b8f6034030af2493a4fb3e94b02cf056PHP.png_150x150q80.jpg_.avif"
+                  alt=""
+                />
+              </div>
+              <p class="option__tb-mb-item-text">Không thể</p>
+            </li>
+
+            <li class="option__tb-mb-item col col-2-4 col-md-2-4 col-lg-0">
+              <div class="option__tb-mb-item-img">
+                <img
+                  src="https://img.lazcdn.com/us/lzd-onepiece/f5fd76d0985b2f8d01e1a1ab1f60f8dbf5fd76d0985b2f8d01e1a1ab1f60f8dbCoins.png_150x150q80.jpg_.avif"
+                  alt=""
+                />
+              </div>
+              <p class="option__tb-mb-item-text">Xu</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="yourself-row grid wide">
+          <div class="row">
+            <div class="col col-0 col-md-0 col-lg-12">
+              <div class="yourself-title">
+                <span>Dành riêng cho bạn</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col col-6 col-md-6 col-lg-2">
+              <div class="yourself-item">
+                <img
+                  src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
+                  alt=""
+                  class="yourself-item-img"
+                />
+
+                <div class="yourself-description">
+                  <p class="yourself-item-text">
+                    Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...
+                  </p>
+                  <div class="card-price">
+                    <span class="price">2 &nbsp;</span>
+                    <span class="currency">đ</span>
+                    <span class="discount"></span>
+                  </div>
+
+                  <div class="yourself__rating-tb-mb">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span><i class="fas fa-star"></i> </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+
+                  <div class="yourself-rating">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span
+                          ><i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="yourself-item">
-              <img
-                src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
-                alt=""
-                width="189px"
-                height="189px"
-              />
+            <div class="col col-6 col-md-6 col-lg-2">
+              <div class="yourself-item">
+                <img
+                  src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
+                  alt=""
+                  class="yourself-item-img"
+                />
 
-              <div class="yourself-description">
-                <p>Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...</p>
-                <div class="card-price">
-                  <span class="price">2 &nbsp;</span>
-                  <span class="currency">đ</span>
-                  <span class="discount"></span>
-                </div>
-
-                <div class="yourself-rating">
-                  <div class="rating-stars">
-                    <div class="stars">
-                      <span
-                        ><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </span>
-                    </div>
+                <div class="yourself-description">
+                  <p class="yourself-item-text">
+                    Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...
+                  </p>
+                  <div class="card-price">
+                    <span class="price">2 &nbsp;</span>
+                    <span class="currency">đ</span>
+                    <span class="discount"></span>
                   </div>
-                  <div class="rating-comments">(87)</div>
+
+                  <div class="yourself__rating-tb-mb">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span><i class="fas fa-star"></i> </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+
+                  <div class="yourself-rating">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span
+                          ><i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="yourself-item">
-              <img
-                src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
-                alt=""
-                width="189px"
-                height="189px"
-              />
+            <div class="col col-6 col-md-6 col-lg-2">
+              <div class="yourself-item">
+                <img
+                  src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
+                  alt=""
+                  class="yourself-item-img"
+                />
 
-              <div class="yourself-description">
-                <p>Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...</p>
-                <div class="card-price">
-                  <span class="price">2 &nbsp;</span>
-                  <span class="currency">đ</span>
-                  <span class="discount"></span>
-                </div>
-
-                <div class="yourself-rating">
-                  <div class="rating-stars">
-                    <div class="stars">
-                      <span
-                        ><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </span>
-                    </div>
+                <div class="yourself-description">
+                  <p class="yourself-item-text">
+                    Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...
+                  </p>
+                  <div class="card-price">
+                    <span class="price">2 &nbsp;</span>
+                    <span class="currency">đ</span>
+                    <span class="discount"></span>
                   </div>
-                  <div class="rating-comments">(87)</div>
+
+                  <div class="yourself__rating-tb-mb">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span><i class="fas fa-star"></i> </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+
+                  <div class="yourself-rating">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span
+                          ><i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="yourself-item">
-              <img
-                src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
-                alt=""
-                width="189px"
-                height="189px"
-              />
+            <div class="col col-6 col-md-6 col-lg-2">
+              <div class="yourself-item">
+                <img
+                  src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
+                  alt=""
+                  class="yourself-item-img"
+                />
 
-              <div class="yourself-description">
-                <p>Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...</p>
-                <div class="card-price">
-                  <span class="price">2 &nbsp;</span>
-                  <span class="currency">đ</span>
-                  <span class="discount"></span>
-                </div>
-
-                <div class="yourself-rating">
-                  <div class="rating-stars">
-                    <div class="stars">
-                      <span
-                        ><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </span>
-                    </div>
+                <div class="yourself-description">
+                  <p class="yourself-item-text">
+                    Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...
+                  </p>
+                  <div class="card-price">
+                    <span class="price">2 &nbsp;</span>
+                    <span class="currency">đ</span>
+                    <span class="discount"></span>
                   </div>
-                  <div class="rating-comments">(87)</div>
+
+                  <div class="yourself__rating-tb-mb">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span><i class="fas fa-star"></i> </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+
+                  <div class="yourself-rating">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span
+                          ><i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="yourself-item">
-              <img
-                src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
-                alt=""
-                width="189px"
-                height="189px"
-              />
+            <div class="col col-6 col-md-6 col-lg-2">
+              <div class="yourself-item">
+                <img
+                  src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
+                  alt=""
+                  class="yourself-item-img"
+                />
 
-              <div class="yourself-description">
-                <p>Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...</p>
-                <div class="card-price">
-                  <span class="price">2 &nbsp;</span>
-                  <span class="currency">đ</span>
-                  <span class="discount"></span>
-                </div>
-
-                <div class="yourself-rating">
-                  <div class="rating-stars">
-                    <div class="stars">
-                      <span
-                        ><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </span>
-                    </div>
+                <div class="yourself-description">
+                  <p class="yourself-item-text">
+                    Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...
+                  </p>
+                  <div class="card-price">
+                    <span class="price">2 &nbsp;</span>
+                    <span class="currency">đ</span>
+                    <span class="discount"></span>
                   </div>
-                  <div class="rating-comments">(87)</div>
+
+                  <div class="yourself__rating-tb-mb">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span><i class="fas fa-star"></i> </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+
+                  <div class="yourself-rating">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span
+                          ><i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="yourself-item">
-              <img
-                src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
-                alt=""
-                width="189px"
-                height="189px"
-              />
+            <div class="col col-6 col-md-6 col-lg-2">
+              <div class="yourself-item">
+                <img
+                  src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
+                  alt=""
+                  class="yourself-item-img"
+                />
 
-              <div class="yourself-description">
-                <p>Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...</p>
-                <div class="card-price">
-                  <span class="price">2 &nbsp;</span>
-                  <span class="currency">đ</span>
-                  <span class="discount"></span>
-                </div>
-
-                <div class="yourself-rating">
-                  <div class="rating-stars">
-                    <div class="stars">
-                      <span
-                        ><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </span>
-                    </div>
+                <div class="yourself-description">
+                  <p class="yourself-item-text">
+                    Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...
+                  </p>
+                  <div class="card-price">
+                    <span class="price">2 &nbsp;</span>
+                    <span class="currency">đ</span>
+                    <span class="discount"></span>
                   </div>
-                  <div class="rating-comments">(87)</div>
+
+                  <div class="yourself__rating-tb-mb">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span><i class="fas fa-star"></i> </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+
+                  <div class="yourself-rating">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span
+                          ><i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="yourself-item">
-              <img
-                src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
-                alt=""
-                width="189px"
-                height="189px"
-              />
+            <div class="col col-6 col-md-6 col-lg-2">
+              <div class="yourself-item">
+                <img
+                  src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
+                  alt=""
+                  class="yourself-item-img"
+                />
 
-              <div class="yourself-description">
-                <p>Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...</p>
-                <div class="card-price">
-                  <span class="price">2 &nbsp;</span>
-                  <span class="currency">đ</span>
-                  <span class="discount"></span>
-                </div>
-
-                <div class="yourself-rating">
-                  <div class="rating-stars">
-                    <div class="stars">
-                      <span
-                        ><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </span>
-                    </div>
+                <div class="yourself-description">
+                  <p class="yourself-item-text">
+                    Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...
+                  </p>
+                  <div class="card-price">
+                    <span class="price">2 &nbsp;</span>
+                    <span class="currency">đ</span>
+                    <span class="discount"></span>
                   </div>
-                  <div class="rating-comments">(87)</div>
+
+                  <div class="yourself__rating-tb-mb">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span><i class="fas fa-star"></i> </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+
+                  <div class="yourself-rating">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span
+                          ><i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="yourself-item">
-              <img
-                src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
-                alt=""
-                width="189px"
-                height="189px"
-              />
+            <div class="col col-6 col-md-6 col-lg-2">
+              <div class="yourself-item">
+                <img
+                  src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
+                  alt=""
+                  class="yourself-item-img"
+                />
 
-              <div class="yourself-description">
-                <p>Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...</p>
-                <div class="card-price">
-                  <span class="price">2 &nbsp;</span>
-                  <span class="currency">đ</span>
-                  <span class="discount"></span>
-                </div>
-
-                <div class="yourself-rating">
-                  <div class="rating-stars">
-                    <div class="stars">
-                      <span
-                        ><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </span>
-                    </div>
+                <div class="yourself-description">
+                  <p class="yourself-item-text">
+                    Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...
+                  </p>
+                  <div class="card-price">
+                    <span class="price">2 &nbsp;</span>
+                    <span class="currency">đ</span>
+                    <span class="discount"></span>
                   </div>
-                  <div class="rating-comments">(87)</div>
+
+                  <div class="yourself__rating-tb-mb">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span><i class="fas fa-star"></i> </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+
+                  <div class="yourself-rating">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span
+                          ><i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="yourself-item">
-              <img
-                src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
-                alt=""
-                width="189px"
-                height="189px"
-              />
+            <div class="col col-6 col-md-6 col-lg-2">
+              <div class="yourself-item">
+                <img
+                  src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
+                  alt=""
+                  class="yourself-item-img"
+                />
 
-              <div class="yourself-description">
-                <p>Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...</p>
-                <div class="card-price">
-                  <span class="price">2 &nbsp;</span>
-                  <span class="currency">đ</span>
-                  <span class="discount"></span>
-                </div>
-
-                <div class="yourself-rating">
-                  <div class="rating-stars">
-                    <div class="stars">
-                      <span
-                        ><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </span>
-                    </div>
+                <div class="yourself-description">
+                  <p class="yourself-item-text">
+                    Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...
+                  </p>
+                  <div class="card-price">
+                    <span class="price">2 &nbsp;</span>
+                    <span class="currency">đ</span>
+                    <span class="discount"></span>
                   </div>
-                  <div class="rating-comments">(87)</div>
+
+                  <div class="yourself__rating-tb-mb">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span><i class="fas fa-star"></i> </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+
+                  <div class="yourself-rating">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span
+                          ><i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="yourself-item">
-              <img
-                src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
-                alt=""
-                width="189px"
-                height="189px"
-              />
+            <div class="col col-6 col-md-6 col-lg-2">
+              <div class="yourself-item">
+                <img
+                  src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
+                  alt=""
+                  class="yourself-item-img"
+                />
 
-              <div class="yourself-description">
-                <p>Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...</p>
-                <div class="card-price">
-                  <span class="price">2 &nbsp;</span>
-                  <span class="currency">đ</span>
-                  <span class="discount"></span>
-                </div>
-
-                <div class="yourself-rating">
-                  <div class="rating-stars">
-                    <div class="stars">
-                      <span
-                        ><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </span>
-                    </div>
+                <div class="yourself-description">
+                  <p class="yourself-item-text">
+                    Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...
+                  </p>
+                  <div class="card-price">
+                    <span class="price">2 &nbsp;</span>
+                    <span class="currency">đ</span>
+                    <span class="discount"></span>
                   </div>
-                  <div class="rating-comments">(87)</div>
+
+                  <div class="yourself__rating-tb-mb">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span><i class="fas fa-star"></i> </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+
+                  <div class="yourself-rating">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span
+                          ><i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="yourself-item">
-              <img
-                src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
-                alt=""
-                width="189px"
-                height="189px"
-              />
+            <div class="col col-6 col-md-6 col-lg-2">
+              <div class="yourself-item">
+                <img
+                  src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
+                  alt=""
+                  class="yourself-item-img"
+                />
 
-              <div class="yourself-description">
-                <p>Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...</p>
-                <div class="card-price">
-                  <span class="price">2 &nbsp;</span>
-                  <span class="currency">đ</span>
-                  <span class="discount"></span>
-                </div>
-
-                <div class="yourself-rating">
-                  <div class="rating-stars">
-                    <div class="stars">
-                      <span
-                        ><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </span>
-                    </div>
+                <div class="yourself-description">
+                  <p class="yourself-item-text">
+                    Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...
+                  </p>
+                  <div class="card-price">
+                    <span class="price">2 &nbsp;</span>
+                    <span class="currency">đ</span>
+                    <span class="discount"></span>
                   </div>
-                  <div class="rating-comments">(87)</div>
+
+                  <div class="yourself__rating-tb-mb">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span><i class="fas fa-star"></i> </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+
+                  <div class="yourself-rating">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span
+                          ><i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col col-6 col-md-6 col-lg-2">
+              <div class="yourself-item">
+                <img
+                  src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
+                  alt=""
+                  class="yourself-item-img"
+                />
+
+                <div class="yourself-description">
+                  <p class="yourself-item-text">
+                    Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...
+                  </p>
+                  <div class="card-price">
+                    <span class="price">2 &nbsp;</span>
+                    <span class="currency">đ</span>
+                    <span class="discount"></span>
+                  </div>
+
+                  <div class="yourself__rating-tb-mb">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span><i class="fas fa-star"></i> </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+
+                  <div class="yourself-rating">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span
+                          ><i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col col-6 col-md-6 col-lg-2">
+              <div class="yourself-item">
+                <img
+                  src="https://img.lazcdn.com/g/p/ff1f0f6af80e072ddc926067b1cde8c2.jpg_170x170q80.jpg_.avif"
+                  alt=""
+                  class="yourself-item-img"
+                />
+
+                <div class="yourself-description">
+                  <p class="yourself-item-text">
+                    Hộp đựng tai nghe silicon cho Airpods 1 / 2 Vỏ mề...
+                  </p>
+                  <div class="card-price">
+                    <span class="price">2 &nbsp;</span>
+                    <span class="currency">đ</span>
+                    <span class="discount"></span>
+                  </div>
+
+                  <div class="yourself__rating-tb-mb">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span><i class="fas fa-star"></i> </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
+
+                  <div class="yourself-rating">
+                    <div class="rating-stars">
+                      <div class="stars">
+                        <span
+                          ><i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rating-comments">(87)</div>
+                  </div>
                 </div>
               </div>
             </div>
