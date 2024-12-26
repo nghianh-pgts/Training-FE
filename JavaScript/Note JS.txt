@@ -1,0 +1,248 @@
+
+#Khai báo biến
+- var tên biến = value;
+
+#Comments
+//- comment 1 dòng
+/**/ comment nhiều dòng
+
+#Hàm built-in trong js
+1. alert: Hiển thị một hộp thoại với thông báo cho người dùng.
+2. Console: Dùng để in thông tin ra console (trình duyệt hoặc công cụ phát triển) để debug.
+3. Confirm: Hiển thị một hộp thoại với một câu hỏi và các nút OK và Cancel. Hàm này trả về true nếu người dùng chọn OK và false nếu người dùng chọn Cancel.
+4. Prompt: Hiển thị một hộp thoại yêu cầu người dùng nhập dữ liệu. Hàm trả về giá trị nhập vào (hoặc null nếu người dùng nhấn Cancel).
+5. Set timeout: Dùng để thực hiện một hành động sau một khoảng thời gian nhất định (tính bằng mili giây).
+6. Set interval: Dùng để thực hiện một hành động sau một khoảng thời gian nhất định (tính bằng mili giây).
+
+#Toán tử trong js
+1. toán tử số học
+2. toán tử so gán
+3. toán tử so sánh
+4. toán tử logic
+
+*toán tử số học
++ -> cộng
+- -> trừ
+* -> nhân
+** -> lũy thừa
+/ -> chia
+% -> chia lấy dư
+++ -> tăng 1 gtri số
+-- => giảm 1 giá trị số
+
+*Toán tử ++ -- prefix & postfix
++ prefix: tăng/giảm giá trị của biến trước khi trả về giá trị, Giá trị của biến thay đổi ngay lập tức, và giá trị đã thay đổi được trả về.
+
+Ví dụ:
+let x = 5;
+
+console.log(++x); // 6 (x được tăng lên 6 trước khi trả về)
+console.log(x);   // 6 (giá trị của x đã thay đổi)
+
++ postfix: trả về giá trị của biến trước, sau đó mới tăng/giảm giá trị.Giá trị ban đầu được trả về, sau đó biến mới được thay đổi.
+
+Ví dụ:
+
+let y = 5;
+
+console.log(y++); // 5 (y được trả về trước, sau đó mới tăng lên 6)
+console.log(y);   // 6 (giá trị của y đã thay đổi sau đó)
+
+#toán tử chuỗi
+- nếu phần tử là chuỗi thì toán tử '+' là toán tử nối chuỗi
+
+#Kiểu dữ liệu Boolean trả về true/false
+
+#If-else trong js
+
+if(đk){
+//code
+}else{
+//code
+}
+
+
+#Kiểu dữ liệu trong Javascript
+1. Dữ liệu nguyên thủy - primitive Data
+- Number: số
+- String: chuỗi
+- Boolean: true/false
+- Undefined: biến được định nghĩa mà chưa gán giá trị
+- Null: thể hiện không có dữ liệu
+- Symbol (ES6): thể hiện tính duy nhất
+2. Dữ liệu phức tạp - Complex Data
+- Function: hàm/phương thức
+- Object: Kiểu đối tượng
+
+#Kiểm tra kiểu dữ liệu
+- typeof <tên biến>
+
+#Toán tử so sánh === và !==
++ ===: so sánh bằng tuyệt đối, so sánh cả kiểu dữ liệu
++ !==: tương tự
+
+#Chuỗi trong js
+- sử dụng '' để khai báo chuỗi
+- hoặc sử dụng new String('') để tạo 1 đối tượng chuỗi
+- Template String ES6: sử dụng `` để tạo chuỗi và ${variable} để chèn giá trị vào chuỗi
+
+//Làm việc với Chuỗi
+var myString = "Học JS tại F8";
+
+//1. length
+console.log(myString.length);
+//2. tìm chỉ số đầu tiền của 1 chuỗi
+console.log(myString.indexOf("JS"));
+console.log(myString.indexOf("JS", 6)); //chỉ số bắt đầu từ 6
+console.log(myString.lastIndexOf("JS")); //tìm chỉ số của ptu cuối
+//3. Cắt chuỗi
+console.log(myString.slice(4)); //Cắt chuỗi từ chỉ số 4
+
+//4. Replace thay thế chuỗi
+console.log(myString.replace("JS", "JavaScript"));
+//5. Convert to uppercase
+console.log(myString.toLocaleUpperCase());
+
+//6. Convert to lowercase
+console.log(myString.toLocaleLowerCase());
+
+//7. trim xóa khoảng trắng 2 đầu chuỗi
+console.log(myString.trim());
+
+//8. split tách chuỗi
+var languages = "JS,PHP,Java, Ruby";
+
+console.log(languages.split(","));
+//9. lấy chỉ số 1 kí tự tại chuỗi
+console.log(languages.charAt(4));
+
+
+#Mảng trong JS
+- sử dụng lưu các giá trị liên tiếp
+- các giá trị trong mảng js không cần có kiểu dữ liệu giống nhau
+- cú pháp tạo mảng
+var <tên mảng> = [value1,value2,value3,...];
+
++Kiểm tra kiểu mảng
+console.log(Array.isArray(tên mảng))
++kiểm tra độ dài mảng: tên mảng.length
+/Làm việc với Array
+
+#Làm việc với mảng
+/*
+1. To String: chuyển mảng thành chuỗi
+2. Join: chuyển mảng thành chuỗi với kí tự giữa mỗi ptu
+3. Pop:  Loại bỏ phần tử cuối cùng của mảng và trả về phần tử đó.
+4. Push: Thêm một hoặc nhiều phần tử vào cuối mảng và trả về độ dài mới của mảng.
+5. Shift: Loại bỏ phần tử đầu tiên của mảng và trả về phần tử đó
+6. Unshift:  Thêm một hoặc nhiều phần tử vào đầu mảng và trả về độ dài mới của mảng.
+7. Splicing (splice(start, deleteCount, item1, item2, ...)): Xóa, thay thế hoặc thêm phần tử vào mảng.
++ start: Vị trí bắt đầu.
++ deleteCount: Số phần tử cần xóa.
++ item1, item2, ...: Các phần tử thêm vào mảng.
+8. Concat:  Gộp các mảng (hoặc giá trị) lại với nhau thành một mảng mới.
+9. Slicing: Trích xuất một phần của mảng thành một mảng mới.
+
+*/
+#Hàm trong js
+- khai báo 
+function fname (tham số,..){
+}
+- gọi hàm: fname()
+- hàm không return hay trả về giá trị thì sẽ trả về ăn defined
+
+#Các loại function trong js
+1. Decleration function
+function fname(){}
+
+2. Expression function
+var tên_biến= function(){} //được gán cho 1 biến, có thể đặt tên function hoặc không
+
+3. Arrow function
+var fname = ()=>{}
+
+#Object trong Js
+-  Object là một kiểu dữ liệu cho phép lưu trữ các giá trị dưới dạng cặp key-value
+#Tạo Object
++ sử dụng {}
++ sử dụng new Object()
+
+#Truy cập giá trị object
+tên obj.tên thuộc tính
+
+#Object constructor
+function objname(property1, property2, property3){
+	this.property1 = property1;
+	this.property2 = property2;
+	this.property3 = property3;
+}
+
+- tạo đối tượng qua constructor
+ var user1 = new constructor_name(p1,p2,p3);
+
+#Object prototype
+- Prototype là một object được liên kết với mọi object trong JavaScript.
+
+
+#Date object trong js
+- khởi tạo đối tượng date
+var date = new Date();
+- nếu tạo date không thông qua từ khóa new thì sẽ trả về 1 chuỗi, không thể sử dụng các phương thức của đối tượng Date
+var date = Date();
+
+#Switch-case 
+switch (biểu_thức) {
+  case giá_trị_1:
+    // Thực thi khi biểu_thức === giá_trị_1
+    break;
+  case giá_trị_2:
+    // Thực thi khi biểu_thức === giá_trị_2
+    break;
+  // Có thể có nhiều case khác
+  default:
+    // Thực thi khi không có case nào khớp
+}
+
+#Toán tử 3 ngôi
+
+điều kiện?lệnh 1: lệnh 2
+
+#Vòng lặp trong JS
+
+1. for- lặp với điều kiện đúng
+2. for/in - lặp qua key/property của object
+3. for/of - lặp qua các phần tử của một iterable object như Array, String, Map, Set - không dùng cho object
+4. while - lặp khi điều kiện đúng
+5. do/while - lặp ít nhất 1 lần sau đó lặp khi điều kiện đúng
+
+#Break và continue trong js
++ Break: dừng vòng lặp khi gặp lệnh break
++ Continue: bỏ qua các lệnh phía sau lệnh continue và chuyển qua lần lặp tiếp theo
+
+#Các phương thức trong Array
+
++ forEach(): duyệt qua ptu mảng
++ every(): kiểm tra tất cả ptu của mảng phải thỏa mãn 1 điều kiện nào đó //tất cả ptu
++ some(): kiểm tra có phần tử nào của mảng thỏa mãn 1 điều kiện nào đó //ít nhất 1 ptu
++ find()
++ filter()
++ map(): //chỉnh sửa, thay đổi ptu của 1 array, trả về 1 mảng mới
++ reduce() //Trả về 1 giá trị
+
+
+#Phương thức include trong Array và String
+- dùng để kiếm tra trong mảng và chuỗi có chứa giá trị nào đó hay 0
+
+#Math object
+- Math.PI: trả về số pi
+- Math.round(): làm tròn số
+- Math.abs(): trả về giá trị tuyệt đối
+- Math.ceil(): làm tròn trên
+- Math.random(): trả về số ngẫu nhiên nhỏ hơn 1
+- Math.min(): trả về số nhỏ nhất
+- Math.max(): trả về số lớn nhất
+
+##Callback trong JS
+- Là hàm được truyền qua đối số khi gọi hàm khác
+
+

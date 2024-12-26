@@ -1,0 +1,30 @@
+
+#HTML DOM (Document Object Model)
+- là một chuẩn được định nghĩa bởi W3C
+- khi trang web được tải, trình duyệt tạo ra 1 DOM của page
+- HTML DOM được cấu trúc dưới dạng cây Objects
+- Gồm 3 thành phần chính: 
+1. Element: các thẻ tag vd: html,body, h1...
+2. Atrribute: các thuộc tính trong thẻ vd: href src width...
+3. Text: Các đoạn chữ trong các element của DOM
+
+#Js cung cấp đối tượng Document để thay đổi DOM
+- Document đại diện cho toàn bộ website
+- truy cập element qua đối tượng document: ID, Class, Tag name, CSS selector.
+
+#DOM Attributes
+- elementName.attributeName = 'value'
+- elementName.setAttribute('attributeName','value');
+
+//Lấy giá trị của Attribute
+-elementName.getAttribute("attributeName");
+
+#Truy cập vào text node của Element
+
+//1. innertext: trả về nội dung giống trên trình duyệt
+//2. textContent:
+// +Trả về toàn bộ văn bản của phần tử, bao gồm cả nội dung ẩn (ẩn qua CSS).
+// + Bao gồm tất cả các nút con, nhưng không bao gồm các thẻ HTML.
+
+
+#Thêm element vào element sử dụng html DOM
