@@ -28,3 +28,51 @@
 
 
 #Thêm element vào element sử dụng html DOM
+//inner HTML: truy cập vào tất cả các thẻ, text bên trong element
+//outerHTML: truy cập vào chính element hiện tại
+
+var boxElement = document.querySelector(".box");
+boxElement.innerHTML = "<h1>Heading</h1>";
+console.log(boxElement.outerHTML);
+
+
+#DOM events: những sự kiện diễn ra khi trình duyệt load trang web hoặc người dùng tương tác với trình duyệt
+1. Attribute events
+2. Assign event using the element node
+
+//DOM events
+//1. preventDefault: sử dụng để ngăn chặn hành vi mặc định của trình duyệt
+//cú pháp: event.preventDefault
+//sử dụng: ngăn chặn chuyển hướng khi nhấp vào liên kết, ngăn form gửi đi khi nhấn submit, ngăn menu chuột phải...
+
+var aElements = document.links;
+console.log(aElements);
+for (let i = 0; i < aElements.length; i++) {
+  aElements[i].onclick = (e) => {
+    console.log(e.target.href);
+
+    if (!e.target.href.startsWith("https://fullstack.edu.vn")) {
+      e.preventDefault(); //ngăn chuyển trang
+    }
+  };
+}
+
+//2. stopPropagation:  được sử dụng để ngăn sự kiện lan truyền (propagation) đến các phần tử khác trong DOM.
+//cú pháp: event.stopPropagation();
+/**
+ * Khi gọi event.stopPropagation() trong một sự kiện:
++ Sự kiện sẽ không tiếp tục lan truyền lên các phần tử cha (trong giai đoạn nổi) hoặc xuống các phần tử con (trong giai đoạn bắt).
++ Tuy nhiên, sự kiện hiện tại vẫn tiếp tục thực thi trên phần tử hiện tại.
+ */
+
+#DOM EventListener
+- addEventListener
+//arg 1: loại event
+//arg 2: sự kiện
+
+-removeEventListener
+//arg 1: loại event (bắt buộc)
+//arg 2: sự kiên muốn gỡ (bắt buộc)
+
+
+

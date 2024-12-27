@@ -1,0 +1,102 @@
+
+#Let và const
+- let: Khai báo biến với phạm vi khối (block scope).
+- const: Khai báo hằng số, không thể gán lại giá trị.
+
+ví dụ:
+    let x = 10;
+    x = 20; // Hợp lệ
+
+    const y = 30;
+    y = 40; // Lỗi: Assignment to constant variable
+
+
+#Arrow function: viết hàm ngắn gọn hơn
+
+    // Hàm thông thường
+    function sayHello(name) {
+    return `Hello, ${name}`;
+    }
+
+    // Hàm mũi tên
+    const sayHelloArrow = (name) => `Hello, ${name}`;
+
+    console.log(sayHelloArrow("Alice")); // Hello, Alice
+
+#Template Literals: cho phép tạo chuỗi dễ dàng với cú pháp ``(backticks)
+
+    const name = "Alice";
+    const greeting = `Hello, ${name}!`;
+    console.log(greeting); // Hello, Alice!
+
+#Class trong ES6: định nghĩa lớp và kế thừa
+    class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet() {
+        return `Hello, my name is ${this.name}.`;
+    }
+    }
+
+    class Student extends Person {
+    constructor(name, age, grade) {
+        super(name, age);
+        this.grade = grade;
+    }
+
+    study() {
+        return `${this.name} is studying.`;
+    }
+    }
+
+    const student = new Student("Alice", 20, "A");
+    console.log(student.greet()); // Hello, my name is Alice.
+    console.log(student.study()); // Alice is studying.
+
+#Destructuring
+ - Tách các phần tử từ mảng hoặc thuộc tính từ đối tượng:
+
+    // Destructuring mảng
+    const [a, b] = [10, 20];
+    console.log(a, b); // 10, 20
+
+    // Destructuring đối tượng
+    const user = { name: "Alice", age: 25 };
+    const { name, age } = user;
+    console.log(name, age); // Alice, 25
+
+#Spread và Rest operator
+- Spread (...): Mở rộng mảng hoặc đối tượng.
+-  Rest (...): Gộp các giá trị lại thành mảng.
+- ví dụ: 
+    // Spread
+    const arr1 = [1, 2, 3];
+    const arr2 = [...arr1, 4, 5];
+    console.log(arr2); // [1, 2, 3, 4, 5]
+
+    // Rest
+    const sum = (...numbers) => numbers.reduce((acc, curr) => acc + curr, 0);
+    console.log(sum(1, 2, 3, 4)); // 10
+
+
+#default parameter
+- Gán giá trị mặc định cho tham số của hàm
+ví dụ: 
+    const greet = (name = "Guest") => `Hello, ${name}!`;
+
+    console.log(greet()); // Hello, Guest!
+    console.log(greet("Alice")); // Hello, Alice!
+
+#Modules (Import/Export)
+- Cho phép chia tách mã nguồn thành các Modules
+ví dụ:
+    // math.js
+    export const add = (a, b) => a + b;
+    export const subtract = (a, b) => a - b;
+
+    // main.js
+    import { add, subtract } from './math.js';
+    console.log(add(5, 3)); // 8
