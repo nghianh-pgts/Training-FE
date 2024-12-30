@@ -1,0 +1,78 @@
+ 
+ #SPA/MPA
+ - MPA(SSR) là một loại ứng dụng web truyền thống, nơi mỗi thao tác hoặc yêu cầu (như điều hướng đến một trang mới) sẽ dẫn đến việc tải lại toàn bộ trang từ máy chủ.
+- SPA (CSR) là ứng dụng web chỉ tải một lần toàn bộ mã HTML, CSS và JavaScript. Sau đó, các thay đổi giao diện được xử lý bởi JavaScript mà không cần tải lại trang.
+
+#document.createElement: tại sao react lại render ra được giao diện người dùng
+- Phương thức document.createElement được sử dụng để tạo một phần tử HTML mới trong DOM (Document Object Model)
+. Sau khi tạo, bạn có thể thêm nó vào DOM để hiển thị trên trang web.
+
+cú pháp: 
+    const element = document.createElement(tagName);
+
+Các bước sử dụng:
+    1. Tạo phần tử bằng createElement.
+    2. Thiết lập các thuộc tính hoặc nội dung.
+    3. Thêm phần tử vào DOM bằng cách sử dụng các phương thức như appendChild, append, insertBefore, ...
+
+#Phương thức React.createElement()
+- React.createElement là một phương thức cốt lõi trong React để tạo các phần tử React. Đây là cách mà React xây dựng cấu trúc giao diện trước khi chúng được render lên DOM.
+
+- cú pháp: React.createElement(type, props, ...children)
++ type: Kiểu của phần tử. Có thể là: một khối lệnh html, một component React
++ props: Đối tượng chứa các thuộc tính của phần tử (e.g., className, id, onClick).
++ ...children: Các phần tử con (có thể là chuỗi, số, hoặc phần tử React khác).
+
+
+#React-DOM
+- React-DOM là một thư viện trong React dùng để thao tác trực tiếp với DOM (Document Object Model) trong trình duyệt. React-DOM cung cấp các phương thức và công cụ để hiển thị (render) các phần tử React lên cây DOM của trình duyệt.
+
+- tại sao cần dùng React-DOM?
++ React-DOM đóng vai trò cầu nối giữa React (thư viện xây dựng giao diện) và DOM (cấu trúc tài liệu của trình duyệt).
++ Trong React:
+    - React chịu trách nhiệm định nghĩa các phần tử và cấu trúc giao diện.
+    - React-DOM chịu trách nhiệm hiển thị các phần tử đó lên trình duyệt.
+
+
+#JSX - JavaScript XML
+- JSX cho phép viết mã tương tự HTML trong JavaScript:
+
+- JSX được biên dịch thành lời gọi hàm React.createElement():
+const element = <h1>Hello, world!</h1>; => const element = React.createElement('h1', null, 'Hello, world!');
+
+- Biểu thức nhúng trong JSX: nhúng các biểu thức JavaScript vào bên trong JSX bằng cách sử dụng cặp ngoặc nhọn {}:
+ ví dụ: 
+    const name = "Nghĩa";
+    const element = <h1>Welcome, {name}!</h1>;
+- JSX phải có một phần tử gốc: JSX yêu cầu tất cả các thẻ phải được bọc trong một phần tử gốc duy nhất, 
+có thể sử dụng cú pháp React fragment <> </>
+
+-Thuộc tính (Attributes) trong JSX : Các thuộc tính trong JSX sử dụng cú pháp giống với JavaScript:
+
+- thư viện babel: Babel là một trình biên dịch JavaScript phổ biến, được sử dụng để chuyển đổi mã JavaScript hiện đại (ES6+ hoặc JSX) thành mã JavaScript tương thích với các trình duyệt cũ hơn hoặc môi trường không hỗ trợ các tính năng mới nhất. Babel thường được sử dụng trong các dự án React để chuyển đổi JSX và các cú pháp ES6+.
+
+#Props trong React
+- props (viết tắt của "properties") là một cơ chế để truyền dữ liệu từ parent component (component cha) sang child component (component con). Props đóng vai trò như các tham số trong hàm, giúp component cha giao tiếp với component con. 
+
+-  children props là một thuộc tính đặc biệt được sử dụng để truyền nội dung (hoặc các thành phần con) giữa thẻ mở và thẻ đóng của một component.
+    + Khi bạn truyền bất kỳ nội dung nào giữa thẻ mở và thẻ đóng của một component, nội dung đó được tự động gán vào children props.
+    + 
+
+- React elements
+    + Sử dụng props giống như với Attributes của thẻ html
+    + 2 props class, for => className, htmlFor
+    + phải tuân theo quy ước có sẵn
+- React components
+    + Sử dụng props giống như đối số cho function
+    + tự do đặt tên props theo quy tắc camelCase, có thể gồm dấu gạch ngang
+-*chú ý: 
+    + Prop "key" là prop đặc biệt
+    + Props cơ bản là đối số của component
+
+- sử dụng destructuring để lấy ra props cụ thể khi có nhiều props 
+
+#Quy ước tạo component
+- Chữ cái đầu tiên viết hoa
+- Booleans, undefined, null sẽ không được render
+
+#

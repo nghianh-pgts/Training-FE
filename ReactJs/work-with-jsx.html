@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.4/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+
+  <script type="text/babel">
+    const courses = [
+      {
+        id: 1,
+        title: "Learn JavaScript Basics",
+        description:
+          "An introductory course to JavaScript, covering variables, loops, and functions.",
+        duration: "4 weeks",
+        instructor: "John Doe",
+      },
+      {
+        id: 2,
+        title: "Master React.js",
+        description:
+          "A comprehensive course on React.js, including components, props, state, and hooks.",
+        duration: "6 weeks",
+        instructor: "Jane Smith",
+      },
+      {
+        id: 3,
+        title: "Full-Stack Web Development",
+        description:
+          "Learn how to build modern web applications with front-end and back-end technologies.",
+        duration: "12 weeks",
+        instructor: "Alice Johnson",
+      },
+    ];
+
+    const CourseItem = ({ item, onClick }) => (
+      <div>
+        <table>
+          <tr>
+            <td>{item.id}</td>
+            <td onClick={() => onClick(item)}>{item.title}</td>
+            <td>{item.description}</td>
+            <td>{item.duration}</td>
+            <td>{item.instructor}</td>
+          </tr>
+        </table>
+      </div>
+    );
+
+    //App.js
+    const App = () => {
+      const handleOnClick = (item) => {
+        //props item được truyền từ component con
+        alert(`You clicked on ${item.title}`);
+      };
+
+      return (
+        <>
+          <div id="wrapper">
+            {courses.map((item) => (
+              <>
+                <CourseItem item={item} onClick={handleOnClick} />
+              </>
+            ))}
+          </div>
+        </>
+      );
+    };
+
+    //indexjs
+    ReactDOM.render(<App />, document.getElementById("root"));
+  </script>
+</html>
