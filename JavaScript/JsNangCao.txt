@@ -1,0 +1,121 @@
+
+#IIFE - Immediately Invoked Function Expression
+- hàm đc gọi ngay lập tức sau khi được tạo ra
+
+vd: 
+(()=>{
+    console.log('hàm vừa tạo')
+})
+
+- IIFE là một hàm private: khi định nghĩa thì k gọi lại được ở phạm vi bên ngoài
+ví dụ: 
+(Function a(){
+    console.log('hàm vừa tạo')
+})
+
+a(); //lỗi
+
+- hầu hết các thư viện đều viết = IIFE vì để tránh tạo ra biến toàn cục trùng tên với biến của user
+
+#Scope - phạm vi truy cập trong Js
+- Các loại phạm vi:
+    + Global - Toàn cục
+    + Code block - khối mã: let, const (trong cặp {})
+    + Local scope - hàm: var, fuction
+    + module (Module scope): khi sử dụng ES6 Module thì mỗi module sẽ tạo ra một phạm vi riêng. Biến khai báo tại cấp cao nhất trong module vẫn chỉ thuộc module mà không trở thành biến Global.
+- Khi GỌI mỗi hàm, luôn có 1 phạm vi mới được tạo, khi KHAI BÁO thì chưa tạo phạm vi hàm
+- Các hàm có thể truy cập các biến được khai báo trong phạm vi của nó và bên ngoài nó
+
+#Closure trong JS
+- Là một hàm có thể ghi nhớ được PHAM VI nơi nó được tạo và truy cập được biến ở ngoài phạm vi của nó
+
+- Closure xảy ra khi:
++ Một hàm được định nghĩa bên trong một hàm khác ( hàm con)
++ Hàm con "nhớ" các biến từ phạm vi của hàm cha ngay cả sau khi hàm cha kết thúc
+
+- Ứng dụng:
++ viết code ngắn hơn
++ biểu diễn, ứng dụng tính private trong OOP
+
+#Lưu ý
+- Biến được tham chiếu (refer) trong closure sẽ không được xóa khỏi bộ nhớ khi hàm cha thực thi xong
+- Các khái niệm javascript nâng cao rất dễ gây nhầm lẫn
+
+#Hoisting
+- Hoisting là cơ chế trong JavaScript mà các khai báo biến, hàm và class được "đưa lên trên" (hoist) phạm vi của chúng trước khi mã thực thi. Điều này có nghĩa là bạn có thể sử dụng các biến và hàm trước khi chúng được khai báo.
+
+- Cách hoạt động của Hoisting
++ chỉ ảnh hưởng đến khai báo, không ảnh hưởng đến khởi tạo
+    + phần khai báo của biến/hàm được hoist lên đầu phạm vi
+    + phần gán giá trị vẫn giữ nguyên vị trí
++ Hosting áp dụng cho: biến khai báo = var(trước ES6), hàm khai báo = function declaration, Class khai báo = class
+
+ví dụ: 
+    console.log(a); // undefined (biến a được hoist nhưng chưa được gán giá trị)
+    var a = 5;
+    console.log(a); // 5
+
+    sayHello(); // "Hello, World!"
+
+    function sayHello() {
+        console.log("Hello, World!");
+    }
++ Hoisting với let và const
+  + Biến khai báo bằng let hoặc const cũng được hoist, nhưng chúng không thể được sử dụng trước khi khai báo do Temporal Dead Zone (TDZ).
+
+ví dụ:
+    console.log(b); // ReferenceError: Cannot access 'b' before initialization
+    let b = 10;
+    console.log(b); // 10
+
+#Strict mode trong JS
+- Strict Mode là một chế độ trong JavaScript nhằm thực thi mã chặt chẽ hơn.
+-  giúp ngăn chặn một số hành vi lỗi tiềm ẩn và giảm thiểu lỗi không mong muốn.
+-  Nó được giới thiệu từ ECMAScript 5 (ES5).
+
+- Cách kích hoạt strict mode: kích hoạt Strict Mode bằng cách thêm chuỗi "use strict"; ở đầu tập lệnh hoặc một hàm.
+
+- công dụng:
++ 1. Tránh quên từ khóa khai báo biến 
++ 2. tránh trùng tên biến dẫn tới lỗi logic
++ 3. Sử dụng bộ nhớ hiệu quả vì tránh tạo biến global
+
+#Từ khóa this trong js
+- this tham chiếu đến đối tượng mà mã hiện đang hoạt động (đối tượng trước dấu .)
+- Giá trị của this được xác định khi một hàm được gọi, không phải khi nó được định nghĩa.
+- khi đứng ngoài phương, this tham chiếu tới đối tượng global, ở strict mode thì undefined
+
++ trong đối tượng:  nó tham chiếu đến đối tượng đó
++ trong hàm thường: nó tham chiếu đến hàm đó
++ trong Arrow function:  không có giá trị this riêng, nó kế thừa giá trị this từ phạm vi bao quanh nơi nó được định nghĩa.
++ trong hàm constructor: nó tham chiếu đến đối tượng mới được tạo.
++ trong class:  tham chiếu đến đối tượng hiện tại được tạo bởi class.
+
+#Phương thức fn.bind()
+- Phương thức bind() không thực thi hàm ngay lập tức. Thay vào đó, nó trả về một hàm mới với this được cố định về giá trị cụ thể.
+-bind() rất hữu ích khi bạn muốn truyền hàm như một tham số mà vẫn giữ nguyên ngữ cảnh this.
+
++ tham số đầu tiên: object ràng buộc với this
++ n tham số còn lại: các giá trị đã define ở phương thức
+
+#Phương thức fn.call()
+- Phương thức call() gọi một hàm với một giá trị this cụ thể và các tham số truyền vào theo từng giá trị riêng lẻ.
+
+cú pháp: functionName.call(thisArg, arg1, arg2, ...);
+- thể hiện tính kế thừa trong oop
+- mượn hàm
+
+#phương thức apply()
+- Phương thức apply() giống call(), nhưng tham số được truyền vào dưới dạng một mảng hoặc đối tượng giống mảng.
+
+#So sánh 3 pthuc
+- giống:
+    + cú pháp truy cập
+    + là các pthuc được kế thừa từ Function.prototype
+
+- khác:
+    + Bind method: trả ra hàm mới với this tham chiếu tới thisArg, không thực hiện gọi hàm, nếu được kèm arg1, arg2,.. thì đối số này sẽ được ưu tiên hơn.
+    + Call method: thực hiện bind 'this' với 'thisArg' và thực hiện gọi Hàm, nhận các đối số cho hàm gốc từ arg1, arg2, ...
+    + apply method: giống call method nhưng nhận các đối số cho hàm gốc ở đối số thứ 2 dưới dạng mảng [arg1, arg2,...]
+
+
