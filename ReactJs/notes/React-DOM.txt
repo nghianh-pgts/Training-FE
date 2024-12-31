@@ -1,0 +1,9 @@
+
+#React-DOM
+- React-DOM là một thư viện trong React dùng để thao tác trực tiếp với DOM (Document Object Model) trong trình duyệt. React-DOM cung cấp các phương thức và công cụ để hiển thị (render) các phần tử React lên cây DOM của trình duyệt.
+
+- tại sao cần dùng React-DOM?
++ React-DOM đóng vai trò cầu nối giữa React (thư viện xây dựng giao diện) và DOM (cấu trúc tài liệu của trình duyệt).
++ Trong React:
+    - React chịu trách nhiệm định nghĩa các phần tử và cấu trúc giao diện.
+    - React-DOM chịu trách nhiệm hiển thị các phần tử đó lên trình duyệt.

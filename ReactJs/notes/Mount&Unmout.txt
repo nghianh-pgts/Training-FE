@@ -1,0 +1,7 @@
+#Mount
+- Mounting là quá trình một component được thêm vào DOM lần đầu tiên.
+- Trong React, khi một component được mount, các phương thức hoặc Hook liên quan sẽ được kích hoạt.
+
+#Unmount
+- Unmounting là quá trình một component bị gỡ bỏ khỏi DOM.
+- Khi component được unmount, các phương thức hoặc Hook liên quan sẽ được gọi.

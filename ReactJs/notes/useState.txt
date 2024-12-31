@@ -1,0 +1,11 @@
+
+#UseState - Trạng thái của dữ liệu
+- giúp đơn giản hóa việc thể hiện của dữ liệu ra giao diện người dùng
+
+- Dùng khi nào ?
+    + Khi muốn dữ liệu thay đổi thì giao diện được cập nhật (render lại data)
+
+- cú pháp
+    const [tên state, setTenState] = useState("giá trị khởi tạo");
+
+- khi truyền giá trị khởi tạo là 1 hàm callback thì nó k thực thi hàm callback mà nhận giá trị trả về của hàm 

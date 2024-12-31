@@ -1,0 +1,7 @@
+
+- memo() - Higher Order Component (HOC)
+- dùng để tối ưu hóa hiệu suất bằng cách ngăn chặn việc render lại không cần thiết của 1 functional component nếu các props nó không thay đổi.
+
+#Cách hoạt động
+- Khi một component được bọc bởi React.memo(), React sẽ so sánh props cũ và mới của component đó.
+- Nếu props không thay đổi, React sẽ không render lại component.

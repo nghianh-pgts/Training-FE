@@ -1,0 +1,36 @@
+
+- Two-way binding cho phép đồng bộ hóa dữ liệu giữa giao diện người dùng (UI) và mô hình dữ liệu (model)
+-  nếu giá trị trong mô hình thay đổi, UI cũng sẽ được cập nhật, và ngược lại, nếu người dùng thay đổi giá trị trong UI, mô hình cũng sẽ được đồng bộ.
+
+#Cách hoạt động
+- Dữ liệu từ mô hình → Giao diện (UI): Khi giá trị trong mô hình thay đổi, giao diện sẽ tự động cập nhật để phản ánh thay đổi đó.
+
+- Dữ liệu từ UI → Mô hình: Khi người dùng nhập liệu hoặc thay đổi giá trị trong giao diện, mô hình sẽ tự động nhận được giá trị mới
+
+- React không hỗ trợ two-way binding mặc định, nhưng có thể mô phỏng nó bằng cách quản lý trạng thái thủ công.
+
+ví dụ: 
+    import React, { useState } from 'react';
+
+    function App() {
+    const [userName, setUserName] = useState('');
+
+    const handleInputChange = (e) => {
+        setUserName(e.target.value);
+    };
+
+    return (
+        <div>
+        <input
+            type="text"
+            value={userName}
+            onChange={handleInputChange}
+            placeholder="Enter your name"
+        />
+        <p>Your name is: {userName}</p>
+        </div>
+    );
+    }
+
+    export default App;
+

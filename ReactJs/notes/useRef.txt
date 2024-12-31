@@ -1,0 +1,41 @@
+
+#Use Ref
+- useRef là một React Hook cho phép bạn tham chiếu một giá trị không cần thiết để hiển thị.
+- có thể dùng để tham chiếu đến 1 element trong DOM
+
+cú pháp: 
+    const refContainer = useRef(initialValue);
+
+
+-initialValue: Giá trị khởi tạo ban đầu cho thuộc tính .current của ref.
+
+refContainer: Là một object có thuộc tính .current chứa giá trị hiện tại của ref.
+
+- giá trị khởi tạo được sử dụng khi component lần đầu được mount và bị ignore sau đó
+
+- khi re-render thì không dùng lại giá trị khởi tạo, nó lưu lại giá trị giữa các lần re-render
+
+- khi thay đổi giá trị current của ref không làm component re-render
+
+- luôn trả về 1 object
+
+lưu ý: không viết or đọc ref.current trong khi đang render, chỉ nên viết trong event handlers hoặc effects
+
+ví dụ dùng để tham chiếu đến DOM element
+
+import { useRef } from 'react';
+
+function MyComponent() {
+  const inputRef = useRef(null);
+  // ...
+
+  // ...
+  - tham chiếu qua thuộc tính ref
+  return <input ref={inputRef} />;
+
+}
+
+- truy cập vào element đã tham chiếu: 
+function handleClick() {
+    inputRef.current.focus();
+  }

@@ -1,0 +1,17 @@
+
+#JSX - JavaScript XML
+- JSX cho phép viết mã tương tự HTML trong JavaScript:
+
+- JSX được biên dịch thành lời gọi hàm React.createElement():
+const element = <h1>Hello, world!</h1>; => const element = React.createElement('h1', null, 'Hello, world!');
+
+- Biểu thức nhúng trong JSX: nhúng các biểu thức JavaScript vào bên trong JSX bằng cách sử dụng cặp ngoặc nhọn {}:
+ ví dụ: 
+    const name = "Nghĩa";
+    const element = <h1>Welcome, {name}!</h1>;
+- JSX phải có một phần tử gốc: JSX yêu cầu tất cả các thẻ phải được bọc trong một phần tử gốc duy nhất, 
+có thể sử dụng cú pháp React fragment <> </>
+
+-Thuộc tính (Attributes) trong JSX : Các thuộc tính trong JSX sử dụng cú pháp giống với JavaScript:
+
+- thư viện babel: Babel là một trình biên dịch JavaScript phổ biến, được sử dụng để chuyển đổi mã JavaScript hiện đại (ES6+ hoặc JSX) thành mã JavaScript tương thích với các trình duyệt cũ hơn hoặc môi trường không hỗ trợ các tính năng mới nhất. Babel thường được sử dụng trong các dự án React để chuyển đổi JSX và các cú pháp ES6+.

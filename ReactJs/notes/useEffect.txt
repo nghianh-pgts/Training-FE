@@ -1,0 +1,24 @@
+- useEffect được dùng để xử lí các side effect như: cập nhật DOM, call API, listen DOM events, cleanup
+-  Nó thay thế các phương thức vòng đời như componentDidMount, componentDidUpdate, và componentWillUnmount trong class components.
+
+- cú pháp:
+    useEffect(() => {
+    // Code thực thi khi effect được chạy
+    return () => {
+        // Cleanup function (tùy chọn)
+    };
+    }, [dependencies]);
+
+- Các trường hợp của [dependencies]
+#useEffect(callback):  ít dùng
+- gọi callback mỗi khi component re-render(khi thay đổi state)
+- gọi callback sau khi component thêm element vào DOM
+
+#useEffect(callBack,[]): chỉ gọi callback 1 lần sau khi component mount, không gọi lại khi re-render
+thường được áp dụng cho gọi API 1 lần để lấy dữ liệu cho trang web
+
+#useEffect(callback, [dependencies])
+- callback sẽ được gọi lại mỗi khi dependencies thay đổi
+
+#Cleanup function luôn được gọi trước khi component unmounted
+#Cleanup function luôn được gọi trước khi callback được gọi (trừ lần đầu tiên)

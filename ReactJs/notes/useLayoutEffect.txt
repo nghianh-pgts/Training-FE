@@ -1,0 +1,15 @@
+#useLayoutEffect tương tự useEffect nhưng khác thứ tự các bước thực hiện
+
+- useEffect
+ +1. cập nhật lại state
+ +2. cập nhật DOM
+ +3. render lại UI 
+ +4. Gọi cleanup nếu deps thay đổi
+ +5. gọi useEffect callback
+
+ - useLayoutEffect
+ +1. cập nhật lại state
+ +2. cập nhật DOM
+ +3. Gọi cleanup nếu deps thay đổi (sync)
+ +4. gọi useLayoutEffect callback
+ +5. render lại UI

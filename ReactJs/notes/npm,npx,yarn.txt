@@ -1,0 +1,21 @@
+
+- NPM:
+	#Cài đặt thư viện:
+	- Project Scope:
+	+ npm install <tên thư viện> => dependencies
+	+ shorthand: npm i <tên lib> => dependencies
+	+ npm i -D <tên lib> => devDependencies
+	#xóa thư viện
+	+ npm uninstall <tên thư viện>
+	- Global Scope: sử dụng khi code không có thư viện đó, khi code không bị depend vào lib đó
+	#Cài đặt
+	+ npm i --global create-react-app
+	+ npm i -g create-react-app
+	#xóa
+	- npm uninstall -g create-react-app
+
+- NPX:
+#khi cài node thì kèm NPM, NPM thì kèm theo NPX
+#Tại sao dùng? giúp không cần cài create-react-app lên máy => thường dùng npx
+  
+- YARN & NPM: YARN ra mắt sau npm 6 năm để cải thiện hiệu năng và bảo mật

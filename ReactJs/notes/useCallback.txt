@@ -1,0 +1,19 @@
+#Usecallback
+- useCallback là một React Hook cho phép lưu định nghĩa hàm vào bộ nhớ đệm giữa các lần
+- giúp tránh việc tạo lại hàm không cần thiết khi component re-render.
+
+
+cú pháp:
+    const memoizedCallback = useCallback(() => {
+        // logic của hàm
+    }, [dependencies]);
+
++ memoizedCallback: Hàm đã được ghi nhớ.
++ dependencies: Mảng phụ thuộc, nếu giá trị trong mảng thay đổi, hàm sẽ được tạo lại. nếu dependencies trống, nó sẽ trả lại tham chiếu của lần chạy trước đó
+
+
+#Khi nào nên sử dụng?
+- Khi bạn truyền một hàm làm props cho child component để ngăn child component re-render không cần thiết.
+- Khi một hàm được sử dụng trong một hook như useEffect và bạn muốn kiểm soát việc tạo lại nó.
+
+- khi sử dụng, cần lồng child component trong memo()
