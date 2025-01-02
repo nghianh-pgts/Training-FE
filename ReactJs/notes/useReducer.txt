@@ -1,0 +1,60 @@
+#useReducer
+- thường được sử dụng để quản lý state phức tạp hoặc khi các hành động liên quan đến state cần được xử lý rõ ràng hơn thông qua một reducer function.
+- Nó là một giải pháp thay thế cho useState, đặc biệt phù hợp khi trạng thái liên quan đến nhiều bước cập nhật hoặc logic phức tạp.
+
+cú pháp: 
+    - const [state, dispatch] = useReducer(reducer, initialState);
+
+    + dispatch: là môt function để truyền đi một action nào đó
+    + reducer: Một hàm nhận vào state hiện tại và action, sau đó trả về state mới.
+    + initialState: Trạng thái khởi tạo.
+
+các bước:
+    1. init state
+    2. Actions
+    3. reducer
+    4. Dispatch
+
+#Khi nào nên sử dụng useReducer
+    + Trạng thái phức tạp: Khi state bao gồm nhiều giá trị hoặc khi cần xử lý logic cập nhật trạng thái phức tạp.
+    + Hành động rõ ràng: Khi cần quản lý state dựa trên các hành động cụ thể (action types).
+    + Thay thế Redux trong các trường hợp đơn giản
+
+ví dụ:
+    //init state
+    const initState = 0
+
+    //Actions
+    const UP_ACTION = 'up'
+    const DOWN_ACTION = 'down'
+
+    //Reducer
+    const reducer = (state, action)=>{
+        switch(action){
+            case UP_ACTION:
+                return state +1;
+                break;
+            case DOWN_ACTION:
+                return state -1;
+            default:
+                throw new Error('Invalid action');
+        }
+    }
+
+    - state: state hiện tại
+    - action: loại action muốn truyền vào, có thể truyền vào string hoặc 1 object
+
+    //Dispatch
+
+    function App(){
+        const [count, dispatch] = useReducer(reducer,initialState)
+
+        return (
+            <div>
+                <h1>{count}</h1>
+                <button onClick={()=>dispatch(DOWN_ACTION)}>Down</button>
+                 <button onClick={()=>dispatch(UP_ACTION)}>Up</button>
+            </div>
+        )
+
+    }

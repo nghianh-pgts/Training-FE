@@ -1,0 +1,54 @@
+#Semantic HTML là cách sử dụng các thẻ HTML để mô tả đúng ý nghĩa và mục đích nội dung trong tài liệu. 
+Các thẻ semantic cung cấp ngữ nghĩa rõ ràng hơn cho cả con người và trình duyệt web
+
+- Các thẻ Semantic phổ biến:
+<header>: đại diện cho phần đầu trang hoặc phần đầu của 1 section
+<nav>: chỉ định thanh điều hướng
+<main>: nội dung chính của trang web
+<section>: Đại diện cho một phần, chủ đề trong nội dung
+<article>: Một phần nội dung độc lập, có thể đứng riêng như bài báo, bài viết.
+<aside>: Nội dung phụ, thường dùng cho sidebar
+<footer>: phần chân trang.
+<figure> và <figcaption>: Chỉ định hình ảnh hoặc biểu đồ và chú thích liên quan
+
+- Lợi ích của Semantic HTML:
++ Cải thiện SEO
++ Tăng khả năng truy cập
++ Cải thiện bảo trì và đọc hiểu mã
++ Hỗ trợ tốt hơn trong tương lai
+
+Ví dụ so sánh:
+#HTML không semantic:
+
+<div class="header">
+  <h1>Welcome to My Website</h1>
+</div>
+<div class="nav">Home | About | Contact</div>
+<div class="main-content">
+  <h2>About Us</h2>
+  <p>We are a team of professionals...</p>
+</div>
+<div class="footer">© 2024 My Website</div>
+
+
+#HTML semantic:
+
+<header>
+  <h1>Welcome to My Website</h1>
+</header>
+<nav>
+  <ul>
+    <li>Home</li>
+    <li>About</li>
+    <li>Contact</li>
+  </ul>
+</nav>
+<main>
+  <section>
+    <h2>About Us</h2>
+    <p>We are a team of professionals...</p>
+  </section>
+</main>
+<footer>
+  © 2024 My Website
+</footer>

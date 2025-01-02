@@ -1,0 +1,15 @@
+#useImperative
+- là một hook cho phép tùy chỉnh giá trị được cung cấp khi sử dụng ref
+- thường được sử dụng để giao tiếp giữa các thành phần cha và con khi cần kiểm soát trực tiếp một thành phần con.
+
+#Cú pháp
+ - useImperativeHandle(ref, createHandle, [deps]);
+
+    +ref: Ref được chuyển từ thành phần cha (thường tạo bằng React.forwardRef).
+    +createHandle: Hàm trả về một đối tượng với các thuộc tính hoặc phương thức tùy chỉnh mà thành phần cha có thể gọi.
+    +[deps]: Danh sách phụ thuộc. Khi giá trị trong danh sách thay đổi, createHandle sẽ được tạo lại.
+
+#Khi nào nên sử dụng
+- Bạn muốn cung cấp các phương thức cụ thể để cha có thể gọi thay vì toàn bộ DOM node.
+- Cần kiểm soát trực tiếp DOM hoặc trạng thái bên trong của một thành phần con.
+

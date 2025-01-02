@@ -4,7 +4,6 @@
 
 -  children props là một thuộc tính đặc biệt được sử dụng để truyền nội dung (hoặc các thành phần con) giữa thẻ mở và thẻ đóng của một component.
     + Khi bạn truyền bất kỳ nội dung nào giữa thẻ mở và thẻ đóng của một component, nội dung đó được tự động gán vào children props.
-    + 
 
 - React elements
     + Sử dụng props giống như với Attributes của thẻ html

@@ -17,3 +17,30 @@ cú pháp:
 - Khi một hàm được sử dụng trong một hook như useEffect và bạn muốn kiểm soát việc tạo lại nó.
 
 - khi sử dụng, cần lồng child component trong memo()
+
+ví dụ: 
+import React, { useState, useCallback } from "react";
+
+function Parent() {
+  const [count, setCount] = useState(0);
+
+  const handleClick = useCallback(() => {
+    console.log("Button clicked!");
+  }, []); // Không phụ thuộc, nên hàm không bị tạo lại
+
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>Increment: {count}</button>
+      <Child handleClick={handleClick} />
+    </div>
+  );
+}
+
+function Child({ handleClick }) {
+  console.log("Child rendered");
+  return <button onClick={handleClick}>Click me</button>;
+}
+
+export default Parent;
+
+Trong ví dụ này, handleClick không bị tạo lại khi Parent render, giúp tránh việc render lại không cần thiết của Child.

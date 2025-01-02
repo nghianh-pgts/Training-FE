@@ -1,0 +1,29 @@
+#Vòng đời của một component
+- Mô tả các giai đoạn từ khi component được khởi tạo, hiển thị, cập nhật, đến khi bị hủy bỏ.
+- Mỗi giai đoạn cung cấp các lifecircle methods hoặc hooks để can thiệp vào quá trình xử lý.
+
+#Các giai đoạn trong vòng đời
+- Một component trải qua 3 giai đoạn chính:
++ 1. Mounting(Gắn vào DOM) : Component được khởi tạo và hiển thị lần đầu trong DOM
++ 2. Updating (Cập nhật DOM) : Được cập nhật khi props hoặc state thay đổi
++ 3. Unmounting (Gỡ khỏi DOM) : Component bị gỡ khỏi DOM
+
+#Chi tiết vòng đời trong Class Component
+- Mounting: ComponentDidMount()
+- Updating: ComponentDidUpdating(prevProps, prevState, snapshot)
+- Unmounting: componentWillUnmount();
+
+#Chi tiết vòng đời trong Function Component
+- Trong Function Component, sử dụng React Hooks để thay thế các lifecircle methods trong Class Component
+
+- 1. Mounting (Gắn vào DOM lần đầu)
++ dùng useEffect() với dependency array rỗng ([]) để thay thế componentDidMount
++ Chạy một lần duy nhất sau khi component được render vào DOM.
+
+- 2. Updating (Cập nhật DOM)
++ dùng useEffect() với dependency array chứa các giá trị cần theo dõi để thay thế ComponentDidUpdate()
++ mỗi lần giá trị trong dependency array thay đổi, React sẽ chạy lại callback của useEffect() ~ ComponentDidUpdate()
+
+- 3. Unmounting (Gỡ khỏi DOM)
++ dùng useEffect() với một hàm cleanup bên trong để thay thế componentWillUnmount()
++ Hàm cleanup (return () => {...}) chỉ chạy khi component bị gỡ khỏi DOM.

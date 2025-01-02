@@ -1,0 +1,48 @@
+#useMemo
+- useMemo là một hook trong React, được sử dụng để ghi nhớ (memoize) kết quả của một hàm tính toán phức tạp.
+ Điều này giúp cải thiện hiệu suất bằng cách tránh việc thực hiện lại các tính toán nặng nề khi không cần thiết.
+
+cú pháp:
++ const memoizedValue = useMemo(() => computeExpensiveValue(dependencies), [dependencies]);
+
+    + memoizedValue: Giá trị đã được ghi nhớ.
+    + computeExpensiveValue: Một hàm tính toán phức tạp.
+    + dependencies: Danh sách các phụ thuộc. Kết quả tính toán chỉ được làm mới nếu một trong các phụ thuộc này thay đổi.
+
+#khi nào nên dùng?
+- Tối ưu hóa tính toán nặng: nếu một hàm tính toán được gọi lại nhiều lần, dùng useMemo để tránh tính toán lại không cần thiết
+- Tránh render không cần thiết: Khi giá trị tính toán được truyền xuống component con qua props, useMemo giúp đảm bảo giá trị không bị thay đổi nếu không cần thiết.
+
+ví dụ:
+    function App() {
+    const [count, setCount] = useState(0);
+    const [input, setInput] = useState("");
+
+    const computeExpensiveValue = (num) => {
+        console.log("Computing...");
+        return num * 2;
+    };
+
+    const memoizedValue = useMemo(() => computeExpensiveValue(count), [count]);
+
+    return (
+        <div>
+        <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+        />
+        <button onClick={() => setCount(count + 1)}>Increment: {count}</button>
+        <p>Computed Value: {memoizedValue}</p>
+        </div>
+    );
+    }
+
+    export default App;
+
+    - Với useMemo, computeExpensiveValue chỉ được gọi lại khi count thay đổi, giúp cải thiện hiệu suất.
+
+#Lưu ý:
+- Không lạm dụng: Chỉ sử dụng useMemo khi việc tính toán thực sự nặng và ảnh hưởng hiệu suất.
+- Kết hợp đúng cách: Khi kết hợp với React.memo, useMemo giúp ngăn render lại không cần thiết của component con.
+- Đừng thay thế logic cơ bản: Nếu một hàm đơn giản hoặc không ảnh hưởng hiệu suất, không cần thiết phải dùng useMemo.

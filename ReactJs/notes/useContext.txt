@@ -1,0 +1,66 @@
+#Khái niệm context
+- giúp đơn giản hóa việc truyền dữ liệu từ component cha xuống component con mà không cần truyền props qua nhiều cấp (hay còn gọi là props drilling).
+- Context thường được dùng khi bạn muốn cung cấp dữ liệu chung, như thông tin người dùng, theme, hoặc ngôn ngữ, cho nhiều component trong ứng dụng.
+
+#Cách hoạt động của Context
+1. Tạo Context: Sử dụng 'React.createContext()' để tạo ra một context
+2. Provider: Component cung cấp giá trị cho Context
+3. Consumer: Component tiêu thụ giá trị từ Context.
+
+ví dụ: 
+    1. Tạo Context
+    const UserContext = createContext();
+
+    2. Sử dụng provider để cung cấp giá trị
+
+    function App() {
+    const user = { name: "Nguyễn Hữu Nghĩa" };
+
+    return (
+        <UserContext.Provider value={user}>
+        <Child />
+        </UserContext.Provider>
+    );
+    }
+
+    3. Sử dụng Consumer để truy cập giá trị
+    
+    function Child() {
+    return (
+        <UserContext.Consumer>
+        {(user) => <p>Welcome, {user.name}!</p>}
+        </UserContext.Consumer>
+    );
+    }
+
+
+
+#useContext()
+- useContext được sử dụng để truy cập giá trị từ React Context.
+- Nó giúp các component tiêu thụ (consume) dữ liệu được cung cấp bởi một Context mà không cần phải truyền props qua nhiều cấp.
+
+#Cú pháp
+    - const value = useContext(MyContext);
+    + MyContext: Được tạo ra bằng React.createContext.
+    + value: Giá trị hiện tại của Context, có thể được cung cấp bởi một Context.Provider.
+
+#ví dụ sử dụng Context với useContext():
+
+        import React, { createContext, useContext } from "react";
+
+        const UserContext = createContext();
+
+        function App() {
+        const user = { name: "Nguyễn Hữu Nghĩa" };
+
+        return (
+            <UserContext.Provider value={user}>
+            <Child />
+            </UserContext.Provider>
+        );
+        }
+
+        function Child() {
+        const user = useContext(UserContext);
+        return <p>Welcome, {user.name}!</p>;
+        }
