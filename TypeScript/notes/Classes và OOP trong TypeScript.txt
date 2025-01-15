@@ -1,0 +1,21 @@
+#Định nghĩa class:
+    class Person {
+        private name: string;
+        constructor(name: string) {
+            this.name = name;
+        }
+        greet() {
+            console.log(`Hello, ${this.name}`);
+        }
+    }
+    let person = new Person("Nghia");
+    person.greet();
+
+#Thuộc tính
+    + public: Mặc định.
+
+    + private: Chỉ truy cập được trong class.
+
+    + protected: Truy cập được trong class và lớp dẫn xuất.
+
+    + readonly: Chỉ đọc.

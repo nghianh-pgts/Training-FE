@@ -1,0 +1,5 @@
+- Một commit trong một Git repository (kho chứa) lưu trữ một ảnh chụp của tất cả các file trong thư mục của bạn. Như kiểu copy và paste cỡ bự, thậm chí còn tốt hơn thế
+- Thế nhưng Git muốn giữ cho các commit nhẹ hết mức có thể, cho nên Git không copy tất cả thư mục một cách mù quáng mỗi khi bạn commit. Nó có thể (khi khả dĩ) nén commit như một tập hợp các thay đổi, hay là một "bản so sánh", giữa một phiên bản kho chứa Git với phiên bản tiếp theo.
+-Đồng thời Git cũng lưu trữ lịch sử commit nào được tạo ra lúc nào. Đó là tại sao hầu hết các commit có commit tổ tiên phía trên nó -- chúng tôi đã hình tượng hóa mối quan hệ này bằng các mũi tên. Trong cộng tác nhóm thì việc gìn giữ lịch sử là rất có ích!
+
+- có thể hiểu commit vừa được tạo dựa trên commit cũ hơn

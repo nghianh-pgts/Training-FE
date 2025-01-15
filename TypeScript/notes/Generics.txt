@@ -1,0 +1,15 @@
+- Generics cho phép xây dựng các thành phần có thể hoạt động với nhiều kiểu dữ liệu khác nhau.
+
+#Generics trong hàm:
+    function identity<T>(arg: T): T {
+        return arg;
+    }
+    console.log(identity<string>("Hello")); // Output: Hello
+    console.log(identity<number>(42));      // Output: 42
+
+#Ràng buộc Generics:
+    function loggingIdentity<T extends { length: number }>(arg: T): T {
+    console.log(arg.length);
+    return arg;
+}
+loggingIdentity("Hello"); // Output: 5

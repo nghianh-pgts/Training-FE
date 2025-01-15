@@ -1,0 +1,8 @@
+#Tham chiếu tương đối:
+- Dịch chuyển lên 1 commit mỗi lần với ^:
++  Mỗi lần bạn nối nó với một cái tên tham chiếu, bạn đang ra lệnh cho Git tìm kiếm cha của một commit cụ thể.
++ Cho nên main^ nghĩa là "cha đầu tiên của main", main^^ là ông nội (tổ tiên thế hệ 2) của main
+
+- Dịch chuyển lên nhiều commit mỗi lần với ~<số>
++ Giả sử bạn muốn leo lên nhiều cấp trong Git. Dùng ^ vài lần thì tù lắm, nên Git đã có dấu ngã (~) cho việc đó.
++ Theo sau toán tử ngã (~) là số lượng cha ông mà bạn muốn leo lên (không bắt buộc).

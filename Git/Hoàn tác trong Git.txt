@@ -1,0 +1,16 @@
+Có 2 cách cơ bản để hủy thay đổi trong Git:
+-  một là dùng git reset
+-  hai là dung git revert
+
+#Git reset
+- hoàn tác bằng cách chuyển tham chiếu của nhánh ngược lên commit cũ hơn. có thể hiểu nó như kiểu "viết lại lịch sử
+- git reset sẽ dịch chuyển nhánh lên trên như thể commit chưa bao giờ được tạo ra vậy.
+
+#Git revert
+- Trong khi git reset hoạt động rất tốt tại nhánh cục bộ trên máy cá nhân, cách thức "viết lại lịch sử" chẳng hề có tác dụng lên nhánh ở từ xa mà người khác sử dụng.
+- Để có thể hoàn tác và chia sẻ hoàn tác đó với người khác, thì ta cần sử dụng git revert. 
+
+vd: git revert HEAD -> revert commit HEAD sang 1 commit mới
+
+
+

@@ -1,0 +1,11 @@
+#Git cherry-pick
+
+cú pháp: git cherry-pick <Commit1> <Commit2> <...>
+
+- là cách rất trực tiếp để copy một loạt commit xuống dưới vị trí hiện tại của bạn (HEAD). 
+
+#Git rebase tương tác
+- dùng lệnh rebase với tùy chọn -i. Nếu lệnh có bao hàm tùy chọn này, Git sẽ mở một giao diện người dùng để cho bạn biết những commit nào sẽ được sao chép xuống dưới mục tiêu rebase.
+- Nó cũng đồng thời thể hiện mã băm và thông điệp của commit, điều này thật tuyệt bởi nhờ đó ta có thể phân biệt được chúng.
+
+cú pháp: git rebase -i HEAD~4

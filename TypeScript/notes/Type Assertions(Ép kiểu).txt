@@ -1,0 +1,6 @@
+- Type assertions dùng để ép kiểu biến mà TypeScript không tự suy diễn được:
+
+vd:
+    let someValue: any = "This is a string";
+    let strLength: number = (someValue as string).length;
+    console.log(strLength); // 16

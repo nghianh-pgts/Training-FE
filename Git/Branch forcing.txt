@@ -1,0 +1,5 @@
+- có thể trực tiếp gán lại nhánh cho commit với cú pháp -f. Kiểu như thế này:
+    git branch -f main HEAD~3
+
+dịch chuyển (ép buộc) nhánh main lên 3 commit phía trên HEAD.
+

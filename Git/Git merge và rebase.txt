@@ -1,0 +1,9 @@
+#Git merge
+- Merge trong Git là tạo ra một commit đặc biệt mà có 2 người cha độc nhất.
+- Một commit mà có 2 cha căn bản nghĩa là "Tôi muốn có thành quả của ông này và ông kia nữa, và tất cả ông cha của họ."
+
+- lệnh gộp nhánh hiện tại với nhánh khác: git merge [ten-nhanh]
+
+#Git rebase
+- Cách thứ 2 để kết hợp thành quả của 2 nhánh là rebase. Rebase về căn bản là chọn một loạt các commit, "sao chép" chúng, và ném chúng sang chỗ khác.
+- lợi thế của rebase là có thể tạo ra cây lịch sử thẳng tuột. Lịch sử commit nhìn sẽ gọn gàng hơn nhiều.

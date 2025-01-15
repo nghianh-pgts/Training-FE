@@ -1,0 +1,16 @@
+- Các tham số tuỳ chọn (Optional Parameters) được khai báo bằng cách thêm dấu ? sau tên tham số. Điều này cho phép hàm được gọi mà không cần truyền giá trị cho tham số đó.
+
+ví dụ:
+        function printDetails(name: string, age?: number): void {
+            if (age !== undefined) {
+                console.log(`${name} is ${age} years old.`);
+            } else {
+                console.log(`${name} prefers not to share their age.`);
+            }
+        }
+
+        printDetails("Nghia"); // Output: Nghia prefers not to share their age.
+        printDetails("Nghia", 25); // Output: Nghia is 25 years old.
+
+#Lưu ý:
+- Các tham số tuỳ chọn phải được khai báo sau tất cả các tham số bắt buộc.

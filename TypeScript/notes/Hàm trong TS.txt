@@ -1,0 +1,10 @@
+#Định nghĩa kiểu
+    function add(a: number, b: number): number {
+    return a + b;
+}
+
+#Optional và Default Parameters:
+    function greet(name: string, message: string = "Hello"): void {
+        console.log(`${message}, ${name}`);
+    }
+    greet("Nghia");

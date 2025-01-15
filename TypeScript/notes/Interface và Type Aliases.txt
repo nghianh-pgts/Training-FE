@@ -1,0 +1,22 @@
+#Interface:
+    interface User {
+    id: number;
+    name: string;
+    age?: number; // Thuộc tính tùy chọn
+}
+
+let user: User = {
+    id: 1,
+    name: "Nghia"
+};
+
+#Type alias:
+    type Point = {
+        x: number;
+        y: number;
+    };
+    let p: Point = { x: 10, y: 20 };
+
+#Khác biệt:
+    + Interface có thể được mở rộng.
+    + Type Alias không hỗ trợ mở rộng sau khi định nghĩa.

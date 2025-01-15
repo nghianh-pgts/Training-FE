@@ -1,0 +1,21 @@
+TypeScript là một ngôn ngữ lập trình mã nguồn mở được phát triển bởi Microsoft, là phần mở rộng của JavaScript, bổ sung tính năng kiểm tra kiểu tĩnh (static typing).
+
+Lợi ích:
+
++ Phát hiện lỗi ngay trong quá trình phát triển.
+
++ Hỗ trợ IDE tốt hơn (IntelliSense).
+
++ Dễ bảo trì, mở rộng dự án lớn.
+
+#Cài đặt TypeScript:
+    npm install -g typescript
+
+#Biên dịch TypeScript sang JavaScript: (cần biên dịch vì trình duyệt chỉ hiểu HTML/CSS và JS thuần)
+    // Tệp: example.ts
+    let message: string = "Hello, TypeScript!";
+    console.log(message);
+
+    tsc example.ts
+
+Kết quả sẽ tạo tệp example.js.

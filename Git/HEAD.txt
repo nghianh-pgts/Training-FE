@@ -1,0 +1,13 @@
+- HEAD là cái tên biểu tượng cho commit hiện tại đang được trỏ đến -- về căn bản nó là commit mà bạn đang làm việc.
+- HEAD luôn luôn trỏ đến commit gần nhất được phản ánh trong cây làm việc. Hầu hết các lệnh Git mà làm thay đổi nội dung cây làm việc thường bắt đầu với HEAD.
+- Bình thường HEAD trỏ tới tên nhánh (ví dụ bugFix). Khi bạn commit, trạng thái của bugFix được thay đổi và thay đổi này được trông thấy thông qua HEAD.
+
+#Tháo HEAD
+- Tháo HEAD đơn giản nghĩa là dán nó vào một commit thay vì một nhánh.
+
+-cú pháp: git checkout [mã băm của commit (lấy bằng git log)]
+
+
+
+
+

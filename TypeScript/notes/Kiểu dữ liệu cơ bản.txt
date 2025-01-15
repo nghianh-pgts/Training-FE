@@ -1,0 +1,34 @@
+#Các kiểu dữ liệu cơ bản trong TypeScript
+- number: let age: number = 25;
+- string: let name: string = 'Nguyen Huu Nghia';
+- boolean: let isAdmin: boolean = true;
+- any(cho phép mọi kiểu dữ liệu): 
+    let randomValue: any = 10;
+    randomValue = "Hello" //hợp lệ
+- unknow(giống any nhưng cần kiểm tra kiểu trước khi sử dụng)
+    let someValue: unknown = "Hello";
+    if (typeof someValue === "string") {
+        console.log(someValue.toUpperCase());
+    }
+
+-null và undefined:
+    let u: undefined = undefined;
+    let n: null = null;
+
+-void (hàm không trả về giá trị):
+    function logMessage(message: string): void {
+        console.log(message);
+    }
+
+- enum (tập hợp các hằng số):
+    enum Color {
+        Red,
+        Green,
+        Blue
+    }
+    let c: Color = Color.Green;
+
+- Union:
+    let id: string | number;
+    id = "123"; // Hợp lệ
+    id = 123;    // Hợp lệ

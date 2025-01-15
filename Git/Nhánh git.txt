@@ -1,0 +1,8 @@
+- chỉ đơn giản là các con trỏ đến commit -- không hơn.
+- Bởi vì chẳng tốn bao nhiêu bộ nhớ cho việc rẽ nhánh cả và nó dễ dàng phân chia công việc hơn là có một cái nhánh to tổ chảng.
+- Khi bạn trộn lẫn commit và nhánh, bạn sẽ thấy chúng kết hợp với nhau thế nào. Hãy nhớ về cơ bản nhánh muốn nói "Tôi muốn thành quả trong commit này và tất cả cha ông của nó"
+
+- Lệnh tạo nhánh: git branch [ten-nhanh]
+- Lệnh Chuyển nhánh: git checkout [ten-nhanh] hoặc git switch [ten-nhanh]
+
+- lệnh tạo và chuyển sang nhánh đó: git checkout -b [ten-nhanh]
