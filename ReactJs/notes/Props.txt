@@ -3,7 +3,7 @@
 - props (viết tắt của "properties") là một cơ chế để truyền dữ liệu từ parent component (component cha) sang child component (component con). Props đóng vai trò như các tham số trong hàm, giúp component cha giao tiếp với component con. 
 
 -  children props là một thuộc tính đặc biệt được sử dụng để truyền nội dung (hoặc các thành phần con) giữa thẻ mở và thẻ đóng của một component.
-    + Khi bạn truyền bất kỳ nội dung nào giữa thẻ mở và thẻ đóng của một component, nội dung đó được tự động gán vào children props.
+    + Khi bạn truyền bất kỳ nội dung hoặc component nào giữa thẻ mở và thẻ đóng của một component, nội dung đó được tự động gán vào children props.
 
 - React elements
     + Sử dụng props giống như với Attributes của thẻ html
