@@ -1,0 +1,29 @@
+#Fetch dùng làm gì
+- git fetch thực hiện 2 bước chính, và chỉ 2 bước chính. Nó:
++ tải xuống commit có trên kho chứa từ xa mà kho chứa cục bộ của ta không có, và...
++ cập nhật nơi mà nhánh từ xa của ta trỏ tới (ví dụ nhánh o/main)
+
+**Lệnh git fetch lấy trạng thái mới nhất từ kho chứa từ xa (remote repository), bao gồm các commit, nhánh, và tag, nhưng không thay đổi trạng thái hiện tại của bạn trên kho chứa local.
+**Nó chỉ cập nhật dữ liệu trong vùng remote-tracking để bạn có thể kiểm tra các thay đổi trước khi thực hiện hành động tiếp theo, chẳng hạn như merge hoặc rebase.
+
+Ví dụ minh họa:
+- 1. Cấu hình ban đầu
+Giả sử bạn có một repository với nhánh chính (main) và bạn đã clone từ một repository từ xa.
+    + Trạng thái hiện tại (Local): Bạn đang ở commit A trên nhánh main.
+    + Trạng thái từ xa (Remote): Repository từ xa có các commit mới B và C mà bạn chưa có trên local.
+- 2. Chạy lệnh git fetch
+    git fetch origin
+    + Lệnh này lấy các commit B và C từ repository từ xa và cập nhật vùng remote-tracking, cụ thể là nhánh origin/main (theo dõi nhánh main từ xa).
+    + Tuy nhiên, nhánh main trên local của bạn vẫn ở commit A. Không có thay đổi nào trên working directory hoặc staging area.
+- 3. Kiểm tra trạng thái sau khi fetch
+Sau khi fetch, bạn có thể kiểm tra sự khác biệt giữa main trên local và origin/main: git log main..origin/main
+Lệnh này hiển thị các commit mới (B, C) có trên origin/main mà local của bạn chưa có.
+
+- 4. Quyết định hành động tiếp theo
+Nếu bạn muốn đồng bộ hóa với remote:
+    + Dùng git merge origin/main để merge các thay đổi từ xa vào nhánh main của bạn.
+    + Hoặc dùng git pull, thực hiện cả fetch và merge trong một lệnh.
+
+#Tổng kết:
+    + git fetch chỉ lấy dữ liệu từ xa và không làm thay đổi gì trên nhánh hiện tại của bạn.
+    + Bạn có toàn quyền quyết định sau khi fetch xem có muốn đồng bộ với remote hay không.
