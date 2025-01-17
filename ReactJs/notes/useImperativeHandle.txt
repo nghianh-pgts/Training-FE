@@ -13,3 +13,60 @@
 - Bạn muốn cung cấp các phương thức cụ thể để cha có thể gọi thay vì toàn bộ DOM node.
 - Cần kiểm soát trực tiếp DOM hoặc trạng thái bên trong của một thành phần con.
 
+ví dụ cụ thể:
+#Component cha:
+        import React, { useRef } from "react";
+        import ChildComponent from "./ChildComponent";
+
+        function ParentComponent() {
+        const childRef = useRef();
+
+        const handleClick = () => {
+            // Gọi phương thức trong component con
+            if (childRef.current) {
+            childRef.current.focusInput();
+            }
+        };
+
+        return (
+            <div>
+            <button onClick={handleClick}>Focus Input</button>
+            <ChildComponent ref={childRef} />
+            </div>
+        );
+        }
+
+        export default ParentComponent;
+
+#Component con:
+        import React, { useImperativeHandle, useRef, forwardRef } from "react";
+
+        const ChildComponent = forwardRef((props, ref) => {
+        const inputRef = useRef();
+
+        // Tùy chỉnh các phương thức mà cha có thể truy cập
+        useImperativeHandle(ref, () => ({
+            focusInput() {
+            inputRef.current.focus();
+            },
+            clearInput() {
+            inputRef.current.value = "";
+            },
+        }));
+
+        return (
+            <div>
+            <input ref={inputRef} type="text" placeholder="Type something..." />
+            </div>
+        );
+        });
+
+        export default ChildComponent;
+
+Giải thích
+ParentComponent:
+    + Tạo một ref (childRef) để tham chiếu đến ChildComponent.
+    + Khi nhấn nút, phương thức focusInput trong ChildComponent được gọi thông qua childRef.
+ChildComponent:
+    + Dùng useImperativeHandle để expose hai phương thức: focusInput và clearInput.
+    + Các phương thức này thao tác trên inputRef.

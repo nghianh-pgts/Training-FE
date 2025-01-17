@@ -60,7 +60,7 @@ const reducerUser = (state, action) => {
 };
 
 const getUsers = async () => {
-  usersDispatch({ type: "GET_USER_REQUEST" });
+  // usersDispatch({ type: "GET_USER_REQUEST" });
 
   const response = await fetch("https://jsonplaceholder.typicode.com/users");
   if (!response.ok) {

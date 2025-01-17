@@ -23,3 +23,11 @@
 - Booleans, undefined, null sẽ không được render
 
 #
+
+
+for(int i=0;i<n;i++){
+    for(int j=i+1;j<n;j++){
+        curr = a[j]-a[i];
+        
+    }
+}
