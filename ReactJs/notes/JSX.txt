@@ -14,4 +14,5 @@ có thể sử dụng cú pháp React fragment <> </>
 
 -Thuộc tính (Attributes) trong JSX : Các thuộc tính trong JSX sử dụng cú pháp giống với JavaScript:
 
-- thư viện babel: Babel là một trình biên dịch JavaScript phổ biến, được sử dụng để chuyển đổi mã JavaScript hiện đại (ES6+ hoặc JSX) thành mã JavaScript tương thích với các trình duyệt cũ hơn hoặc môi trường không hỗ trợ các tính năng mới nhất. Babel thường được sử dụng trong các dự án React để chuyển đổi JSX và các cú pháp ES6+.
+- thư viện babel: Babel là một trình biên dịch JavaScript phổ biến, được sử dụng để chuyển đổi mã JavaScript hiện đại (ES6+ hoặc JSX) 
+thành mã JavaScript tương thích với các trình duyệt cũ hơn hoặc môi trường không hỗ trợ các tính năng mới nhất. Babel thường được sử dụng trong các dự án React để chuyển đổi JSX và các cú pháp ES6+.
