@@ -1,6 +1,8 @@
 package com.example.MUJI_backend.controller;
 
+import com.example.MUJI_backend.dto.response.SubcategoryResponse;
 import com.example.MUJI_backend.entity.Subcategory;
+import com.example.MUJI_backend.mapper.SubcategoryMapper;
 import com.example.MUJI_backend.service.SubCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,11 +13,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/subcategories")
+@CrossOrigin(origins = "http://localhost:3000")
 public class SubCategoryController {
 
     @Autowired
     private SubCategoryService subCategoryService;
 
+    @Autowired
+    private SubcategoryMapper subcategoryMapper;
     // Get all subcategories
     @GetMapping
     public ResponseEntity<List<Subcategory>> getAllSubcategories() {
@@ -25,9 +30,9 @@ public class SubCategoryController {
 
     // Get subcategory by ID
     @GetMapping("/{id}")
-    public ResponseEntity<Subcategory> getSubcategoryById(@PathVariable("id") String subcategoryId) {
+    public ResponseEntity<SubcategoryResponse> getSubcategoryById(@PathVariable("id") String subcategoryId) {
         Subcategory subcategory = subCategoryService.getSubcategoryById(subcategoryId);
-        return new ResponseEntity<>(subcategory, HttpStatus.OK);
+        return new ResponseEntity<>(subcategoryMapper.subcategoryToSubcategoryResponse(subcategory), HttpStatus.OK);
     }
 
     // Create new subcategory

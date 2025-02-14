@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -20,9 +22,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String userId;
 
-    private String firstName;
-
-    private String lastName;
+    private String fullName;
 
     private String email;
 
@@ -32,9 +32,21 @@ public class User {
 
     private String address;
 
-    private Date created_at;
+    private LocalDate dob;
+
+    private String gender;
+
+    private LocalDate created_at;
 
     private Date update_at;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles;
 
     // Một người dùng có thể có nhiều đơn hàng
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)

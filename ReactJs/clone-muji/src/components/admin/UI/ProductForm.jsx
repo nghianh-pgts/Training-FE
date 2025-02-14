@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useCRUD from "../../../Hooks/useCRUD";
 
-const ProductForm = ({ initialData = {}, onChange }) => {
+const ProductForm = ({ initialData = {}, onChange, isOpen }) => {
   const [formData, setFormData] = useState({
     productName: "",
     productDescription: "",
@@ -16,20 +16,27 @@ const ProductForm = ({ initialData = {}, onChange }) => {
 
   const { data: categories, fetchData } = useCRUD("categories");
 
-  // Cập nhật formData khi initialData thay đổi
   useEffect(() => {
-    setFormData({
-      productName: "",
-      productDescription: "",
-      price: "",
-      stock: "",
-      discount: "",
-      category: "",
-      subcategory: "",
-      imageUrls: "",
-      ...initialData,
-    });
-  }, [initialData]);
+    // Nếu initialData có productId và khác với dữ liệu hiện tại, mới cập nhật.
+    if (initialData?.productId && isOpen) {
+      setFormData({
+        productName: "",
+        productDescription: "",
+        price: "",
+        stock: "",
+        discount: "",
+        category: "",
+        subcategory: "",
+        imageUrls: "",
+        ...initialData,
+      });
+    }
+  }, [isOpen]);
+
+  // Mỗi khi formData thay đổi, gọi callback onChange (nếu có)
+  useEffect(() => {
+    if (onChange) onChange(formData);
+  }, [formData, onChange]);
 
   // State chứa danh sách subcategory tương ứng với category được chọn
   const [availableSubcategories, setAvailableSubcategories] = useState([]);
@@ -56,11 +63,6 @@ const ProductForm = ({ initialData = {}, onChange }) => {
       setFormData((prev) => ({ ...prev, subcategory: "" }));
     }
   }, [formData.category, categories, formData.subcategory]);
-
-  // Mỗi khi formData thay đổi, gọi callback onChange (nếu có)
-  //   useEffect(() => {
-  //     if (onChange) onChange(formData);
-  //   }, [formData, onChange]);
 
   useEffect(() => {
     fetchData();

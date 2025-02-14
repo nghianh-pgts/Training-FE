@@ -18,6 +18,7 @@ import java.util.List;
 @RestController
 @NoArgsConstructor
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000") // Cho phép truy cập từ localhost:3000
 
 public class ProductController {
     @Autowired
@@ -25,7 +26,7 @@ public class ProductController {
 
 
     @GetMapping
-    public ResponseEntity<List<Product>>  getAllProduct(){
+    public ResponseEntity<List<ProductResponse>>  getAllProduct(){
         return ResponseEntity.status(HttpStatus.OK).body(productService.getAllProducts());
     }
 
@@ -36,9 +37,23 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(productById);
     }
 
+    @GetMapping("/subcategory/{subcategoryId}")
+    public ResponseEntity<List<ProductResponse>> getProductBySubcateogyId(@PathVariable("subcategoryId") String subcategoryId){
+        List<ProductResponse> productBySubcategoryId = productService.getAllProductBySubcategoryId(subcategoryId);
+
+        return ResponseEntity.status(HttpStatus.OK).body(productBySubcategoryId);
+    }
+
+    @GetMapping("/category/{categoryId}")
+    public ResponseEntity<List<ProductResponse>> getProductsByCategoryId(@PathVariable("categoryId") String categoryId){
+        List<ProductResponse> productByCategoryId = productService.getAllProductByCategoryId(categoryId);
+
+        return ResponseEntity.status(HttpStatus.OK).body(productByCategoryId);
+    }
+
     @PostMapping
-    public ResponseEntity<Product> addProduct(@RequestBody Product product){
-        Product addedProduct = productService.addProduct(product);
+    public ResponseEntity<ProductResponse> addProduct(@RequestBody Product product){
+        ProductResponse addedProduct = productService.addProduct(product);
         return ResponseEntity.status(HttpStatus.CREATED).body(addedProduct);
     }
 

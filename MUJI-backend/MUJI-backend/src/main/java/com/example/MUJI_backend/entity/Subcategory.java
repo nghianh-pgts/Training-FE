@@ -29,7 +29,7 @@ public class Subcategory {
     @JsonBackReference
     private Category category;
 
-    @OneToMany(mappedBy = "subcategory", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "subcategory", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JsonManagedReference  // Sẽ serialize danh sách product
     private List<Product> productList;
 }

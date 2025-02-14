@@ -4,6 +4,7 @@ import com.example.MUJI_backend.dto.request.ProductUpdateRequest;
 import com.example.MUJI_backend.dto.response.ProductResponse;
 import com.example.MUJI_backend.entity.Product;
 import com.example.MUJI_backend.entity.Subcategory;
+import com.example.MUJI_backend.mapper.ProductMapper;
 import com.example.MUJI_backend.repository.ProductRepository;
 import com.example.MUJI_backend.repository.SubCategoryRepository;
 import jakarta.transaction.Transactional;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @NoArgsConstructor
@@ -26,22 +28,33 @@ public class ProductService {
     @Autowired
     private SubCategoryRepository subCategoryRepository;
 
+    @Autowired
+    private ProductMapper productMapper;
 
-    public List<Product> getAllProducts()  {
+
+    public List<ProductResponse> getAllProducts()  {
 
         List<Product> products = productRepository.findAll();
 
-        return products;
+        return products.stream().map((p)->productMapper.productToProductResponse(p)).collect(Collectors.toList());
     }
 
-    public Product addProduct(Product product){
+    public ProductResponse addProduct(Product product){
+
+        String subcategoryId = product.getSubcategory().getSubcategoryId();
+
+
+        Subcategory persistentSubcategory = subCategoryRepository.findById(subcategoryId)
+                .orElseThrow(() -> new RuntimeException("Subcategory not found"));
+
+        product.setSubcategory(persistentSubcategory);
         Product addProduct  = productRepository.save(product);
 
         if(addProduct==null){
 
         }
 
-        return addProduct;
+        return productMapper.productToProductResponse(addProduct);
 
     }
 
@@ -82,5 +95,27 @@ public class ProductService {
 
     public void deleteProductById(String productId) {
         productRepository.deleteById(productId);
+    }
+
+    public List<ProductResponse> getAllProductBySubcategoryId(String subcategoryId){
+        try {
+            List<Product> products =  productRepository.findBySubcategory_SubcategoryId(subcategoryId);
+            return products.stream().map((p)->productMapper.productToProductResponse(p)).collect(Collectors.toList());
+        }catch (Exception e){
+            e.printStackTrace();
+            throw new RuntimeException("Lỗi lấy danh sách Product với subcategoryId");
+        }
+
+    }
+
+    public List<ProductResponse> getAllProductByCategoryId(String CategoryId){
+        try {
+            List<Product> products =  productRepository.findBySubcategory_Category_CateId(CategoryId);
+            return products.stream().map((p)->productMapper.productToProductResponse(p)).collect(Collectors.toList());
+        }catch (Exception e){
+            e.printStackTrace();
+            throw new RuntimeException("Lỗi lấy danh sách Product với categoryId");
+        }
+
     }
 }

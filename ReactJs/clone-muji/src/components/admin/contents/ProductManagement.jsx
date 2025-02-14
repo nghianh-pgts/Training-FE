@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TableData from "../UI/TableData";
 import { IoMdAddCircle } from "react-icons/io";
 import Modal from "../UI/Modal";
+import useCRUD from "../../../Hooks/useCRUD";
+import { data } from "react-router-dom";
+import ProductForm from "../UI/ProductForm";
 
 const colTitles = [
   "mã sản phẩm",
@@ -9,109 +12,128 @@ const colTitles = [
   "hình ảnh",
   "giá",
   "số lượng",
+  "Danh mục",
   "ngày tạo",
   "action",
-];
-
-const products = [
-  {
-    id: "SP001",
-    name: "Giày thể thao nam",
-    image: "https://via.placeholder.com/150",
-    price: 1200000,
-    quantity: 10,
-    createdAt: "2024-02-10",
-    action: "Edit | Delete",
-  },
-  {
-    id: "SP002",
-    name: "Giày sneaker nữ",
-    image: "https://via.placeholder.com/150",
-    price: 950000,
-    quantity: 15,
-    createdAt: "2024-02-08",
-    action: "Edit | Delete",
-  },
-  {
-    id: "SP003",
-    name: "Giày lười nam",
-    image: "https://via.placeholder.com/150",
-    price: 850000,
-    quantity: 20,
-    createdAt: "2024-02-07",
-    action: "Edit | Delete",
-  },
-  {
-    id: "SP004",
-    name: "Giày cao gót nữ",
-    image: "https://via.placeholder.com/150",
-    price: 1100000,
-    quantity: 12,
-    createdAt: "2024-02-06",
-    action: "Edit | Delete",
-  },
-  {
-    id: "SP005",
-    name: "Giày chạy bộ",
-    image: "https://via.placeholder.com/150",
-    price: 1350000,
-    quantity: 8,
-    createdAt: "2024-02-05",
-    action: "Edit | Delete",
-  },
 ];
 
 const ProductManagement = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState(""); // "add", "edit", "delete"
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  // State chứa dữ liệu form (dùng cho add/edit và truyền vào xác nhận xóa nếu cần)
+  const [productFormData, setProductFormData] = useState({});
+  // Sử dụng custom hook cho resource "products"
+  const {
+    data: products,
+    loading,
+    error,
+    fetchData,
+    createItem,
+    updateItem,
+    deleteItem,
+  } = useCRUD("products");
 
-  const [newProduct, setNewProduct] = useState({
-    id: "",
-    name: "",
-    image: "",
-    price: "",
-    quantity: "",
-  });
-
-  //   const handleOpenModal = () => setIsModalOpen(true);
+  useEffect(() => {
+    fetchData();
+    console.log(products);
+  }, []);
 
   // Mở modal thêm sản phẩm
   const handleOpenAddModal = () => {
     setModalType("add");
-    setSelectedProduct(null); // Xóa dữ liệu cũ
+    setProductFormData({
+      productName: "",
+      productDescription: "",
+      price: "",
+      stock: "",
+      discount: "",
+      category: "",
+      subcategory: "",
+      imageUrls: "",
+    });
     setIsModalOpen(true);
   };
 
   // Mở modal chỉnh sửa sản phẩm
   const handleOpenEditModal = (product) => {
     setModalType("edit");
-    setSelectedProduct(product);
+    setProductFormData({
+      ...product,
+      // Nếu có, bạn có thể lưu thêm thông tin Category (ví dụ product.subcategory.categoryId)
+      category: product.subcategory?.categoryId || "",
+      subcategory: product.subcategory?.subcategoryId || "",
+
+      // Nếu imageUrls là mảng, chuyển thành chuỗi cách nhau bởi dấu phẩy
+      imageUrls: product.imageUrls ? product.imageUrls.join(", ") : "",
+    });
     setIsModalOpen(true);
   };
 
   // Mở modal xác nhận xóa
   const handleOpenDeleteModal = (product) => {
     setModalType("delete");
-    setSelectedProduct(product);
+    setProductFormData(product);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => setIsModalOpen(false);
 
-  const handleInputChange = (e) => {
-    setSelectedProduct({ ...selectedProduct, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (modalType === "add") {
-      console.log("Thêm sản phẩm:", selectedProduct);
+      const dataToSubmit = {
+        ...productFormData,
+        price: parseFloat(productFormData.price),
+        stock: parseInt(productFormData.stock, 10),
+        discount: parseFloat(productFormData.discount),
+        imageUrls: productFormData.imageUrls
+          .split(",")
+          .map((url) => url.trim())
+          .filter((url) => url !== ""),
+        // Xây dựng object subcategory theo id đã chọn
+        subcategory: {
+          subcategoryId: productFormData.subcategory,
+        },
+        // subcategory: productFormData.subcategory,
+      };
+
+      try {
+        await createItem(dataToSubmit);
+      } catch (error) {
+        console.error("Lỗi thêm sản phẩm:", error);
+      }
     } else if (modalType === "edit") {
-      console.log("Cập nhật sản phẩm:", selectedProduct);
+      const dataToSubmit = {
+        ...productFormData,
+        price: parseFloat(productFormData.price),
+        stock: parseInt(productFormData.stock, 10),
+        discount: parseFloat(productFormData.discount),
+        imageUrls: productFormData.imageUrls
+          .split(",")
+          .map((url) => url.trim())
+          .filter((url) => url !== ""),
+        subcategory: { subcategoryId: productFormData.subcategory },
+      };
+
+      try {
+        await updateItem(dataToSubmit.productId, dataToSubmit);
+        fetchData();
+      } catch (error) {
+        console.error("Lỗi sửa sản phẩm:", error);
+      }
     } else if (modalType === "delete") {
-      console.log("Xóa sản phẩm:", selectedProduct.id);
+      try {
+        await deleteItem(productFormData.productId);
+        await fetchData();
+      } catch (error) {
+        console.error("Lỗi xóa sản phẩm:", error);
+      }
     }
     handleCloseModal();
+  };
+
+  // Nhận dữ liệu form thay đổi từ ProductForm
+  const handleFormChange = (formData) => {
+    setProductFormData(formData);
   };
 
   return (
@@ -127,7 +149,12 @@ const ProductManagement = () => {
         </button>
       </div>
       <div className="w-full py-3">
-        <TableData colTitles={colTitles} data={products} />
+        <TableData
+          colTitles={colTitles}
+          data={products}
+          handleOpenEditModal={handleOpenEditModal}
+          handleOpenDeleteModal={handleOpenDeleteModal}
+        />
       </div>
 
       {/* Gọi Modal Component */}
@@ -142,50 +169,35 @@ const ProductManagement = () => {
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         onSubmit={handleSubmit}
-        handleOpenEditModal={handleOpenEditModal}
-        handleOpenDeleteModal={handleOpenDeleteModal}
+        modalType={modalType}
       >
         {modalType === "delete" ? (
-          <p>
-            Bạn có chắc chắn muốn xóa sản phẩm{" "}
-            <strong>{selectedProduct?.name}</strong> không?
-          </p>
+          <div>
+            <p>
+              Bạn có chắc chắn muốn xóa sản phẩm{" "}
+              <strong>{productFormData?.productName}</strong> không?
+            </p>
+            <div className="flex justify-end gap-2 mt-4">
+              <button
+                onClick={handleCloseModal}
+                className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+              >
+                Hủy
+              </button>
+              <button
+                onClick={handleSubmit}
+                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+              >
+                Xóa
+              </button>
+            </div>
+          </div>
         ) : (
           <>
-            <input
-              type="text"
-              name="id"
-              placeholder="Mã sản phẩm"
-              className="w-full p-2 border rounded mb-2"
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              name="name"
-              placeholder="Tên sản phẩm"
-              className="w-full p-2 border rounded mb-2"
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              name="image"
-              placeholder="Link hình ảnh"
-              className="w-full p-2 border rounded mb-2"
-              onChange={handleInputChange}
-            />
-            <input
-              type="number"
-              name="price"
-              placeholder="Giá sản phẩm"
-              className="w-full p-2 border rounded mb-2"
-              onChange={handleInputChange}
-            />
-            <input
-              type="number"
-              name="quantity"
-              placeholder="Số lượng"
-              className="w-full p-2 border rounded mb-2"
-              onChange={handleInputChange}
+            <ProductForm
+              isOpen={isModalOpen}
+              initialData={productFormData}
+              onChange={handleFormChange}
             />
           </>
         )}

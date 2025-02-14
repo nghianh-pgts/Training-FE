@@ -14,7 +14,7 @@ const RegisterPage = () => {
       />
       <InputControl
         label={"Mật khẩu"}
-        placeHolder={"Nhập email"}
+        placeHolder={"Nhập mật khẩu"}
         type={"text"}
       />
       <InputControl

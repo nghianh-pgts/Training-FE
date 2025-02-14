@@ -22,7 +22,7 @@ const TableData = ({
         <TableHead>
           <TableRow>
             {colTitles.map((name) => (
-              <TableCell align="right" sx={{ fontWeight: "bold" }}>
+              <TableCell align="right" sx={{ fontWeight: "bold" }} key={name}>
                 {name}
               </TableCell>
             ))}
@@ -31,13 +31,18 @@ const TableData = ({
         <TableBody>
           {data.map((row) => (
             <TableRow
-              key={row.id}
+              key={row.productId}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell align="right" component="th" scope="row">
-                {row.id}
+              <TableCell
+                align="right"
+                component="th"
+                scope="row"
+                className="truncate max-w-4 text-left"
+              >
+                {row.productId}
               </TableCell>
-              <TableCell align="right">{row.name}</TableCell>
+              <TableCell align="right">{row.productName}</TableCell>
               <TableCell align="right">
                 <img
                   className="ml-auto"
@@ -48,8 +53,11 @@ const TableData = ({
                 />
               </TableCell>
               <TableCell align="right">{row.price}</TableCell>
-              <TableCell align="right">{row.quantity}</TableCell>
-              <TableCell align="right">{row.createdAt}</TableCell>
+              <TableCell align="right">{row.stock}</TableCell>
+              <TableCell align="right">
+                {row.subcategory.subCategoryName}
+              </TableCell>
+              <TableCell align="right">{row.created_at}</TableCell>
               <TableCell align="right">
                 <div className="flex gap-2 justify-end">
                   <button

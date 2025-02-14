@@ -37,12 +37,10 @@ const useCRUD = (resource) => {
     }
   };
 
-  const updateItem = async (item) => {
+  const updateItem = async (id, item) => {
     try {
-      const response = await ApiService.put(`/${resource}/${item.id}`, item);
-      setData((prev) =>
-        prev.map((el) => (el.id === item.id ? response.data : el))
-      );
+      const response = await ApiService.put(`/${resource}/${id}`, item);
+      setData((prev) => prev.map((el) => (el.id === id ? response.data : el)));
       return response.data;
     } catch (err) {
       setError(err);

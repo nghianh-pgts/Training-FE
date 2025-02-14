@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const DropDownMenu = ({ items, isOpen }) => {
   return (
@@ -12,13 +13,16 @@ const DropDownMenu = ({ items, isOpen }) => {
       {items.subcategories.map((subcategory, index) => (
         <div key={index}>
           <h3 className="text-black font-semibold text-left cursor-pointer hover:text-[#80001c]">
-            {subcategory.name}
+            <Link to={`/category/${items.cateId}/${subcategory.subcategoryId}`}>
+              {" "}
+              {subcategory.subCategoryName}
+            </Link>
           </h3>
-          {subcategory.subcategoryProducts.map((product, idx) => (
+          {/* {subcategory.subcategoryProducts.map((product, idx) => (
             <p className="text-gray-600 text-left cursor-pointer hover:text-[#80001c]">
               {product.productName}
             </p>
-          ))}
+          ))} */}
         </div>
       ))}
     </div>

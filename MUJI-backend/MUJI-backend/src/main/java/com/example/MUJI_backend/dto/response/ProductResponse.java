@@ -1,5 +1,6 @@
 package com.example.MUJI_backend.dto.response;
 
+import com.example.MUJI_backend.entity.Subcategory;
 import lombok.*;
 
 import java.sql.Date;
@@ -16,11 +17,14 @@ public class ProductResponse {
     private Double price;
     private Integer stock;
     private Double discount;
-    private Date createdAt;
-    private Date updatedAt;
+    private Date created_at;
+    private Date updated_at;
     private List<String> imageUrls;
 
     // Thông tin danh mục con cần thiết để hiển thị trong form sửa sản phẩm
-    private String subcategoryId;
+//    private SubcategoryResponse subcategory;
+    private Subcategory subcategory;
+
+
 
 }

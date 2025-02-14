@@ -24,6 +24,10 @@ public class Category {
 
     private String description;
 
+    private String categoryImage;
+
+    private Boolean isActive;
+
     @OneToMany(mappedBy = "category",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<Subcategory> subcategories;

@@ -20,7 +20,23 @@ code {
   @apply text-[#80001c];
 }
 
+.hover-primary-text-color:hover {
+  @apply text-[#80001c];
+}
+
+.second-primary-text-color {
+  @apply text-[#3c3c43];
+}
+
+.second-primary-bg-color {
+  @apply bg-[#3c3c43] text-white;
+}
+
 .primary-bg-color {
+  @apply bg-[#80001c] text-white;
+}
+
+.hover-primary-bg-color:hover {
   @apply bg-[#80001c];
 }
 
@@ -28,4 +44,24 @@ code {
   @apply text-white px-3 py-2 relative no-underline font-semibold cursor-pointer
     relative after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-white
     after:transition-all after:duration-300 after:-translate-x-1/2 after:hover:w-full;
+}
+
+/* Ẩn scrollbar trên Chrome, Edge, Safari */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ẩn scrollbar trên Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+
+.zoom-lens {
+  position: absolute;
+  width: 100px; /* Kích thước kính lúp */
+  height: 100px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  pointer-events: none;
 }

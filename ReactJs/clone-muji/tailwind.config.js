@@ -1,8 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class", // Kích hoạt chế độ Dark Mode
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        "11px": "11px",
+      },
+    },
+
     container: {
       center: true,
       padding: {

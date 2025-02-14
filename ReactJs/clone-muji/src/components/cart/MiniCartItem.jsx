@@ -1,7 +1,12 @@
 import React from "react";
 import QuantitySelector from "../product/QuantitySelector";
 
-const MiniCartItem = () => {
+const MiniCartItem = ({
+  productName,
+  productImage,
+  productPrice,
+  productQuantity,
+}) => {
   return (
     <div className="flex gap-4  border-b-2 max-w-full py-4">
       <div className="w-[96px] h-[96px]">

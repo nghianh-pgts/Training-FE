@@ -5,6 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/autoplay";
+import "swiper/css/navigation"; // Thêm CSS cho navigation
+import "swiper/css/pagination"; // Thêm CSS cho pagination
 import {
   A11y,
   Navigation,
@@ -15,10 +17,10 @@ import {
 const HeroBanner = () => {
   return (
     <Swiper
-      className="mySwiper h-[70vh] w-full max-w-[100%] lg:aspect-[1350/480]"
+      className="mySwiper min-h-[70vh] h-[70vh] w-full max-w-[100%] lg:aspect-[1350/480] mb-10"
       // install Swiper modules
       slidesPerView={1}
-      spaceBetween={30}
+      spaceBetween={0}
       loop={true}
       pagination={{
         clickable: true,

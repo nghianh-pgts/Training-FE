@@ -1,8 +1,9 @@
 import React from "react";
 import { IoMdClose } from "react-icons/io";
 import MiniCartItem from "./MiniCartItem";
+import { Link } from "react-router-dom";
 
-const MiniCart = ({ isShowMiniCart, handleShowMiniCart }) => {
+const MiniCart = ({ isShowMiniCart, handleShowMiniCart, items }) => {
   return (
     <div
       className={`${
@@ -34,7 +35,7 @@ const MiniCart = ({ isShowMiniCart, handleShowMiniCart }) => {
           Thanh toán
         </button>
         <button className="w-full rounded-md py-3 border font-bold">
-          Xem giỏ hàng
+          <Link to={"/cart"}>Xem giỏ hàng</Link>
         </button>
       </div>
     </div>
