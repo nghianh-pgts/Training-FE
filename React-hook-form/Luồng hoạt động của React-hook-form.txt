@@ -1,0 +1,15 @@
+Dữ liệu được truyền vào tham số data của hàm onSubmit đến từ React Hook Form. Cụ thể:
+
+1. Đăng ký input
+- Mỗi input trong form của bạn được đăng ký bằng hàm register (ví dụ: register("email"), register("password"), v.v.).
+ Khi đăng ký, React Hook Form lưu lại thông tin về các trường input, tên trường, và các giá trị của chúng.
+
+2. Submit Form
+- Khi bạn nhấn submit, hàm handleSubmit của React Hook Form được gọi. Nó sẽ:
+
+	1. Thu thập tất cả giá trị từ các input đã đăng ký.
+	2. Áp dụng các rule validation (ở đây là thông qua zodResolver và schema từ Zod).
+	3. Nếu không có lỗi, nó sẽ gọi hàm onSubmit và truyền vào đối tượng data chứa tất cả các cặp key/value từ các input.
+3. luồng hđ
+- Các input khi render sẽ nhận props từ register và ghi nhận dữ liệu người dùng.
+- Khi form submit, React Hook Form sẽ tổng hợp tất cả dữ liệu từ các input đã đăng ký và cung cấp cho bạn qua hàm onSubmit.

@@ -4,6 +4,7 @@ import com.example.MUJI_backend.dto.request.RegisterUserRequest;
 import com.example.MUJI_backend.entity.Role;
 import com.example.MUJI_backend.entity.User;
 import com.example.MUJI_backend.mapper.UserMapper;
+import com.example.MUJI_backend.repository.RoleRepository;
 import com.example.MUJI_backend.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class UserService {
     private UserRepository userRepository;
     private UserMapper userMapper;
     private PasswordEncoder passwordEncoder;
+    private RoleRepository roleRepository;
 
     public String CreateUser(RegisterUserRequest request){
         if(userRepository.existsByEmail(request.getEmail())){
@@ -37,9 +39,16 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setCreated_at(LocalDate.now());
 
+//        Set<Role> roles = new HashSet<>();
+//        Role role = new Role();
+//        role.setName(com.example.MUJI_backend.enums.Role.USER.name());
+//        roles.add(role);
+//        user.setRoles(roles);
+
+        // Lấy role "USER" từ CSDL, nếu chưa tồn tại thì có thể tạo mới (tùy vào logic của bạn)
+        Role role = roleRepository.findByName(com.example.MUJI_backend.enums.Role.USER.name())
+                .orElseThrow(() -> new RuntimeException("Role không tồn tại")); // Hoặc tạo mới nếu cần
         Set<Role> roles = new HashSet<>();
-        Role role = new Role();
-        role.setName(com.example.MUJI_backend.enums.Role.USER.name());
         roles.add(role);
         user.setRoles(roles);
 

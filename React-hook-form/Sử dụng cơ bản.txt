@@ -1,0 +1,44 @@
+1. useForm()
+
+ const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+2. register()
+- Dùng để đăng ký các input vào form. Nó giúp React Hook Form kiểm soát các trường nhập liệu.
+
+Ví dụ:
+
+Edit
+<input {...register("email")} placeholder="Nhập email" />
+
+thêm validate:
+
+<input {...register("email", { required: "Email không được để trống" })} />
+
+3. handleSubmit()
+- Hàm này giúp xử lý khi form được submit. Nó nhận một callback chứa dữ liệu của form.
+
+4. formState.errors
+- Lưu trữ các lỗi của form khi validation không hợp lệ.
+
+ví dụ:
+
+<input {...register("email", { required: "Email bắt buộc" })} />
+{errors.email && <p>{errors.email.message}</p>}
+
+5. watch()
+- Theo dõi giá trị của một trường input trong form.
+
+ví dụ:
+	const password = watch("password");
+
+
+Tổng kết
+🏷 register() → Đăng ký input vào form
+🎯 handleSubmit() → Xử lý submit form
+🚨 formState.errors → Kiểm tra lỗi của field
+👀 watch() → Theo dõi giá trị của field
+🔄 setValue() → Đặt giá trị cho field
+📌 getValues() → Lấy giá trị hiện tại
+🔃 reset() → Reset form
+✅ trigger() → Kiểm tra validation
+❌ setError() → Đặt lỗi thủ công
