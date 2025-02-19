@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { MdExpandMore, MdLogout } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, Links } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { LuUser } from "react-icons/lu";
 
@@ -25,7 +25,7 @@ const TopHeader = () => {
         <p>Miễn phí vận chuyển cho mọi đơn hàng từ 999.000 VNĐ</p>
       </div>
 
-      <div className="flex gap-4 items-center">
+      <div className="hidden lg:flex gap-4 items-center">
         <div
           className="relative cursor-pointer flex items-center gap-1 text-[15px] "
           onClick={handleOpen}
@@ -40,7 +40,12 @@ const TopHeader = () => {
           <FaUser />
           {user ? (
             <div className="flex gap-3 items-center">
-              <span className="font-semibold">Chào, {user.fullName}</span>
+              <Link to={"/account"}>
+                <span className="font-semibold hover:underline cursor-pointer">
+                  Chào, {user.fullName}
+                </span>
+              </Link>
+
               <button onClick={logout} className="primary-text-color">
                 <MdLogout />
               </button>

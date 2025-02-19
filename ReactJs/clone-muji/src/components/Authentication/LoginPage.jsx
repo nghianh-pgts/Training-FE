@@ -36,7 +36,7 @@ const LoginPage = () => {
         data
       );
       toast.success("Đăng nhập thành công");
-      console.log(response.data);
+
       login(response.data.token);
     } catch (error) {
       console.log("lỗi login", error);
@@ -54,6 +54,7 @@ const LoginPage = () => {
           name={"email"}
           register={register}
           error={errors.email?.message}
+          className={"px-3 py-2"}
         />
         <InputControl
           label={"Mật khẩu"}
@@ -62,6 +63,7 @@ const LoginPage = () => {
           name={"password"}
           error={errors.password?.message}
           register={register}
+          className={"px-3 py-2"}
         />
         <PrimaryButton
           className="primary-bg-color hover-primary-bg-color mt-8"

@@ -9,6 +9,8 @@ const InputControl = ({
   name, // tên field
   register, // hàm register từ React Hook Form
   error, // thông báo lỗi từ validation
+  disabled = false,
+  className,
 }) => {
   const [showPasswords, setShowPasswords] = useState(false);
 
@@ -25,7 +27,7 @@ const InputControl = ({
 
       {type === "select" ? (
         <select
-          className="border rounded-md focus-visible:outline-none px-3 py-2"
+          className={`border rounded-md focus-visible:outline-none ${className}`}
           // Nếu register và name tồn tại thì áp dụng spread của register(name)
           {...(register && name ? register(name) : {})}
         >
@@ -37,7 +39,7 @@ const InputControl = ({
         <div className="relative ">
           <input
             type={showPasswords ? "text" : type}
-            className={`border rounded-md focus-visible:outline-none px-3 py-2 w-full`}
+            className={`border rounded-md focus-visible:outline-none w-full ${className}`}
             placeholder={placeHolder}
             {...(register && name ? register(name) : {})}
           />
@@ -59,8 +61,9 @@ const InputControl = ({
         </div>
       ) : (
         <input
+          disabled={disabled}
           type={type}
-          className={`border rounded-md focus-visible:outline-none px-3 py-2 `}
+          className={`border rounded-md focus-visible:outline-none ${className}`}
           placeholder={placeHolder}
           {...(register && name ? register(name) : {})}
         />

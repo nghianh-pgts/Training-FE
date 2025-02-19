@@ -46,6 +46,10 @@ code {
     after:transition-all after:duration-300 after:-translate-x-1/2 after:hover:w-full;
 }
 
+.user-info-title {
+  @apply text-left min-w-[50%] lg:min-w-[130px];
+}
+
 /* Ẩn scrollbar trên Chrome, Edge, Safari */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;

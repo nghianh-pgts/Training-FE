@@ -22,6 +22,7 @@ import CategoryManagement from "./components/admin/contents/CategoryManagement";
 import useCRUD from "./Hooks/useCRUD";
 import AuthContext from "./components/context/AuthContext";
 import AuthProvider from "./components/context/AuthContext";
+import UserInformation from "./components/user/UserInformation";
 
 function App() {
   const [hideTopHeader, setHideTopHeader] = useState(false);
@@ -126,6 +127,8 @@ function App() {
               <Route path="orders" element={<OrderManagement />} />
               <Route path="categories" element={<CategoryManagement />} />
             </Route>
+
+            <Route path="/account" element={<UserInformation />} />
           </Routes>
         </main>
 

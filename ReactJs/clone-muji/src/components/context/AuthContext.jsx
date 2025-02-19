@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
       console.log("decoded data", decoded);
 
       const user = {
+        userId: decoded.userId,
         email: decoded.sub,
         roles: decoded.scope,
         fullName: decoded.iss,
@@ -30,6 +31,8 @@ const AuthProvider = ({ children }) => {
         return newState;
       });
 
+      localStorage.setItem("token", token);
+
       navigate("/");
     } catch (error) {
       console.log("Lỗi khi decode token");
@@ -37,16 +40,43 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    console.log("Updated authInfo:", authInfo);
-  }, [authInfo]);
+    const storedToken = localStorage.getItem("token");
+
+    if (storedToken) {
+      try {
+        const decodedData = jwtDecode(storedToken);
+        console.log("giá trị Token lấy từ lcs", decodedData);
+        const currentTime = Math.floor(Date.now() / 1000);
+
+        if (decodedData.exp > currentTime) {
+          const storedUserInfo = {
+            userId: decodedData.userId,
+            email: decodedData.sub,
+            roles: decodedData.scope,
+            fullName: decodedData.iss,
+            expiryTime: decodedData.exp,
+          };
+
+          setAuInfo({ token: storedToken, user: storedUserInfo });
+          console.log("giá trị của auth info sau khi test: ", authInfo);
+        }
+      } catch (error) {
+        console.log("Lỗi decode token");
+        localStorage.removeItem("token");
+      }
+    } else {
+      console.log("Lỗi lấy thông tin token");
+      localStorage.removeItem("token");
+    }
+  }, []);
 
   const logout = () => {
     setAuInfo({
       token: null,
       user: null,
     });
-
-    navigate("/login");
+    localStorage.removeItem("token");
+    navigate("/");
   };
 
   return (

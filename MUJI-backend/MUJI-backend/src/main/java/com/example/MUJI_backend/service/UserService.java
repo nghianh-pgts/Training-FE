@@ -1,6 +1,7 @@
 package com.example.MUJI_backend.service;
 
 import com.example.MUJI_backend.dto.request.RegisterUserRequest;
+import com.example.MUJI_backend.dto.request.UpdateUserRequest;
 import com.example.MUJI_backend.entity.Role;
 import com.example.MUJI_backend.entity.User;
 import com.example.MUJI_backend.mapper.UserMapper;
@@ -58,5 +59,22 @@ public class UserService {
 
     public List<User> getAllUser(){
         return userRepository.findAll();
+    }
+
+    public User getUserById(String userId) {
+        User userById = userRepository.findById(userId).orElseThrow(()->new RuntimeException("Không tồn tại user với Id: "+userId));
+        return userById;
+    }
+
+    public User updateUserInfo(String userId, UpdateUserRequest updateUserRequest){
+        User user = getUserById(userId);
+        user.setFullName(updateUserRequest.getFullName());
+        user.setDob(updateUserRequest.getDob());
+        user.setAddress(updateUserRequest.getAddress());
+        user.setPhone(updateUserRequest.getPhone());
+        user.setGender(updateUserRequest.getGender());
+        String encodedPass = passwordEncoder.encode(updateUserRequest.getPassword());
+        user.setPassword(encodedPass);
+        return userRepository.save(user);
     }
 }

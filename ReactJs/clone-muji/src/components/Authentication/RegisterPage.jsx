@@ -68,6 +68,7 @@ const RegisterPage = () => {
           name="email"
           register={register}
           error={errors.email?.message}
+          className={"px-3 py-2"}
         />
 
         <InputControl
@@ -77,6 +78,7 @@ const RegisterPage = () => {
           name="password"
           register={register}
           error={errors.password?.message}
+          className={"px-3 py-2"}
         />
 
         <InputControl
@@ -86,6 +88,7 @@ const RegisterPage = () => {
           name="phone"
           register={register}
           error={errors.phone?.message}
+          className={"px-3 py-2"}
         />
 
         <InputControl
@@ -95,6 +98,7 @@ const RegisterPage = () => {
           name="fullName"
           register={register}
           error={errors.fullName?.message}
+          className={"px-3 py-2"}
         />
         <InputControl
           label="Địa chỉ"
@@ -104,6 +108,7 @@ const RegisterPage = () => {
           register={register}
           error={errors.address?.message}
           isRequired={false}
+          className={"px-3 py-2"}
         />
 
         <InputControl
@@ -113,6 +118,7 @@ const RegisterPage = () => {
           name="dob"
           register={register}
           error={errors.dob?.message}
+          className={"px-3 py-2"}
         />
 
         <InputControl
@@ -122,6 +128,7 @@ const RegisterPage = () => {
           name="gender"
           register={register}
           error={errors.gender?.message}
+          className={"px-3 py-2"}
         />
 
         <PrimaryButton
