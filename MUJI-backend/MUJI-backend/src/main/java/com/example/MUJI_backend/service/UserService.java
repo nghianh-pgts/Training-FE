@@ -67,14 +67,33 @@ public class UserService {
     }
 
     public User updateUserInfo(String userId, UpdateUserRequest updateUserRequest){
+
         User user = getUserById(userId);
+
         user.setFullName(updateUserRequest.getFullName());
         user.setDob(updateUserRequest.getDob());
         user.setAddress(updateUserRequest.getAddress());
         user.setPhone(updateUserRequest.getPhone());
         user.setGender(updateUserRequest.getGender());
-        String encodedPass = passwordEncoder.encode(updateUserRequest.getPassword());
-        user.setPassword(encodedPass);
+
+        //Kiểm tra nếu người dùng muốn đổi mật khẩu
+        if(updateUserRequest.getNewPassword()!=null && !updateUserRequest.getNewPassword().isEmpty()){
+
+
+            // Kiểm tra confirmPassword nếu có
+            if (updateUserRequest.getConfirmPassword() == null ||
+                    !updateUserRequest.getNewPassword().equals(updateUserRequest.getConfirmPassword())) {
+                throw new IllegalArgumentException("Mật khẩu xác nhận không khớp với mật khẩu mới");
+            }
+            if(passwordEncoder.matches( updateUserRequest.getOldPassword(),user.getPassword())){
+                String encodedPass = passwordEncoder.encode(updateUserRequest.getNewPassword());
+                user.setPassword(encodedPass);
+
+            }else {
+                throw new IllegalArgumentException("Mật khẩu cũ không đúng");
+            }
+        }
+
         return userRepository.save(user);
     }
 }

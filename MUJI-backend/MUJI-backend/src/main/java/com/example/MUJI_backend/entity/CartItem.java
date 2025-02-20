@@ -1,6 +1,7 @@
 package com.example.MUJI_backend.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class CartItem {
 
     // Nhiều CartItem thuộc về một giỏ hàng
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "cart_id")
     private Cart cart;
 

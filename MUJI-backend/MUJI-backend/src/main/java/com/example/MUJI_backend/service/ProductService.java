@@ -50,16 +50,13 @@ public class ProductService {
         product.setSubcategory(persistentSubcategory);
         Product addProduct  = productRepository.save(product);
 
-        if(addProduct==null){
-
-        }
 
         return productMapper.productToProductResponse(addProduct);
 
     }
 
     public Product getProductById(String productId) {
-        Product productById = productRepository.findById(productId).orElseThrow(()->new RuntimeException("Cannot find product with id '"+productId+"'"));
+        Product productById = productRepository.findById(productId).orElseThrow(()->new RuntimeException("Không tìm thấy product với id '"+productId+"'"));
         return productById;
     }
 

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CartInfor from "./CartInfor";
 import CartItemList from "./CartItemList";
-
-const items = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+import axios from "axios";
+import { useAuth } from "../context/AuthContext";
 
 const CartPage = () => {
+  const { user } = useAuth();
   const [isSticky, setIsSticky] = useState(false);
+  const navigate = useNavigate();
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     const handleStickyInfor = () => {
@@ -24,11 +27,29 @@ const CartPage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (user === null) {
+      navigate("/login");
+    } else {
+      const userId = user.userId;
+      const fetchCartData = async () => {
+        let response = await axios.get(
+          `http://localhost:8080/api/cart/${userId}`
+        );
+
+        console.log("dữ liệu cart: ", response.data.cartItems);
+        setCartItems(response.data.cartItems);
+      };
+
+      fetchCartData();
+    }
+  }, []);
+
   return (
     <div className="flex flex-col gap-2 container mt-6">
       <h1 className="w-full text-[26px] font-bold text-left ">Giỏ hàng</h1>
       <div className="flex gap-4 bg-white">
-        <CartItemList items={items} />
+        <CartItemList items={cartItems} />
 
         <CartInfor isSticky={isSticky} />
       </div>

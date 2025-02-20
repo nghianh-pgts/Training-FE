@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import InputControl from "../ui/InputControl";
 import PrimaryButton from "../ui/PrimaryButton";
 import { Link } from "react-router-dom";
@@ -7,9 +7,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { Slide, toast, ToastContainer, Zoom } from "react-toastify";
+import { toast, ToastContainer, Zoom } from "react-toastify";
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Email không hợp lệ" }),

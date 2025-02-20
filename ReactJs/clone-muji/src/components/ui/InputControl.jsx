@@ -11,6 +11,7 @@ const InputControl = ({
   error, // thông báo lỗi từ validation
   disabled = false,
   className,
+  value,
 }) => {
   const [showPasswords, setShowPasswords] = useState(false);
 

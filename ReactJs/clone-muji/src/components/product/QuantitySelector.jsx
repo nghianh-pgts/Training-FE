@@ -1,7 +1,10 @@
 import { useState } from "react";
 
-export default function QuantitySelector({ className = "w-10 h-10 text-lg" }) {
-  const [quantity, setQuantity] = useState(1);
+export default function QuantitySelector({
+  className = "w-10 h-10 text-lg",
+  initQuantity = 1,
+}) {
+  const [quantity, setQuantity] = useState(initQuantity);
 
   const increase = () => setQuantity((prev) => prev + 1);
   const decrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));

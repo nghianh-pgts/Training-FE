@@ -54,7 +54,7 @@ const DetailProductPage = () => {
       }
 
       setProductDetail(response.data);
-      console.log("response", response);
+      console.log("detail product info", response.data);
       console.log("data product: ", productDetail);
       // console.log("data product: " + JSON.stringify(productDetail));
     };

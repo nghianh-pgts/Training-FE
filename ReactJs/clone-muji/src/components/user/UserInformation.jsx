@@ -1,13 +1,12 @@
-import { Icon } from "@mui/material";
+import { Slide } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { FaOpencart, FaRegHeart, FaRegStar } from "react-icons/fa";
-import { PiAddressBookTabsFill } from "react-icons/pi";
-import PrimaryButton from "../ui/PrimaryButton";
+
 import UserInfoMenu from "./UserInfoMenu";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import UserInforCard from "./UserInforCard";
 import UpdateUserInforForm from "./UpdateUserInforForm";
+import { ToastContainer } from "react-toastify";
 
 const UserInformation = () => {
   const [userInfo, setUserInfo] = useState({
@@ -20,36 +19,36 @@ const UserInformation = () => {
 
   const [currentTab, setCurrentTab] = useState("info");
 
-  useEffect(() => {
-    const fetchUserInfo = async () => {
-      const storedToken = localStorage.getItem("token");
+  const fetchUserInfo = async () => {
+    const storedToken = localStorage.getItem("token");
 
-      if (storedToken) {
-        const currentTime = Math.floor(Date.now() / 1000);
-        const decodedData = jwtDecode(storedToken);
+    if (storedToken) {
+      const currentTime = Math.floor(Date.now() / 1000);
+      const decodedData = jwtDecode(storedToken);
 
-        if (decodedData.exp > currentTime) {
-          const userId = decodedData.userId;
+      if (decodedData.exp > currentTime) {
+        const userId = decodedData.userId;
 
-          try {
-            const response = await axios.get(
-              `http://localhost:8080/api/users/${userId}`,
-              {
-                headers: {
-                  Authorization: `Bearer ${storedToken}`,
-                },
-              }
-            );
-            console.log("user info", response.data);
+        try {
+          const response = await axios.get(
+            `http://localhost:8080/api/users/${userId}`,
+            {
+              headers: {
+                Authorization: `Bearer ${storedToken}`,
+              },
+            }
+          );
+          console.log("user info", response.data);
 
-            setUserInfo(response.data);
-          } catch (error) {
-            console.log("Lỗi lấy thông tin user", error);
-          }
+          setUserInfo(response.data);
+        } catch (error) {
+          console.log("Lỗi lấy thông tin user", error);
         }
       }
-    };
+    }
+  };
 
+  useEffect(() => {
     fetchUserInfo();
   }, []);
 
@@ -76,10 +75,18 @@ const UserInformation = () => {
             <UpdateUserInforForm
               currentTab={currentTab}
               setCurrentTab={setCurrentTab}
+              userInfo={userInfo}
+              refreshInfo={fetchUserInfo}
             />
           </>
         )}
       </div>
+      <ToastContainer
+        transition={Slide}
+        hideProgressBar
+        autoClose={2000}
+        position="bottom-right"
+      />
     </div>
   );
 };

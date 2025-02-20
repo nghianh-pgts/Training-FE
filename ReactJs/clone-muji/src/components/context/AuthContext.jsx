@@ -59,6 +59,7 @@ const AuthProvider = ({ children }) => {
 
           setAuInfo({ token: storedToken, user: storedUserInfo });
           console.log("giá trị của auth info sau khi test: ", authInfo);
+          console.log("AuthContext Đã được thêm vào DOM");
         }
       } catch (error) {
         console.log("Lỗi decode token");

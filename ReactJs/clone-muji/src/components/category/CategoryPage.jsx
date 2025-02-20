@@ -6,8 +6,7 @@ import FilterBar from "./FilterBar";
 import ProductCard from "../product/ProductCard";
 import PaginationButton from "./PaginationButton";
 import axios from "axios";
-
-const arr = [1, 1, 1, 1, 1, 1, 1, 1, 1, 11, 1, 1];
+import { useAuth } from "../context/AuthContext";
 
 const CategoryPage = ({ categoryName, categoryImage }) => {
   const { categoryId, subcategoryId } = useParams();
@@ -15,6 +14,7 @@ const CategoryPage = ({ categoryName, categoryImage }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { user } = useAuth();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -111,6 +111,7 @@ const CategoryPage = ({ categoryName, categoryImage }) => {
                       isNew={true}
                       isPurchasable={true}
                       productId={item.productId}
+                      userId={user.userId}
                     />
                   </div>
                 </Link>

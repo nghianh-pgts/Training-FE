@@ -8,6 +8,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class UserResponse {
+    private String userId;
 
     private String fullName;
 

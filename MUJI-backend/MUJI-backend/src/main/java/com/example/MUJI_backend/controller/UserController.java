@@ -43,7 +43,6 @@ public class UserController {
 
         userUpdated = userService.updateUserInfo(userId, updateUserRequest);
 
-
         return ResponseEntity.status(HttpStatus.OK).body(userMapper.UserToUserResponse(userUpdated));
     }
 
