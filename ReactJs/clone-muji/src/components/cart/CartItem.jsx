@@ -4,6 +4,7 @@ import FavoriteButton from "../ui/FavoriteButton";
 import QuantitySelector from "../product/QuantitySelector";
 
 const CartItem = ({
+  productId,
   productName,
   productImage,
   productPrice,
@@ -25,7 +26,10 @@ const CartItem = ({
           {productPrice} <span className="font-normal">VND</span>
         </p>
         <div className="flex justify-between items-start">
-          <QuantitySelector initQuantity={productQuantity} />
+          <QuantitySelector
+            initQuantity={productQuantity}
+            productId={productId}
+          />
           <div className="flex flex-col text-right">
             <p className="text-[11px] lg:text-[13px] text-gray-800 font-bold">
               Tạm tính ( Đã bao gồm thuế )

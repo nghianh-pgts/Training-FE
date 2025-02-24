@@ -1,5 +1,6 @@
 package com.example.MUJI_backend.service;
 
+import com.example.MUJI_backend.dto.request.ProductRequest;
 import com.example.MUJI_backend.dto.request.ProductUpdateRequest;
 import com.example.MUJI_backend.dto.response.ProductResponse;
 import com.example.MUJI_backend.entity.Product;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,14 +41,14 @@ public class ProductService {
         return products.stream().map((p)->productMapper.productToProductResponse(p)).collect(Collectors.toList());
     }
 
-    public ProductResponse addProduct(Product product){
+    public ProductResponse addProduct(ProductRequest request){
+        Product product = productMapper.productRequestToProduct(request);
 
         String subcategoryId = product.getSubcategory().getSubcategoryId();
 
-
         Subcategory persistentSubcategory = subCategoryRepository.findById(subcategoryId)
                 .orElseThrow(() -> new RuntimeException("Subcategory not found"));
-
+        product.setCreated_at(LocalDate.now());
         product.setSubcategory(persistentSubcategory);
         Product addProduct  = productRepository.save(product);
 
@@ -71,7 +73,7 @@ public class ProductService {
         product.setPrice(productRequest.getPrice());
         product.setStock(productRequest.getStock());
         product.setDiscount(productRequest.getDiscount());
-        product.setUpdate_at(new Date(System.currentTimeMillis()));
+        product.setUpdate_at(LocalDate.now());
 
         product.setImageUrls(productRequest.getImageUrls());
 
@@ -82,6 +84,7 @@ public class ProductService {
                     .orElseThrow(() -> new RuntimeException("Không tìm thấy danh mục con!"));
             product.setSubcategory(subcategory);
         }
+
 
         return  productRepository.save(product);
     }
@@ -115,4 +118,9 @@ public class ProductService {
         }
 
     }
+
+    public List<Product> searchProductByKeywords(String keyWords){
+        return productRepository.findByProductNameContainingIgnoreCase(keyWords);
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.example.MUJI_backend.mapper;
 
+import com.example.MUJI_backend.dto.request.ProductRequest;
 import com.example.MUJI_backend.dto.response.ProductResponse;
 import com.example.MUJI_backend.entity.Product;
 import org.mapstruct.Mapper;
@@ -10,4 +11,7 @@ public interface ProductMapper {
 
 
     ProductResponse productToProductResponse(Product product);
+
+//    Product productRequestToProduct(ProductRequest productRequest);
+    Product productRequestToProduct(ProductRequest productRequest);
 }

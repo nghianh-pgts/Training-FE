@@ -2,13 +2,15 @@ import { Breadcrumbs } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { GiBodyHeight } from "react-icons/gi";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import QuantitySelector from "./QuantitySelector";
 import { FaFacebook, FaFacebookMessenger } from "react-icons/fa";
 import ProductInfoTab from "./ProductInfoTab";
 import ProductList from "./ProductList";
 import FavoriteButton from "../ui/FavoriteButton";
 import axios from "axios";
+import { useAuth } from "../context/AuthContext";
+import { Slide, toast, ToastContainer } from "react-toastify";
 
 const productImagesByColor = {
   gray: [
@@ -36,10 +38,11 @@ const DetailProductPage = () => {
   const [productImage, setProductImage] = useState(
     productImagesByColor[selectedColor]
   );
-  const [currentImage, setCurrentImage] = useState(productImage[0]);
+  const [currentImage, setCurrentImage] = useState(null);
 
   const [showZoom, setShowZoom] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   useEffect(() => {
     const fetchInforProduct = async () => {
@@ -54,7 +57,9 @@ const DetailProductPage = () => {
       }
 
       setProductDetail(response.data);
+
       console.log("detail product info", response.data);
+      setCurrentImage(response?.data?.imageUrls[0]);
       console.log("data product: ", productDetail);
       // console.log("data product: " + JSON.stringify(productDetail));
     };
@@ -91,6 +96,20 @@ const DetailProductPage = () => {
 
   const handleSelectSize = (size) => {
     setSelectedSize(size);
+  };
+
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleAddToCart = async () => {
+    if (user?.userId !== null && user?.userId) {
+      await axios.post(
+        `http://localhost:8080/api/cart/add?userId=${user?.userId}&productId=${productId}&quantity=${selectedQuantity}`
+      );
+      toast.success("thêm vào giỏ hàng thành công");
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
@@ -243,10 +262,19 @@ const DetailProductPage = () => {
               </span>
             </div>
             <div className="flex gap-3 justify-center">
-              <QuantitySelector />
+              <QuantitySelector
+                initQuantity={selectedQuantity}
+                onQuantityChange={(newQuantity) =>
+                  setSelectedQuantity(newQuantity)
+                }
+                productId={productId}
+              />
             </div>
             <div className="flex flex-col w-full gap-3 justify-center mt-5">
-              <button className="w-full py-6 px-8 text-white hover-primary-bg-color border font-bold rounded-md bg-[#3c3c43]">
+              <button
+                className="w-full py-6 px-8 text-white hover-primary-bg-color border font-bold rounded-md bg-[#3c3c43]"
+                onClick={handleAddToCart}
+              >
                 Thêm vào giỏ hàng
               </button>
               <button className="w-full py-6 px-8 hover:bg-gray-100 border font-bold rounded-md text-[#3c3c43]">
@@ -269,11 +297,17 @@ const DetailProductPage = () => {
 
       {/**Specs tab */}
       <div>
-        <ProductInfoTab />
+        <ProductInfoTab description={productDetail?.productDescription} />
       </div>
       {/**Specs tab */}
 
       <ProductList listTitle={"Đã xem"} />
+      <ToastContainer
+        transition={Slide}
+        hideProgressBar
+        autoClose={2000}
+        position="bottom-right"
+      />
     </div>
   );
 };

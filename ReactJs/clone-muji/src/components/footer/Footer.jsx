@@ -52,7 +52,10 @@ const Footer = () => {
         </p>
       </div>
       {footerLinks.map((item) => (
-        <div className="flex md:flex-col gap-4 md:gap-2 text-left text-nowrap flex-wrap md:text-wrap text-xs">
+        <div
+          key={item.title}
+          className="flex md:flex-col gap-4 md:gap-2 text-left text-nowrap flex-wrap md:text-wrap text-xs"
+        >
           <p className="font-bold">{item.title}</p>
           <div className="flex flex-row md:flex-col gap-2 ">
             {item.links.map((item) => (

@@ -1,5 +1,6 @@
 package com.example.MUJI_backend.dto.request;
 
+import com.example.MUJI_backend.entity.Subcategory;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,10 +13,9 @@ public class ProductRequest {
     private String productName;
     private String productDescription;
     private double price;
+    private String color;
     private int stock;
     private double discount;
-    private Date createdAt;
-    private Date updateAt;
-    private SubcategoryRequest subcategory;
+    private Subcategory subcategory;
     private List<String> imageUrls;
 }

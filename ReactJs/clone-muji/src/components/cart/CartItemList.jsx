@@ -12,6 +12,7 @@ const CartItemList = ({ items }) => {
         {items.length > 0 ? (
           items.map((item) => (
             <CartItem
+              productId={item?.product?.productId}
               productName={item?.product?.productName}
               productPrice={item?.product?.price}
               productImage={item?.product?.imageUrls[0]}

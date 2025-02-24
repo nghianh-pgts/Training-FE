@@ -14,6 +14,8 @@ public interface ProductRepository extends JpaRepository<Product, String> {
 
     List<Product> findBySubcategory_Category_CateId(String categoryId);
 
+
+    List<Product> findByProductNameContainingIgnoreCase(String name);
     // Hoặc dùng @Query
 //     @Query("SELECT p FROM Product p WHERE p.subcategory.category.categoryId = :categoryId")
 //     List<Product> findByCategoryId(@Param("categoryId") String categoryId);

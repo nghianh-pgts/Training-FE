@@ -39,7 +39,7 @@ const ProductList = ({
           className="mySwiper"
         >
           {arr.map((productId) => (
-            <SwiperSlide>
+            <SwiperSlide key={productId}>
               <ProductCard
                 productImage={
                   "https://api.muji.com.vn/media/catalog/product/cache/4da93324a1c25b12e9566f761e24b9c9/8/9/8938504340020.jpg"

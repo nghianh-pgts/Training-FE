@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -24,6 +25,8 @@ public class Product {
 
     private String productName;
 
+    private String color;
+
     @Column(columnDefinition = "TEXT")
     private String productDescription;
 
@@ -33,9 +36,9 @@ public class Product {
 
     private Double discount;
 
-    private Date created_at;
+    private LocalDate created_at;
 
-    private Date update_at;
+    private LocalDate update_at;
 
     @ManyToOne
     @JoinColumn(name = "subcategory_id")

@@ -43,8 +43,9 @@ const CategoryPage = ({ categoryName, categoryImage }) => {
         }
         // Giả sử dữ liệu trả về nằm trong productsResponse.data
         setProducts(productsResponse.data);
+        console.log("Data trả về product", productsResponse.data);
         setCategoryInfo(categoryResponse.data);
-        console.log(categoryResponse.data);
+        console.log("dữ liệu category: ", categoryResponse.data);
       } catch (err) {
         setError(err);
       } finally {
@@ -57,10 +58,10 @@ const CategoryPage = ({ categoryName, categoryImage }) => {
 
   return (
     <div className="flex flex-col">
-      {categoryImage && (
+      {categoryInfo?.categoryImage && (
         <>
           <img
-            src={categoryImage}
+            src={categoryInfo.categoryImage}
             alt=""
             className="w-full h-[70vh] object-cover"
           />
@@ -101,20 +102,20 @@ const CategoryPage = ({ categoryName, categoryImage }) => {
             <FilterBar />
             <div className="w-[80%] grid lg:grid-cols-4 md:grid-cols-2 gap-3">
               {products.map((item) => (
-                <Link to={`/product/${item.productId}`}>
-                  <div className="transition-all duration-300 hover:bg-gray-100 hover:shadow-lg rounded-lg">
-                    <ProductCard
-                      className="hover:shadow-lg"
-                      productImage={item.imageUrls[0]}
-                      productName={item.productName}
-                      productPrice={`${item.price} vnđ`}
-                      isNew={true}
-                      isPurchasable={true}
-                      productId={item.productId}
-                      userId={user.userId}
-                    />
-                  </div>
-                </Link>
+                // <Link to={`/product/${item.productId}`}>
+                <div className="transition-all duration-300 hover:bg-gray-100 hover:shadow-lg rounded-lg">
+                  <ProductCard
+                    className="hover:shadow-lg"
+                    productImage={item.imageUrls[0]}
+                    productName={item.productName}
+                    productPrice={`${item.price} vnđ`}
+                    isNew={true}
+                    isPurchasable={true}
+                    productId={item.productId}
+                    userId={user?.userId}
+                  />
+                </div>
+                // </Link>
               ))}
             </div>
           </div>

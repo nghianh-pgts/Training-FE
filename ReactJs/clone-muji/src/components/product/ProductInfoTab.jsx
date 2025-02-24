@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const ProductInfoTab = ({ description, specs }) => {
   const [activeTab, setActiveTab] = useState("description");
+  console.log("gia tri mo ta", description);
   return (
     <div className="w-full flex flex-col mt-10">
       <div className="flex w-full border-b">
@@ -24,12 +25,7 @@ const ProductInfoTab = ({ description, specs }) => {
       </div>
       <div className="p-4">
         {activeTab === "description" && (
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
-            illo. Explicabo eos, excepturi eius, libero hic, ullam incidunt
-            accusamus ab tempore inventore quaerat ex. Voluptatibus dolores
-            numquam dignissimos. Cumque, fugit?
-          </p>
+          <p className="text-pretty text-left">{description}</p>
         )}
         {activeTab === "specs" && <p>Các thông số kỹ thuật...</p>}
       </div>

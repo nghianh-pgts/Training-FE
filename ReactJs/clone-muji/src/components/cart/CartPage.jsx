@@ -43,7 +43,15 @@ const CartPage = () => {
 
       fetchCartData();
     }
-  }, []);
+  }, [user, navigate]);
+
+  const updateCartItemQuantity = (productId, newQuantity) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.productId === productId ? { ...item, quantity: newQuantity } : item
+      )
+    );
+  };
 
   return (
     <div className="flex flex-col gap-2 container mt-6">
@@ -51,7 +59,7 @@ const CartPage = () => {
       <div className="flex gap-4 bg-white">
         <CartItemList items={cartItems} />
 
-        <CartInfor isSticky={isSticky} />
+        <CartInfor isSticky={isSticky} data={cartItems} />
       </div>
     </div>
   );

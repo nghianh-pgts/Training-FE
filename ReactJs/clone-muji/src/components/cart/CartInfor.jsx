@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PrimaryButton from "../ui/PrimaryButton";
 
-const CartInfor = ({ isSticky }) => {
+const CartInfor = ({ isSticky, data = [] }) => {
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    const totalPrice = data?.reduce(
+      (sum, item) => sum + item?.product.price * item.quantity,
+      0
+    );
+    setTotalPrice(totalPrice);
+    console.log("giá trị của tổng giỏ hàng: ", totalPrice);
+  }, [data, totalPrice]);
+
   return (
     <div
       className={`${
@@ -10,14 +21,14 @@ const CartInfor = ({ isSticky }) => {
       } hidden md:w-[30%] md:flex md:flex-col p-5 bg-[#f5f5f5] flex-shrink-0 max-h-[500px]`}
     >
       <h2 className="font-bold text-left mb-6 text-xl">
-        Thông tin đơn hàng (22)
+        Thông tin đơn hàng ({data?.length})
       </h2>
       <div className="flex flex-col gap-2">
         <div className="flex justify-between items-center">
           <h3 className="text-gray-500 font-semibold">
-            Tạm tính (22 mặt hàng)
+            Tạm tính ({data.length} mặt hàng)
           </h3>
-          <span>1.407.000 VND</span>
+          <span>{totalPrice} VND</span>
         </div>
         <div className="flex justify-between items-center">
           <h3 className="text-gray-500 font-semibold">Phí vận chuyển</h3>
@@ -40,7 +51,7 @@ const CartInfor = ({ isSticky }) => {
         <div className="flex justify-between items-start">
           <h3 className="second-primary-text-color font-bold">Tổng tiền</h3>
           <span className="second-primary-text-color font-bold flex-flex-col">
-            <div>1.407.000 VND</div>
+            <div>{totalPrice} VND</div>
             <span className="font-normal">(đã bao gồm VAT)</span>
           </span>
         </div>

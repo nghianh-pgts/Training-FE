@@ -23,6 +23,7 @@ import useCRUD from "./Hooks/useCRUD";
 import AuthContext from "./components/context/AuthContext";
 import AuthProvider from "./components/context/AuthContext";
 import UserInformation from "./components/user/UserInformation";
+import SearchResult from "./components/product/SearchResult";
 
 function App() {
   const [hideTopHeader, setHideTopHeader] = useState(false);
@@ -115,6 +116,7 @@ function App() {
             />
 
             <Route path="/product/:productId" element={<DetailProductPage />} />
+            <Route path="/search" element={<SearchResult />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />

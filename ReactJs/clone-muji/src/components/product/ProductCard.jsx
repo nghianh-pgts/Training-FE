@@ -22,7 +22,7 @@ const ProductCard = ({
     } else {
       try {
         let response = await axios.post(
-          `localhost:8080/api/cart/add?userId=${userId}&productId=${productId}&quantity=1`
+          `http://localhost:8080/api/cart/add?userId=${userId}&productId=${productId}&quantity=1`
         );
 
         console.log("res add to cart", response.data);
@@ -34,18 +34,24 @@ const ProductCard = ({
 
   return (
     <div className="flex flex-col w-full relative cursor-pointer">
-      {/* <Link to={`/product/${productId}`}> */}
       {isNew && (
         <span className="absolute p-2 primary-bg-color top-0 left-0 text-white font-semibold text-xs uppercase">
           mới
         </span>
       )}
-      <img src={productImage} alt="" className="object-cover h-[50%] w-full" />
+      <Link to={`/product/${productId}`}>
+        <img
+          src={productImage}
+          alt=""
+          className="object-cover h-[50%] w-full"
+        />
+      </Link>
       <div className="h-[50%] px-3 pt-3 pb-5">
-        <p className="text-xs font-normal leading-5 text-gray-800 break-words hover:text-[#80001c] hover:cursor-pointer mb-4 md:mb-1 min-h-11 text-left truncate">
-          {productName}
-        </p>
-
+        <Link to={`/product/${productId}`}>
+          <p className="text-xs font-normal leading-5 text-gray-800 break-words hover:text-[#80001c] hover:cursor-pointer mb-4 md:mb-1 min-h-11 text-left truncate">
+            {productName}
+          </p>
+        </Link>
         {isPurchasable && (
           <>
             <div className="flex justify-between mb-2 items-center">
@@ -64,7 +70,6 @@ const ProductCard = ({
           </>
         )}
       </div>
-      {/* </Link> */}
     </div>
   );
 };
