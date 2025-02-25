@@ -24,6 +24,7 @@ import AuthContext from "./components/context/AuthContext";
 import AuthProvider from "./components/context/AuthContext";
 import UserInformation from "./components/user/UserInformation";
 import SearchResult from "./components/product/SearchResult";
+import AccountManagement from "./components/admin/contents/AccountManagement";
 
 function App() {
   const [hideTopHeader, setHideTopHeader] = useState(false);
@@ -128,6 +129,7 @@ function App() {
               <Route path="products" element={<ProductManagement />} />
               <Route path="orders" element={<OrderManagement />} />
               <Route path="categories" element={<CategoryManagement />} />
+              <Route path="accounts" element={<AccountManagement />} />
             </Route>
 
             <Route path="/account" element={<UserInformation />} />

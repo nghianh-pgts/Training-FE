@@ -257,7 +257,10 @@ const DetailProductPage = () => {
                 1.299.000 VND
               </span>
               <span className="primary-text-color ">
-                <span className="font-bold text-xl">{productDetail.price}</span>{" "}
+                <span className="font-bold text-xl">
+                  {new Intl.NumberFormat("vi-VN").format(productDetail.price)}
+                  {/* {productDetail.price} */}
+                </span>{" "}
                 VND
               </span>
             </div>

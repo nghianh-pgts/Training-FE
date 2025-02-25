@@ -67,7 +67,9 @@ const MiniCart = ({ isShowMiniCart, handleShowMiniCart, items }) => {
             <span className="text-gray-400">
               Tạm tính ({miniCartItems.length} mặt hàng)
             </span>
-            <span className="font-bold">{totalPrice} VND</span>
+            <span className="font-bold">
+              {new Intl.NumberFormat("vi-VN").format(totalPrice + " ")} VND
+            </span>
           </div>
         </>
       ) : (

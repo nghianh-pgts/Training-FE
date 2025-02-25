@@ -1,5 +1,6 @@
 package com.example.MUJI_backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
@@ -18,5 +19,6 @@ public class Role {
     private String description;
 
     @ManyToMany(mappedBy = "roles")
+    @JsonIgnore
     private Set<User> users = new HashSet<>();
 }

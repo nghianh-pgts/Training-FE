@@ -108,6 +108,10 @@ public class AuthenticationService {
             throw new RuntimeException("Thông tin người dùng không chính xác");
         }
 
+        if(!user.getIsActive()){
+            throw new RuntimeException("Tài khoản đã bị vô hiệu hóa");
+        }
+
         var token = generateToken(user);
 
         return AuthenticationResponse.builder().token(token).authenticated(true).build();

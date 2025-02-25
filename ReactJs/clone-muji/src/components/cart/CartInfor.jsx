@@ -28,7 +28,9 @@ const CartInfor = ({ isSticky, data = [] }) => {
           <h3 className="text-gray-500 font-semibold">
             Tạm tính ({data.length} mặt hàng)
           </h3>
-          <span>{totalPrice} VND</span>
+          <span>
+            {new Intl.NumberFormat("vi-VN").format(totalPrice + " ")} VND
+          </span>
         </div>
         <div className="flex justify-between items-center">
           <h3 className="text-gray-500 font-semibold">Phí vận chuyển</h3>
@@ -51,7 +53,9 @@ const CartInfor = ({ isSticky, data = [] }) => {
         <div className="flex justify-between items-start">
           <h3 className="second-primary-text-color font-bold">Tổng tiền</h3>
           <span className="second-primary-text-color font-bold flex-flex-col">
-            <div>{totalPrice} VND</div>
+            <div>
+              {new Intl.NumberFormat("vi-VN").format(totalPrice + " ")} VND
+            </div>
             <span className="font-normal">(đã bao gồm VAT)</span>
           </span>
         </div>

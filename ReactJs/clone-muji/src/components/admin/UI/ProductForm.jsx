@@ -6,6 +6,7 @@ import InputControl from "../../ui/InputControl";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ApiService from "../../../Service/ApiService";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const productFormSchema = z.object({
   productName: z.string().min(6, { message: "Tên sản phẩm tối thiểu 6 kí tự" }),
@@ -43,7 +44,7 @@ const productFormSchema = z.object({
   ),
 });
 
-const ProductForm = ({ initialData = {}, action, isOpen }) => {
+const ProductForm = ({ initialData = {}, action, isOpen, setIsModalOpen }) => {
   const {
     register,
     handleSubmit,
@@ -60,8 +61,8 @@ const ProductForm = ({ initialData = {}, action, isOpen }) => {
       price: "",
       stock: "",
       discount: "",
-      category: "",
-      subcategory: "",
+      category: initialData?.category || "",
+      subcategory: initialData?.subcategory || "",
       imageUrls: "",
       ...initialData,
     },
@@ -74,19 +75,43 @@ const ProductForm = ({ initialData = {}, action, isOpen }) => {
   }, []);
 
   useEffect(() => {
-    reset({
-      productName: "",
-      productDescription: "",
-      color: "",
-      price: "",
-      stock: "",
-      discount: "",
-      category: "",
-      subcategory: "",
-      imageUrls: "",
-      ...initialData,
-    });
+    if (initialData && Object.keys(initialData).length > 0) {
+      reset({
+        productName: "",
+        productDescription: "",
+        color: "",
+        price: "",
+        stock: "",
+        discount: "",
+        category: "",
+        subcategory: "",
+        imageUrls: "",
+        ...initialData,
+      });
+    }
   }, [initialData, reset]);
+
+  useEffect(() => {
+    if (
+      initialData &&
+      categories.length > 0 &&
+      initialData.category === "" &&
+      initialData.subcategory
+    ) {
+      const foundCategory = categories.find((category) =>
+        category.subcategories.some(
+          (sub) => (sub.subcategoryId = initialData.subcategory)
+        )
+      );
+
+      if (foundCategory) {
+        setValue("category", foundCategory.cateId);
+        console.log("Giá trị ban đầu của categoryId", foundCategory.cateId);
+      }
+    }
+  }, [categories, initialData, setValue]);
+
+  const navigate = useNavigate();
 
   const onSubmitForm = async (data) => {
     console.log("data form product", data);
@@ -102,19 +127,25 @@ const ProductForm = ({ initialData = {}, action, isOpen }) => {
           `http://localhost:8080/api/products`,
           dataToAdd
         );
+
         console.log(response.data);
         toast.success("thêm sản phẩm thành công");
       } catch (error) {
+        toast.error(response?.error?.message);
         console.log("Lỗi thêm sản phẩm ", error);
       }
     } else if (action && action === "edit") {
       try {
         response = await ApiService.put(
-          `http://localhost:8080/api/products`,
+          `http://localhost:8080/api/products/${initialData?.productId}`,
           data
         );
-        console.log("thêm sản phẩm thành công: ", response.data);
+        console.log("Data gửi đi: ", data);
+        toast.success("sửa sản phẩm sản phẩm thành công");
+
+        console.log("sửa sản phẩm thành công: ", response.data);
       } catch (error) {
+        toast.error(response?.error?.message);
         console.log("Lỗi update sản phẩm: ", error);
       }
     }
@@ -204,14 +235,19 @@ const ProductForm = ({ initialData = {}, action, isOpen }) => {
               <span className={"text-red-600"}>*</span>
             </p>
             <select
+              defaultValue={initialData.category || ""}
               className={`border rounded-md focus-visible:outline-none flex-1 py-1 px-1`}
               // Nếu register và name tồn tại thì áp dụng spread của register(name)
               {...register("category")}
               error={errors?.category?.message}
             >
-              <option>----Chọn danh mục----</option>
+              <option value={""}>----Chọn danh mục----</option>
               {categories.map((item) => (
-                <option key={item.cateId} value={item.cateId}>
+                <option
+                  key={item.cateId}
+                  value={item.cateId}
+                  selected={initialData?.category === item.cateId}
+                >
                   {item.categoryName}
                 </option>
               ))}
@@ -223,15 +259,20 @@ const ProductForm = ({ initialData = {}, action, isOpen }) => {
               <span className={"text-red-600"}>*</span>
             </p>
             <select
+              defaultValue={initialData.subcategory || ""}
               className={`border rounded-md focus-visible:outline-none flex-1 py-1 px-1`}
               // Nếu register và name tồn tại thì áp dụng spread của register(name)
               {...register("subcategory")}
               error={errors?.subcategory?.message}
             >
-              <option>----Chọn danh mục con----</option>
+              <option value={""}>----Chọn danh mục con----</option>
               {subCategories.length > 0 &&
                 subCategories.map((item) => (
-                  <option key={item.subcategoryId} value={item.subcategoryId}>
+                  <option
+                    key={item.subcategoryId}
+                    value={item.subcategoryId}
+                    selected={initialData?.subcategory === item.subcategoryId}
+                  >
                     {item.subCategoryName}
                   </option>
                 ))}
@@ -246,7 +287,22 @@ const ProductForm = ({ initialData = {}, action, isOpen }) => {
           className={"py-2 px-2 h-15"}
           error={errors?.imageUrls?.message}
         />
-        <button>Lưu</button>
+        <div className="flex gap-2">
+          {" "}
+          <button
+            onClick={() => setIsModalOpen(false)}
+            className="primary-bg-color py-2 rounded-md w-1/2"
+          >
+            Lưu
+          </button>
+          <button
+            onClick={() => setIsModalOpen(false)}
+            className="second-primary-bg-color py-2 rounded-md w-1/2"
+            type="button"
+          >
+            Hủy
+          </button>
+        </div>
       </form>
     </>
   );

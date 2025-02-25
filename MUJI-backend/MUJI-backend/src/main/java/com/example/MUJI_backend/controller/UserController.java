@@ -1,5 +1,6 @@
 package com.example.MUJI_backend.controller;
 
+import com.example.MUJI_backend.dto.request.UpdateStatusUserRequest;
 import com.example.MUJI_backend.dto.request.UpdateUserRequest;
 import com.example.MUJI_backend.dto.response.UserResponse;
 import com.example.MUJI_backend.entity.User;
@@ -24,12 +25,11 @@ public class UserController {
     private UserMapper userMapper;
 
     @GetMapping
-    public ResponseEntity<List<UserResponse>> getAllUser(){
+    public ResponseEntity<List<User>> getAllUser(){
         List<User> users = userService.getAllUser();
 
         return ResponseEntity.status(HttpStatus.OK)
-                .body(users.stream().map(user->userMapper.UserToUserResponse(user))
-                        .collect(Collectors.toList()));
+                .body(users);
     }
 
     @GetMapping("/{id}")
@@ -44,6 +44,26 @@ public class UserController {
         userUpdated = userService.updateUserInfo(userId, updateUserRequest);
 
         return ResponseEntity.status(HttpStatus.OK).body(userMapper.UserToUserResponse(userUpdated));
+    }
+
+    @PutMapping("/{userId}/status")
+    public ResponseEntity<Void> updateStatusUser(@PathVariable("userId") String userId, @RequestBody UpdateStatusUserRequest request){
+        User user = userService.updateStatusUser(userId, request);
+
+        if(user==null){
+            throw new RuntimeException("Lỗi khi update trạng thái user");
+        }
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @PutMapping("/{userId}/reset-password")
+    public ResponseEntity<Void> resetPassword(@PathVariable("userId") String userId){
+
+        User user = userService.resetPassword(userId);
+
+        if(user==null) throw new RuntimeException("Lỗi reset password");
+
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
 

@@ -40,6 +40,8 @@ public class User {
 
     private Date update_at;
 
+    private Boolean isActive;
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "user_roles",
@@ -54,4 +56,6 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews;
+
+
 }

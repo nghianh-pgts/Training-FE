@@ -7,6 +7,7 @@ import ProductCard from "../product/ProductCard";
 import PaginationButton from "./PaginationButton";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
+import { ToastContainer, Zoom } from "react-toastify";
 
 const CategoryPage = ({ categoryName, categoryImage }) => {
   const { categoryId, subcategoryId } = useParams();
@@ -108,7 +109,7 @@ const CategoryPage = ({ categoryName, categoryImage }) => {
                     className="hover:shadow-lg"
                     productImage={item.imageUrls[0]}
                     productName={item.productName}
-                    productPrice={`${item.price} vnđ`}
+                    productPrice={item.price}
                     isNew={true}
                     isPurchasable={true}
                     productId={item.productId}
@@ -124,6 +125,7 @@ const CategoryPage = ({ categoryName, categoryImage }) => {
           </div>
         </div>
       </div>
+      <ToastContainer hideProgressBar transition={Zoom} autoClose={1500} />
     </div>
   );
 };

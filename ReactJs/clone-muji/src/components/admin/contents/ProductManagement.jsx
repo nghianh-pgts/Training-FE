@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import TableData from "../UI/TableData";
+
 import { IoMdAddCircle } from "react-icons/io";
 import Modal from "../UI/Modal";
 import useCRUD from "../../../Hooks/useCRUD";
 import ProductForm from "../UI/ProductForm";
 import { Slide, toast, ToastContainer } from "react-toastify";
+import ProductTableData from "../data/ProductTableData";
 
 const colTitles = [
   "mã sản phẩm",
@@ -12,6 +13,7 @@ const colTitles = [
   "hình ảnh",
   "giá",
   "số lượng",
+  "màu sắc",
   "Danh mục",
   "ngày tạo",
   "action",
@@ -100,7 +102,7 @@ const ProductManagement = () => {
         </button>
       </div>
       <div className="w-full py-3">
-        <TableData
+        <ProductTableData
           colTitles={colTitles}
           data={products}
           handleOpenEditModal={handleOpenEditModal}
@@ -152,6 +154,7 @@ const ProductManagement = () => {
               isOpen={isModalOpen}
               initialData={productFormData}
               action={"edit"}
+              setIsModalOpen={setIsModalOpen}
             />
           </>
         ) : (

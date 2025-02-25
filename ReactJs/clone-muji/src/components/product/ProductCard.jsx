@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import FavoriteButton from "../ui/FavoriteButton";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
+import { toast } from "react-toastify";
 
 const ProductCard = ({
   productImage,
@@ -24,9 +25,10 @@ const ProductCard = ({
         let response = await axios.post(
           `http://localhost:8080/api/cart/add?userId=${userId}&productId=${productId}&quantity=1`
         );
-
+        toast.success("Thêm vào giỏ hàng thành công");
         console.log("res add to cart", response.data);
       } catch (error) {
+        toast.error("Lỗi thêm vào giỏ hàng");
         console.log("Lỗi add to card từ bên ngoài", error);
       }
     }
@@ -56,7 +58,7 @@ const ProductCard = ({
           <>
             <div className="flex justify-between mb-2 items-center">
               <span className="font-bold text-[15px] primary-text-color">
-                {productPrice}
+                {new Intl.NumberFormat("vi-VN").format(productPrice)} vnđ
               </span>
               <FavoriteButton />
             </div>

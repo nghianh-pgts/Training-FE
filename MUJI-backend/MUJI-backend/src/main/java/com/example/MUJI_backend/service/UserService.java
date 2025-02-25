@@ -1,7 +1,9 @@
 package com.example.MUJI_backend.service;
 
 import com.example.MUJI_backend.dto.request.RegisterUserRequest;
+import com.example.MUJI_backend.dto.request.UpdateStatusUserRequest;
 import com.example.MUJI_backend.dto.request.UpdateUserRequest;
+import com.example.MUJI_backend.dto.response.UserResponse;
 import com.example.MUJI_backend.entity.Role;
 import com.example.MUJI_backend.entity.User;
 import com.example.MUJI_backend.mapper.UserMapper;
@@ -39,7 +41,7 @@ public class UserService {
         User user = userMapper.RegisterUserRequestToUser(request);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setCreated_at(LocalDate.now());
-
+        user.setIsActive(true);
 //        Set<Role> roles = new HashSet<>();
 //        Role role = new Role();
 //        role.setName(com.example.MUJI_backend.enums.Role.USER.name());
@@ -95,5 +97,25 @@ public class UserService {
         }
 
         return userRepository.save(user);
+    }
+
+    public User updateStatusUser(String userId, UpdateStatusUserRequest request) {
+        User userById = userRepository.findById(userId).orElseThrow(()->new RuntimeException("Không thể tìm thấy user với Id: "+userId));
+
+        userById.setIsActive(request.getIsActive());
+
+        return userRepository.save(userById);
+
+    }
+
+    public User resetPassword(String userId) {
+        User userById = userRepository.findById(userId).orElseThrow(()->new RuntimeException("Không tìm thấy user với Id: "+userId));
+
+        String passwordReset = "123456";
+
+        userById.setPassword(passwordEncoder.encode(passwordReset));
+
+        return userRepository.save(userById);
+
     }
 }

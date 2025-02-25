@@ -1,8 +1,8 @@
 import { IconButton } from "@mui/material";
 import React from "react";
 import { IoMdMenu } from "react-icons/io";
-import AccordionMenu from "./AccordionMenu";
 import { Link } from "react-router-dom";
+import SidebarMenu from "./UI/SidebarMenu";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const menuItems = [
@@ -60,8 +60,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       {/* Chỉ hiển thị menu nếu sidebar đang mở */}
       {isOpen && (
         <div className="mt-4 space-y-2">
-          {menuItems.map((menu, index) => (
-            <AccordionMenu key={index} title={menu.title} items={menu.items} />
+          {menuItems.map((item, index) => (
+            <SidebarMenu items={item} />
           ))}
         </div>
       )}

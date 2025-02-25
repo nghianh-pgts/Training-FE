@@ -35,8 +35,11 @@ const CartItem = ({
               Tạm tính ( Đã bao gồm thuế )
             </p>
             <p className="w-full text-[15px] md:text-[19px] second-primary-text-color font-bold text-right">
-              {productQuantity * productPrice}{" "}
-              <span className="font-normal">VND</span>
+              {new Intl.NumberFormat("vi-VN").format(
+                productQuantity * productPrice + " "
+              )}
+
+              <span className="font-normal"> VND</span>
             </p>
           </div>
         </div>

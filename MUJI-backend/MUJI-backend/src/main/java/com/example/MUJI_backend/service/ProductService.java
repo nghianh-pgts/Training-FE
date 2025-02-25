@@ -72,6 +72,7 @@ public class ProductService {
         product.setProductDescription(productRequest.getProductDescription());
         product.setPrice(productRequest.getPrice());
         product.setStock(productRequest.getStock());
+        product.setColor(productRequest.getColor());
         product.setDiscount(productRequest.getDiscount());
         product.setUpdate_at(LocalDate.now());
 
@@ -79,8 +80,8 @@ public class ProductService {
 
 
         // Kiểm tra subcategory
-        if (productRequest.getSubcategoryId() != null) {
-            Subcategory subcategory = subCategoryRepository.findById(productRequest.getSubcategoryId())
+        if (productRequest.getSubcategory() != null) {
+            Subcategory subcategory = subCategoryRepository.findById(productRequest.getSubcategory())
                     .orElseThrow(() -> new RuntimeException("Không tìm thấy danh mục con!"));
             product.setSubcategory(subcategory);
         }

@@ -10,7 +10,7 @@ import { Button } from "@mui/material";
 import { LiaEditSolid } from "react-icons/lia";
 import { MdDeleteForever, MdOutlineDeleteForever } from "react-icons/md";
 
-const TableData = ({
+const ProductTableData = ({
   colTitles,
   data,
   handleOpenEditModal,
@@ -46,14 +46,17 @@ const TableData = ({
               <TableCell align="right">
                 <img
                   className="ml-auto"
-                  src={row.image}
+                  src={row?.imageUrls[0]}
                   alt=""
                   height={30}
                   width={30}
                 />
               </TableCell>
-              <TableCell align="right">{row.price}</TableCell>
+              <TableCell align="right">
+                {new Intl.NumberFormat("vi-VN").format(row.price)}
+              </TableCell>
               <TableCell align="right">{row.stock}</TableCell>
+              <TableCell align="right">{row?.color}</TableCell>
               <TableCell align="right">
                 {row.subcategory.subCategoryName}
               </TableCell>
@@ -82,4 +85,4 @@ const TableData = ({
   );
 };
 
-export default TableData;
+export default ProductTableData;
